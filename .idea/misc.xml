@@ -9,6 +9,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/mayo-job-starter/pom.xml" />
+        <option value="$PROJECT_DIR$/mayojobstarter/pom.xml" />
       </set>
     </option>
   </component>

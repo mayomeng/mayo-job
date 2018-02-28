@@ -11,5 +11,12 @@
 
     <artifactId>mayo-job-executer</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>mayo.job</groupId>
+            <artifactId>mayo-job-bean</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>

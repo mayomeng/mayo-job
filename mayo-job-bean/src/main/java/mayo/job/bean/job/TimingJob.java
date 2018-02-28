@@ -14,12 +14,6 @@ import java.util.Date;
 @Getter
 @Setter
 @ToString
-public class TimingJob {
-    private long jobId; // 任务ID
-    private String jobNode; // 任务执行节点
-    private String cron; // 任务执行周期
-    private JobParam jobParam; // 任务参数
-    private Date createTime; // 任务创建时间
-    private Date endTime; // 任务结束时间
-    private JobResult result; // 任务执行结果
+public class TimingJob extends GeneralJob {
+    protected String cron; // 任务执行周期
 }
