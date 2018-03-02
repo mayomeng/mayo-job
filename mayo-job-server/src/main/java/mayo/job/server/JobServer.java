@@ -5,5 +5,4 @@ package mayo.job.server;
  */
 public interface JobServer {
     void startup();
-    void shutdown();
 }

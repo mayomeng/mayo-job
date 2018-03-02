@@ -19,8 +19,7 @@
     <orderEntry type="library" name="Maven: io.netty:netty-all:4.1.6.Final" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.marshalling:jboss-marshalling-serial:2.0.0.Beta2" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.marshalling:jboss-marshalling:2.0.0.Beta2" level="project" />
-    <orderEntry type="module" module-name="mayo-job-executer" />
-    <orderEntry type="module" module-name="mayo-job-bean" />
+    <orderEntry type="module" module-name="mayo-job-dependencys" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:1.5.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:1.5.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-logging:1.5.6.RELEASE" level="project" />
@@ -48,5 +47,7 @@
     <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.7.5" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.41" level="project" />
     <orderEntry type="library" name="Maven: org.javatuples:javatuples:1.2" level="project" />
+    <orderEntry type="module" module-name="mayo-job-node" />
+    <orderEntry type="module" module-name="mayo-job-bean" />
   </component>
 </module>

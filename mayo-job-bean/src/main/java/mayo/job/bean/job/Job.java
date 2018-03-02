@@ -15,7 +15,7 @@ import java.util.Date;
 @Getter
 @Setter
 @ToString
-public class GeneralJob implements Serializable {
+public class Job implements Serializable {
     protected  boolean isAsyn; // 是否是异步任务
     protected long jobId; // 任务ID
     protected String jobNode; // 任务执行节点

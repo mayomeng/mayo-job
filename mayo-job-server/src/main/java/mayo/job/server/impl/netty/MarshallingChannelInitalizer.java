@@ -1,9 +1,12 @@
-package mayo.job.server.netty;
+package mayo.job.server.impl.netty;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.marshalling.MarshallingDecoder;
 import io.netty.handler.codec.marshalling.MarshallingEncoder;
+import lombok.Getter;
+import lombok.Setter;
+import mayo.job.server.impl.netty.handler.JobHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +20,9 @@ public class MarshallingChannelInitalizer extends ChannelInitializer<NioSocketCh
     private MarshallingDecoder marshallingDecoder;
     @Autowired
     private MarshallingEncoder marshallingEncoder;
-    @Autowired
+
+    @Getter
+    @Setter
     private JobHandler jobHandler;
 
     @Override

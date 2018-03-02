@@ -9,11 +9,10 @@
         <module name="mayo-job-bean" />
         <module name="mayo-job-client" />
         <module name="mayo-job-common" />
-        <module name="mayo-job-dispatch" />
-        <module name="mayo-job-executer" />
+        <module name="mayo-job-dependencys" />
         <module name="mayo-job-manager" />
+        <module name="mayo-job-node" />
         <module name="mayo-job-server" />
-        <module name="mayo-job-storer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
@@ -21,9 +20,12 @@
       <module name="mayo-job-bean" target="1.8" />
       <module name="mayo-job-client" target="1.8" />
       <module name="mayo-job-common" target="1.8" />
+      <module name="mayo-job-coordinate" target="1.8" />
+      <module name="mayo-job-dependencys" target="1.8" />
       <module name="mayo-job-dispatch" target="1.8" />
       <module name="mayo-job-executer" target="1.8" />
       <module name="mayo-job-manager" target="1.8" />
+      <module name="mayo-job-node" target="1.8" />
       <module name="mayo-job-server" target="1.8" />
       <module name="mayo-job-storer" target="1.8" />
     </bytecodeTargetLevel>

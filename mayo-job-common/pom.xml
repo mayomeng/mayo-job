@@ -11,5 +11,11 @@
 
     <artifactId>mayo-job-common</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>mayo.job</groupId>
+            <artifactId>mayo-job-dependencys</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>
