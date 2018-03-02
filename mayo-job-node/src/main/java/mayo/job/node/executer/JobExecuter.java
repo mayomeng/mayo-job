@@ -3,19 +3,22 @@ package mayo.job.node.executer;
 import mayo.job.bean.job.Job;
 import mayo.job.bean.param.JobParam;
 import mayo.job.node.JobNode;
-import org.springframework.stereotype.Component;
+
+import java.util.Map;
 
 /**
  * 任务执行器
  */
-@Component
-public class JobExecuter implements JobNode {
+public abstract class JobExecuter implements JobNode {
+
     /**
      * 执行任务.
      */
     @Override
     public Job execute(Object param) {
         JobParam jobParam = (JobParam)param;
-        return null;
+        return executeJob(jobParam);
     }
+
+    public abstract Job executeJob(JobParam jobParam);
 }

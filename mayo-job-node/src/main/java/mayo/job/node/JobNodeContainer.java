@@ -1,6 +1,8 @@
 package mayo.job.node;
 
 import mayo.job.bean.enumBean.JobRoleEnum;
+import mayo.job.bean.job.Job;
+import mayo.job.bean.param.JobParam;
 import mayo.job.node.coordinate.JobRole;
 import mayo.job.node.dispatch.JobDispatch;
 import mayo.job.node.executer.JobExecuter;
@@ -15,28 +17,25 @@ import java.util.Map;
  * 节点容器.
  */
 @Component
-public class JobNodeContainer {
+public class JobNodeContainer implements JobNode {
 
-    @Autowired
-    private JobDispatch jobDispatch;
-    @Autowired
-    private JobExecuter jobExecuter;
+    private Map<String, JobDispatch> jobDispatchMap;
+    private Map<String, JobExecuter> jobExecuterMap;
     @Autowired
     private JobRole jobRole;
 
-    private Map<String, JobNode> jobNodeMap;
-
     @PostConstruct
     protected void init() {
-        jobNodeMap = new HashMap<>();
-        jobNodeMap.put(JobRoleEnum.ROLE_DISPATH.VALUE, jobDispatch);
-        jobNodeMap.put(JobRoleEnum.ROLE_EXECUTER.VALUE, jobExecuter);
+        // TODO 通过SPI加载所有的调度器和执行器
     }
 
-    /**
-     * 取得当前任务节点.
-     */
-    public JobNode getJobNode() {
-        return jobNodeMap.get(jobRole.getRole());
+    @Override
+    public Job execute(Object param) {
+        JobParam jobParam = (JobParam)param;
+        if (JobRoleEnum.ROLE_DISPATH.VALUE.equals(jobRole.getRole())) {
+            return jobDispatchMap.get(jobParam.getJobName()).execute(param);
+        } else {
+            return jobExecuterMap.get(jobParam.getJobName()).execute(param);
+        }
     }
 }

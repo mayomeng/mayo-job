@@ -11,8 +11,6 @@ import mayo.job.node.JobNodeContainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-
 /**
  * 执行器handler
  */
@@ -29,7 +27,7 @@ public class JobHandler extends SimpleChannelInboundHandler {
      */
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object o) throws Exception {
-        Job job = jobNodeContainer.getJobNode().execute(o);
+        Job job = jobNodeContainer.execute(o);
         ChannelFuture channelFuture = ctx.writeAndFlush(job);
         channelFuture.addListener(new ChannelFutureListener() {
             public void operationComplete(ChannelFuture future) throws Exception {
