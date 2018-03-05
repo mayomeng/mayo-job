@@ -1,41 +1,36 @@
 package mayo.job.node;
 
-import mayo.job.bean.enumBean.JobRoleEnum;
-import mayo.job.bean.job.Job;
+import mayo.job.bean.result.JobResult;
+import mayo.job.node.enums.NodeRoleEnum;
 import mayo.job.bean.param.JobParam;
-import mayo.job.node.coordinate.JobRole;
-import mayo.job.node.dispatch.JobDispatch;
-import mayo.job.node.executer.JobExecuter;
+import mayo.job.node.coordinate.NodeRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.PostConstruct;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 节点容器.
  */
 @Component
-public class JobNodeContainer implements JobNode {
+public class JobNodeContainer {
 
-    private Map<String, JobDispatch> jobDispatchMap;
-    private Map<String, JobExecuter> jobExecuterMap;
     @Autowired
-    private JobRole jobRole;
+    private NodeRole nodeRole;
 
-    @PostConstruct
-    protected void init() {
-        // TODO 通过SPI加载所有的调度器和执行器
-    }
+    @Autowired
+    private JobDict jobDict;
 
-    @Override
-    public Job execute(Object param) {
+    /**
+     * 执行任务.
+     */
+    public JobResult execute(Object param) {
         JobParam jobParam = (JobParam)param;
-        if (JobRoleEnum.ROLE_DISPATH.VALUE.equals(jobRole.getRole())) {
-            return jobDispatchMap.get(jobParam.getJobName()).execute(param);
+        String jobType = jobDict.getJobType(jobParam.getJobName());
+        if (NodeRoleEnum.ROLE_DISPATH.VALUE.equals(nodeRole.getRole())) {
+            // 调度器的场合，对任务进行分配
+            return jobDict.getJobDispatchMap().get(jobType).dispatch(jobParam);
         } else {
-            return jobExecuterMap.get(jobParam.getJobName()).execute(param);
+            // 执行器的场合执行任务
+            return jobDict.getJobExecuterMap().get(jobType).execute(jobParam);
         }
     }
 }

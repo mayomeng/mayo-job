@@ -7,6 +7,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
 import mayo.job.bean.job.Job;
+import mayo.job.bean.result.JobResult;
 import mayo.job.node.JobNodeContainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -27,8 +28,8 @@ public class JobHandler extends SimpleChannelInboundHandler {
      */
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object o) throws Exception {
-        Job job = jobNodeContainer.execute(o);
-        ChannelFuture channelFuture = ctx.writeAndFlush(job);
+        JobResult result = jobNodeContainer.execute(o);
+        ChannelFuture channelFuture = ctx.writeAndFlush(result);
         channelFuture.addListener(new ChannelFutureListener() {
             public void operationComplete(ChannelFuture future) throws Exception {
                 if (future.isSuccess()) {

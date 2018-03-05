@@ -1,7 +1,22 @@
 package mayo.job.bean.result;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+import java.io.Serializable;
+import java.util.Date;
+
 /**
- * Created by SKJ-05A14-0049 on 2018/2/28.
+ * 任务执行结果
  */
-public interface JobResult {
+@Getter
+@Setter
+@ToString
+public class JobResult implements Serializable {
+    protected long jobId; // 任务ID
+    protected String jobNode; // 任务执行节点
+    protected Date endTime; // 任务结束时间
+    protected boolean isSuccess; // 成功 or 失败
+    protected Object result; // 任务执行结果
 }

@@ -10,6 +10,6 @@ import org.springframework.stereotype.Component;
 @Component
 @Getter
 @Setter
-public class JobRole {
+public class NodeRole {
     private String role;
 }
