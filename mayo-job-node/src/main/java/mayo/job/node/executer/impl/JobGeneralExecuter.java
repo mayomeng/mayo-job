@@ -1,10 +1,12 @@
 package mayo.job.node.executer.impl;
 
+import mayo.job.bean.enums.JobTypeEnum;
 import mayo.job.bean.job.Job;
 import mayo.job.bean.param.JobParam;
 import mayo.job.bean.result.JobResult;
 import mayo.job.node.JobDict;
 import mayo.job.node.executer.JobExecuter;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -36,12 +38,15 @@ public class JobGeneralExecuter implements JobExecuter {
         jobMap = new HashMap<>();
         ServiceLoader<Job> jobs = ServiceLoader.load(Job.class);
         jobs.forEach(job -> {
-            jobMap.put(job.getJobName(), job);
+            if (StringUtils.isNoneEmpty(job.getJobName())) {
+                jobMap.put(job.getJobName(), job);
+                jobDict.put(job.getJobName(), getJobType());
+            }
         });
     }
 
     @Override
     public String getJobType() {
-        return null;
+        return JobTypeEnum.GENERAL_JOB.VALUE;
     }
 }

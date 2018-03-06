@@ -1,4 +1,4 @@
-package mayo.job.protocol.config;
+package mayo.job.bean.protocol;
 
 import io.netty.handler.codec.marshalling.*;
 import org.jboss.marshalling.MarshallerFactory;

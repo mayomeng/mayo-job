@@ -1,22 +1,17 @@
 package mayo.job.bean.job;
 
+import mayo.job.bean.enums.JobTypeEnum;
 import mayo.job.bean.param.JobParam;
 import mayo.job.bean.result.JobResult;
 
 /**
- * 链式任务
+ * 任务类适配器.
  */
-public class LinkedJob implements Job {
-    protected long nextJobId; // 下一个任务ID
-    protected int jobCount; // 任务个数
-
-    @Override
+public class JobAdapter {
     public JobResult handle(JobParam jobParam) {
         return null;
     }
-
-    @Override
-    public String getJobType() {
+    public String getJobName() {
         return null;
     }
 }

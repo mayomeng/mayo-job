@@ -1,4 +1,4 @@
-package mayo.job.node.enums;
+package mayo.job.bean.enums;
 
 /**
  * 节点角色枚举.

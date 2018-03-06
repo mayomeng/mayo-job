@@ -1,5 +1,6 @@
 package mayo.job.node.dispatch.impl;
 
+import mayo.job.bean.enums.JobTypeEnum;
 import mayo.job.bean.param.JobParam;
 import mayo.job.bean.result.JobResult;
 import mayo.job.node.JobDict;
@@ -31,6 +32,6 @@ public class JobMiniDispatch implements JobDispatch {
 
     @Override
     public String getJobType() {
-        return null;
+        return JobTypeEnum.GENERAL_JOB.VALUE;
     }
 }

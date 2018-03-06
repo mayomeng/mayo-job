@@ -16,7 +16,6 @@
         <module>mayo-job-common</module>
         <module>mayo-job-manager</module>
         <module>mayo-job-dependencys</module>
-        <module>mayo-job-coordinate</module>
         <module>mayo-job-node</module>
     </modules>
 

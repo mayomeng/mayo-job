@@ -9,6 +9,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.util.concurrent.DefaultThreadFactory;
 import lombok.extern.slf4j.Slf4j;
+import mayo.job.bean.enums.ProtocolEnum;
 import mayo.job.node.coordinate.JobCoordinate;
 import mayo.job.server.JobServer;
 import mayo.job.server.impl.netty.config.JobServerProperties;
@@ -29,7 +30,10 @@ public class JobNettyServer implements JobServer {
     private JobServerProperties jobServerProperties;
 
     @Autowired
-    private MarshallingChannelInitalizer channelInitializer;
+    private MarshallingChannelInitalizer marshallingChannelInitalizer;
+
+    @Autowired
+    private HttpChannelInitalizer httpChannelInitalizer;
 
     @Autowired
     private JobCoordinate jobCoordinate;
@@ -59,7 +63,11 @@ public class JobNettyServer implements JobServer {
 
         try {
             serverBootstrap.channel(NioServerSocketChannel.class);
-            serverBootstrap.childHandler(channelInitializer);
+            if (ProtocolEnum.MARSHALLING.VALUE.equals(jobServerProperties.Protocol)) {
+                serverBootstrap.childHandler(marshallingChannelInitalizer);
+            } else if (ProtocolEnum.HTTP.VALUE.equals(jobServerProperties.Protocol)) {
+                serverBootstrap.childHandler(httpChannelInitalizer);
+            }
             serverBootstrap.option(ChannelOption.SO_BACKLOG, 128); // 服务端可连接队列大小
             serverBootstrap.option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT); // 使用对象池，重用缓冲区
             serverBootstrap.childOption(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT); // 使用对象池，重用缓冲区

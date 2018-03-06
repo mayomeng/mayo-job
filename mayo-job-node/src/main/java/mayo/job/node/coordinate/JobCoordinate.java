@@ -1,6 +1,6 @@
 package mayo.job.node.coordinate;
 
-import mayo.job.node.enums.NodeRoleEnum;
+import mayo.job.bean.enums.NodeRoleEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +20,7 @@ public class JobCoordinate {
         // 选举前先将节点角色设为中间角色
         nodeRole.setRole(NodeRoleEnum.ROLE_BETWEENNESS.VALUE);
 
-        if (true) {// TODO 选举成功
+        if (false) {// TODO 选举成功
             nodeRole.setRole(NodeRoleEnum.ROLE_DISPATH.VALUE);
         } else {
             nodeRole.setRole(NodeRoleEnum.ROLE_EXECUTER.VALUE);

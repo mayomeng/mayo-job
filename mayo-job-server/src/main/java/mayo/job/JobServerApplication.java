@@ -12,7 +12,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
  */
 @EnableConfigurationProperties
 @SpringBootApplication
-public class JobApplication implements CommandLineRunner {
+public class JobServerApplication implements CommandLineRunner {
     @Autowired
     private JobServer jobServer;
 
@@ -22,6 +22,6 @@ public class JobApplication implements CommandLineRunner {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(JobApplication.class, args);
+        SpringApplication.run(JobServerApplication.class, args);
     }
 }

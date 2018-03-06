@@ -1,7 +1,7 @@
 package mayo.job.node;
 
 import mayo.job.bean.result.JobResult;
-import mayo.job.node.enums.NodeRoleEnum;
+import mayo.job.bean.enums.NodeRoleEnum;
 import mayo.job.bean.param.JobParam;
 import mayo.job.node.coordinate.NodeRole;
 import org.springframework.beans.factory.annotation.Autowired;
