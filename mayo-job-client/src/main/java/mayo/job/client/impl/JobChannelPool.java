@@ -18,7 +18,7 @@ import java.util.concurrent.ExecutionException;
  * Marshalling协议的客户端连接池
  */
 @Component
-public class JobMarshallingChannelPool {
+public class JobChannelPool {
 
     private ChannelPool channelPool;
 
@@ -28,7 +28,7 @@ public class JobMarshallingChannelPool {
     private JobClientProperties jobClientProperties;
 
     @Autowired
-    private MarshallingPoolHandler marshallingPoolHandler;
+    private JobChannelPoolHandler jobChannelPoolHandler;
 
     /**
      * 初始化
@@ -37,7 +37,7 @@ public class JobMarshallingChannelPool {
         group = new NioEventLoopGroup(jobClientProperties.ClientThreadCount);
         Bootstrap bootstrap = new Bootstrap().channel(NioSocketChannel.class).group(group);
         bootstrap.remoteAddress(getJobServerAddress());
-        channelPool = new FixedChannelPool(bootstrap, marshallingPoolHandler, jobClientProperties.ClientCount);
+        channelPool = new FixedChannelPool(bootstrap, jobChannelPoolHandler, jobClientProperties.ClientCount);
     }
 
     /**

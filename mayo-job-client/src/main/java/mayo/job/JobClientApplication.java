@@ -1,6 +1,7 @@
-package mayo.job.client;
+package mayo.job;
 
-import mayo.job.client.impl.JobMarshallingChannelPool;
+import mayo.job.client.JobClient;
+import mayo.job.client.impl.JobChannelPool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,7 +15,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 public class JobClientApplication implements CommandLineRunner {
 
     @Autowired
-    private JobMarshallingChannelPool pool;
+    private JobChannelPool pool;
     @Autowired
     private JobClient jobClient;
 

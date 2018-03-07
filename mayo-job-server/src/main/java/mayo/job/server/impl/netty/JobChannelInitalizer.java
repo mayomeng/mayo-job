@@ -2,27 +2,24 @@ package mayo.job.server.impl.netty;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import io.netty.handler.codec.http.HttpObjectAggregator;
-import io.netty.handler.codec.http.HttpRequestDecoder;
-import io.netty.handler.codec.http.HttpResponseEncoder;
+import mayo.job.bean.protocol.ProtocolConfiguration;
 import mayo.job.server.impl.netty.handler.JobServerHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * Http协议通道初始类.
+ * Marshalling协议通道初始类.
  */
 @Component
-public class HttpChannelInitalizer extends ChannelInitializer<NioSocketChannel> {
+public class JobChannelInitalizer extends ChannelInitializer<NioSocketChannel> {
 
     @Autowired
     private JobServerHandler jobServerHandler;
 
     @Override
     protected void initChannel(NioSocketChannel ch) throws Exception {
-        ch.pipeline().addLast(new HttpResponseEncoder());
-        ch.pipeline().addLast(new HttpRequestDecoder());
-        ch.pipeline().addLast(new HttpObjectAggregator(1024));
+        ch.pipeline().addLast(ProtocolConfiguration.getDecoder());
+        ch.pipeline().addLast(ProtocolConfiguration.getEncoder());
         ch.pipeline().addLast(jobServerHandler);
     }
 }

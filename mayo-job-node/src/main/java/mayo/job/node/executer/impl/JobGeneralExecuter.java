@@ -1,6 +1,7 @@
 package mayo.job.node.executer.impl;
 
 import mayo.job.bean.enums.JobTypeEnum;
+import mayo.job.bean.job.GeneralJob;
 import mayo.job.bean.job.Job;
 import mayo.job.bean.param.JobParam;
 import mayo.job.bean.result.JobResult;

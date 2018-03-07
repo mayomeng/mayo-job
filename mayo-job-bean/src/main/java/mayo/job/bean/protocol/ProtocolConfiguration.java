@@ -13,11 +13,23 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ProtocolConfiguration {
 
+    public static MarshallingDecoder getDecoder() {
+        return createMarshallingDecoder();
+    }
+
+    public static MarshallingEncoder getEncoder() {
+        return createMarshallingEncoder();
+    }
+
     /**
      * 协议解码.
      */
     @Bean
     public MarshallingDecoder getMarshallingDecoder() {
+        return createMarshallingDecoder();
+    }
+
+    private static MarshallingDecoder createMarshallingDecoder() {
         final MarshallerFactory marshallerFactory = Marshalling.getProvidedMarshallerFactory("serial");
         final MarshallingConfiguration configuration = new MarshallingConfiguration();
         configuration.setVersion(5);
@@ -33,6 +45,10 @@ public class ProtocolConfiguration {
      */
     @Bean
     public MarshallingEncoder getMarshallingEncoder() {
+        return createMarshallingEncoder();
+    }
+
+    private static MarshallingEncoder createMarshallingEncoder() {
         final MarshallerFactory marshallerFactory = Marshalling
                 .getProvidedMarshallerFactory("serial");
         final MarshallingConfiguration configuration = new MarshallingConfiguration();

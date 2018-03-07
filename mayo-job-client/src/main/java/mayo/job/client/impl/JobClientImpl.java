@@ -1,5 +1,6 @@
 package mayo.job.client.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import mayo.job.client.JobClient;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
@@ -13,10 +14,11 @@ import org.springframework.stereotype.Component;
  * Marshalling协议任务客户端
  */
 @Component
-public class JobMarshallingClient implements JobClient {
+@Slf4j
+public class JobClientImpl implements JobClient {
 
     @Autowired
-    private JobMarshallingChannelPool pool;
+    private JobChannelPool pool;
 
     @Override
     public JobResult syncRequest(JobParam jobParam) {
@@ -25,7 +27,9 @@ public class JobMarshallingClient implements JobClient {
         ChannelFuture channelFuture = channel.writeAndFlush(jobParam);
         channelFuture.addListener(new ChannelFutureListener() {
             public void operationComplete(ChannelFuture future) throws Exception {
-
+                if (!future.isSuccess()) {
+                    //log.info(future.cause().getMessage());
+                }
             }
         });
         pool.release(channel);

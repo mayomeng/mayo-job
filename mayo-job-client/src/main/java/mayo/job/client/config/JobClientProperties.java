@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * 客户端配置类.
  */
 @PropertySource("classpath:client.properties")
-@ConfigurationProperties(prefix = "mayo/job/client")
+@ConfigurationProperties(prefix = "client")
 @Setter
 @Component
 public class JobClientProperties {

@@ -30,7 +30,7 @@ public class JobNettyServer implements JobServer {
     private JobServerProperties jobServerProperties;
 
     @Autowired
-    private MarshallingChannelInitalizer marshallingChannelInitalizer;
+    private JobChannelInitalizer jobChannelInitalizer;
 
     @Autowired
     private HttpChannelInitalizer httpChannelInitalizer;
@@ -64,7 +64,7 @@ public class JobNettyServer implements JobServer {
         try {
             serverBootstrap.channel(NioServerSocketChannel.class);
             if (ProtocolEnum.MARSHALLING.VALUE.equals(jobServerProperties.Protocol)) {
-                serverBootstrap.childHandler(marshallingChannelInitalizer);
+                serverBootstrap.childHandler(jobChannelInitalizer);
             } else if (ProtocolEnum.HTTP.VALUE.equals(jobServerProperties.Protocol)) {
                 serverBootstrap.childHandler(httpChannelInitalizer);
             }

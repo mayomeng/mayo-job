@@ -1,4 +1,4 @@
-package mayo.job.bean.job.impl;
+package mayo.job.bean.job;
 import mayo.job.bean.job.Job;
 import mayo.job.bean.job.JobAdapter;
 

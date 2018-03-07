@@ -1,4 +1,4 @@
-package mayo.job.server.impl.netty.handler;
+package mayo.job.client.impl;
 
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
@@ -6,34 +6,23 @@ import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
-import mayo.job.bean.job.Job;
-import mayo.job.bean.result.JobResult;
-import mayo.job.node.JobNodeContainer;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * 执行器handler
+ * Created by SKJ-05A14-0049 on 2018/3/7.
  */
 @Sharable
-@Component
 @Slf4j
-public class JobHandler extends SimpleChannelInboundHandler {
+@Component
+public class JobClientHandler extends SimpleChannelInboundHandler {
 
-    @Autowired
-    private JobNodeContainer jobNodeContainer;
-
-    /**
-     * 处理handler
-     */
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object o) throws Exception {
-        JobResult result = jobNodeContainer.execute(o);
-        ChannelFuture channelFuture = ctx.writeAndFlush(result);
+        ChannelFuture channelFuture = ctx.writeAndFlush(o);
         channelFuture.addListener(new ChannelFutureListener() {
             public void operationComplete(ChannelFuture future) throws Exception {
                 if (future.isSuccess()) {
-                    log.info("request is success {0}", o);
+                    log.info("response is success {}", o);
                 }
                 ctx.channel().close(); // 处理完成后关闭channel
             }
