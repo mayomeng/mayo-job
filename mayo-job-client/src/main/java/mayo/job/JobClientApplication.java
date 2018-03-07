@@ -1,7 +1,7 @@
 package mayo.job;
 
 import mayo.job.client.JobClient;
-import mayo.job.client.impl.JobChannelPool;
+import mayo.job.client.netty.JobChannelPool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,8 +16,6 @@ public class JobClientApplication implements CommandLineRunner {
 
     @Autowired
     private JobChannelPool pool;
-    @Autowired
-    private JobClient jobClient;
 
     @Override
     public void run(String... strings) throws Exception {

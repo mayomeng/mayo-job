@@ -1,5 +1,6 @@
 package mayo.job.client.impl;
 
+import io.netty.util.AttributeKey;
 import lombok.extern.slf4j.Slf4j;
 import mayo.job.client.JobClient;
 import io.netty.channel.Channel;
@@ -7,33 +8,43 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import mayo.job.bean.param.JobParam;
 import mayo.job.bean.result.JobResult;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import mayo.job.client.netty.JobChannelPool;
 
 /**
  * Marshalling协议任务客户端
  */
-@Component
 @Slf4j
 public class JobClientImpl implements JobClient {
 
-    @Autowired
+    public final static AttributeKey<JobClientImpl> JOB_CLIENT = AttributeKey.newInstance("JobClient");
+
     private JobChannelPool pool;
+
+    private JobResult jobResult;
+
+    public JobClientImpl(JobChannelPool pool) {
+        this.pool = pool;
+    }
 
     @Override
     public JobResult syncRequest(JobParam jobParam) {
-        JobResult jobResult;
         Channel channel = pool.getChannel();
+        channel.attr(JOB_CLIENT).set(this);
         ChannelFuture channelFuture = channel.writeAndFlush(jobParam);
         channelFuture.addListener(new ChannelFutureListener() {
             public void operationComplete(ChannelFuture future) throws Exception {
-                if (!future.isSuccess()) {
+                if (future.isSuccess()) {
                     //log.info(future.cause().getMessage());
                 }
             }
         });
+        for (;;) {
+            if (jobResult != null) {
+                break;
+            }
+        }
         pool.release(channel);
-        return null;
+        return jobResult;
     }
 
 
@@ -48,5 +59,9 @@ public class JobClientImpl implements JobClient {
     @Override
     public JobResult queryResult(long jobId) {
         return null;
+    }
+
+    public void setResult(JobResult jobResult) {
+        this.jobResult = jobResult;
     }
 }

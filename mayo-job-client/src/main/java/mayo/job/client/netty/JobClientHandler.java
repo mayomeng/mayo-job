@@ -1,11 +1,11 @@
-package mayo.job.client.impl;
+package mayo.job.client.netty;
 
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
+import mayo.job.bean.result.JobResult;
+import mayo.job.client.impl.JobClientImpl;
 import org.springframework.stereotype.Component;
 
 /**
@@ -18,15 +18,8 @@ public class JobClientHandler extends SimpleChannelInboundHandler {
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object o) throws Exception {
-        ChannelFuture channelFuture = ctx.writeAndFlush(o);
-        channelFuture.addListener(new ChannelFutureListener() {
-            public void operationComplete(ChannelFuture future) throws Exception {
-                if (future.isSuccess()) {
-                    log.info("response is success {}", o);
-                }
-                ctx.channel().close(); // 处理完成后关闭channel
-            }
-        });
+        JobClientImpl jobClient = ctx.channel().attr(JobClientImpl.JOB_CLIENT).get();
+        jobClient.setResult((JobResult)o);
     }
 
     /**

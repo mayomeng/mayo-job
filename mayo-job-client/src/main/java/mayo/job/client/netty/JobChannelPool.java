@@ -1,4 +1,4 @@
-package mayo.job.client.impl;
+package mayo.job.client.netty;
 
 import mayo.job.client.config.JobClientProperties;
 import io.netty.bootstrap.Bootstrap;

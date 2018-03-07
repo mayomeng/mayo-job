@@ -1,4 +1,4 @@
-package mayo.job.client.impl;
+package mayo.job.client.netty;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelPipeline;
