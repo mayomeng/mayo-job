@@ -11,19 +11,19 @@ import org.springframework.stereotype.Component;
 public class JobCoordinate {
 
     @Autowired
-    private NodeRole nodeRole;
+    private JobNode jobNode;
 
     /**
      * 进行调度器选举
      */
     public void election() {
         // 选举前先将节点角色设为中间角色
-        nodeRole.setRole(NodeRoleEnum.ROLE_BETWEENNESS.VALUE);
+        jobNode.setRole(NodeRoleEnum.ROLE_BETWEENNESS.VALUE);
 
         if (false) {// TODO 选举成功
-            nodeRole.setRole(NodeRoleEnum.ROLE_DISPATH.VALUE);
+            jobNode.setRole(NodeRoleEnum.ROLE_DISPATH.VALUE);
         } else {
-            nodeRole.setRole(NodeRoleEnum.ROLE_EXECUTER.VALUE);
+            jobNode.setRole(NodeRoleEnum.ROLE_EXECUTER.VALUE);
         }
     }
 
@@ -31,9 +31,9 @@ public class JobCoordinate {
      * 监控
      */
     public void monitor() {
-        if (NodeRoleEnum.ROLE_DISPATH.VALUE.equals(nodeRole.getRole())) {
+        if (NodeRoleEnum.ROLE_DISPATH.VALUE.equals(jobNode.getRole())) {
             monitorExecuter();
-        } else if (NodeRoleEnum.ROLE_EXECUTER.VALUE.equals(nodeRole.getRole())) {
+        } else if (NodeRoleEnum.ROLE_EXECUTER.VALUE.equals(jobNode.getRole())) {
             monitorDispath();
         }
     }

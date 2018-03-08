@@ -40,6 +40,7 @@ public class JobClientImpl implements JobClient {
         });
         for (;;) {
             if (jobResult != null) {
+                log.debug("the client thread {}", Thread.currentThread().getName());
                 break;
             }
         }

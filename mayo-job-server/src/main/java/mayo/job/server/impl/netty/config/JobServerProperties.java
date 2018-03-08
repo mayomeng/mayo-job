@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 /**
  * 处理服务信息配置类.
  */
-@PropertySource("classpath:server.properties")
+@PropertySource("classpath:job.properties")
 @ConfigurationProperties(prefix = "server")
 @Setter
 @Component

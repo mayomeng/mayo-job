@@ -3,7 +3,7 @@ package mayo.job.node;
 import mayo.job.bean.result.JobResult;
 import mayo.job.bean.enums.NodeRoleEnum;
 import mayo.job.bean.param.JobParam;
-import mayo.job.node.coordinate.NodeRole;
+import mayo.job.node.coordinate.JobNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 public class JobNodeContainer {
 
     @Autowired
-    private NodeRole nodeRole;
+    private JobNode jobNode;
 
     @Autowired
     private JobDict jobDict;
@@ -25,7 +25,7 @@ public class JobNodeContainer {
     public JobResult execute(Object param) {
         JobParam jobParam = (JobParam)param;
         String jobType = jobDict.getJobType(jobParam.getJobName());
-        if (NodeRoleEnum.ROLE_DISPATH.VALUE.equals(nodeRole.getRole())) {
+        if (NodeRoleEnum.ROLE_DISPATH.VALUE.equals(jobNode.getRole())) {
             // 调度器的场合，对任务进行分配
             return jobDict.getJobDispatchMap().get(jobType).dispatch(jobParam);
         } else {

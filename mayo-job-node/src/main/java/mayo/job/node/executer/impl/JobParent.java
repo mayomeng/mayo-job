@@ -20,7 +20,7 @@ import java.util.ServiceLoader;
  * 普通任务执行器
  */
 @Component
-public class JobGeneralExecuter implements JobExecuter {
+public class JobParent implements JobExecuter {
 
     @Autowired
     private JobDict jobDict;

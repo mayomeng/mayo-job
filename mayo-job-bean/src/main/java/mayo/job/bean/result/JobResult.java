@@ -15,7 +15,7 @@ import java.util.Date;
 @ToString
 public class JobResult implements Serializable {
     protected long jobId; // 任务ID
-    protected String jobNode; // 任务执行节点
+    protected String jobNodeId; // 任务执行节点ID
     protected Date endTime; // 任务结束时间
     protected boolean isSuccess; // 成功 or 失败
     protected Object result; // 任务执行结果

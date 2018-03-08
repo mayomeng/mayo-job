@@ -19,6 +19,7 @@ public class JobClientHandler extends SimpleChannelInboundHandler {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object o) throws Exception {
         JobClientImpl jobClient = ctx.channel().attr(JobClientImpl.JOB_CLIENT).get();
+        log.debug("the channel thread {}", Thread.currentThread().getName());
         jobClient.setResult((JobResult)o);
     }
 

@@ -11,6 +11,7 @@ import io.netty.util.concurrent.DefaultThreadFactory;
 import lombok.extern.slf4j.Slf4j;
 import mayo.job.bean.enums.ProtocolEnum;
 import mayo.job.node.coordinate.JobCoordinate;
+import mayo.job.node.coordinate.JobNode;
 import mayo.job.server.JobServer;
 import mayo.job.server.impl.netty.config.JobServerProperties;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,8 @@ public class JobNettyServer implements JobServer {
 
     @Autowired
     private JobCoordinate jobCoordinate;
+    @Autowired
+    private JobNode jobNode;
 
     private EventLoopGroup bossLoopGroup;
     private EventLoopGroup workLoogGroup;
@@ -46,8 +49,10 @@ public class JobNettyServer implements JobServer {
      */
     @Override
     public void startup() {
-        jobCoordinate.election();
         startupService();
+        jobNode.setHost(jobServerProperties.Host);
+        jobNode.setPort(jobServerProperties.Port);
+        jobCoordinate.election();
         jobCoordinate.monitor();
     }
 
