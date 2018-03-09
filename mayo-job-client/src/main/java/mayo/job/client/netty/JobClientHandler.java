@@ -4,7 +4,7 @@ import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
-import mayo.job.bean.result.JobResult;
+import mayo.job.parent.result.JobResult;
 import mayo.job.client.impl.JobClientImpl;
 import org.springframework.stereotype.Component;
 

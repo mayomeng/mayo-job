@@ -1,7 +1,8 @@
 package mayo.job.node.coordinate;
 
-import mayo.job.bean.enums.NodeRoleEnum;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.Getter;
+import lombok.Setter;
+import mayo.job.parent.enums.NodeRoleEnum;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,20 +11,21 @@ import org.springframework.stereotype.Component;
 @Component
 public class JobCoordinate {
 
-    @Autowired
-    private JobNode jobNode;
+    @Setter
+    @Getter
+    private String role;
 
     /**
      * 进行调度器选举
      */
     public void election() {
         // 选举前先将节点角色设为中间角色
-        jobNode.setRole(NodeRoleEnum.ROLE_BETWEENNESS.VALUE);
+        setRole(NodeRoleEnum.ROLE_BETWEENNESS.VALUE);
 
         if (false) {// TODO 选举成功
-            jobNode.setRole(NodeRoleEnum.ROLE_DISPATH.VALUE);
+            setRole(NodeRoleEnum.ROLE_DISPATH.VALUE);
         } else {
-            jobNode.setRole(NodeRoleEnum.ROLE_EXECUTER.VALUE);
+            setRole(NodeRoleEnum.ROLE_EXECUTER.VALUE);
         }
     }
 
@@ -31,9 +33,9 @@ public class JobCoordinate {
      * 监控
      */
     public void monitor() {
-        if (NodeRoleEnum.ROLE_DISPATH.VALUE.equals(jobNode.getRole())) {
+        if (NodeRoleEnum.ROLE_DISPATH.VALUE.equals(getRole())) {
             monitorExecuter();
-        } else if (NodeRoleEnum.ROLE_EXECUTER.VALUE.equals(jobNode.getRole())) {
+        } else if (NodeRoleEnum.ROLE_EXECUTER.VALUE.equals(getRole())) {
             monitorDispath();
         }
     }

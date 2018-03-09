@@ -10,8 +10,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
+        <module>mayo-job-parent</module>
         <module>mayo-job-server</module>
-        <module>mayo-job-bean</module>
         <module>mayo-job-client</module>
         <module>mayo-job-common</module>
         <module>mayo-job-manager</module>

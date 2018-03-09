@@ -12,6 +12,7 @@
         <module name="mayo-job-dependencys" />
         <module name="mayo-job-manager" />
         <module name="mayo-job-node" />
+        <module name="mayo-job-parent" />
         <module name="mayo-job-server" />
       </profile>
     </annotationProcessing>
@@ -26,6 +27,7 @@
       <module name="mayo-job-executer" target="1.8" />
       <module name="mayo-job-manager" target="1.8" />
       <module name="mayo-job-node" target="1.8" />
+      <module name="mayo-job-parent" target="1.8" />
       <module name="mayo-job-server" target="1.8" />
       <module name="mayo-job-storer" target="1.8" />
     </bytecodeTargetLevel>

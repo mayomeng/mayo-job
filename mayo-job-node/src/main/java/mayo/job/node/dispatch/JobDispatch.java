@@ -1,16 +1,11 @@
 package mayo.job.node.dispatch;
 
-import mayo.job.bean.param.JobParam;
-import mayo.job.bean.result.JobResult;
-import mayo.job.node.JobParent;;
+import mayo.job.parent.param.JobParam;
+import mayo.job.parent.result.JobResult;
+import mayo.job.parent.service.JobService;;
 
 /**
  * 任务调度器.
  */
-public interface JobDispatch extends JobParent {
-
-    /**
-     * 分配任务.
-     */
-    JobResult dispatch(JobParam param);
+public interface JobDispatch extends JobService {
 }

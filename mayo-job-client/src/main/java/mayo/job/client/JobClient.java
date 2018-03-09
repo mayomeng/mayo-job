@@ -1,7 +1,7 @@
 package mayo.job.client;
 
-import mayo.job.bean.param.JobParam;
-import mayo.job.bean.result.JobResult;
+import mayo.job.parent.param.JobParam;
+import mayo.job.parent.result.JobResult;
 
 /**
  * 任务客户端.

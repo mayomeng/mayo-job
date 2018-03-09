@@ -6,8 +6,8 @@ import mayo.job.client.JobClient;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
-import mayo.job.bean.param.JobParam;
-import mayo.job.bean.result.JobResult;
+import mayo.job.parent.param.JobParam;
+import mayo.job.parent.result.JobResult;
 import mayo.job.client.netty.JobChannelPool;
 
 /**

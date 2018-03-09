@@ -1,16 +1,11 @@
 package mayo.job.node.executer;
 
-import mayo.job.bean.param.JobParam;
-import mayo.job.bean.result.JobResult;
-import mayo.job.node.JobParent;;
+import mayo.job.parent.param.JobParam;
+import mayo.job.parent.result.JobResult;
+import mayo.job.parent.service.JobService;;
 
 /**
  * 任务执行器
  */
-public interface JobExecuter extends JobParent {
-
-    /**
-     * 执行任务.
-     */
-    JobResult execute(JobParam param);
+public interface JobExecuter extends JobService {
 }

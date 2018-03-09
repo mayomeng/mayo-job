@@ -3,7 +3,7 @@ package mayo.job.client.netty;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.pool.AbstractChannelPoolHandler;
-import mayo.job.bean.protocol.ProtocolConfiguration;
+import mayo.job.parent.protocol.ProtocolConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

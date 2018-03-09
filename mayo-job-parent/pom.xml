@@ -9,12 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>mayo-job-server</artifactId>
+    <artifactId>mayo-job-parent</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>mayo.job</groupId>
-            <artifactId>mayo-job-parent</artifactId>
+            <artifactId>mayo-job-dependencys</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

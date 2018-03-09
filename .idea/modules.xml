@@ -3,12 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/mayo-job.iml" filepath="$PROJECT_DIR$/mayo-job.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mayo-job-bean/mayo-job-bean.iml" filepath="$PROJECT_DIR$/mayo-job-bean/mayo-job-bean.iml" />
       <module fileurl="file://$PROJECT_DIR$/mayo-job-client/mayo-job-client.iml" filepath="$PROJECT_DIR$/mayo-job-client/mayo-job-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/mayo-job-common/mayo-job-common.iml" filepath="$PROJECT_DIR$/mayo-job-common/mayo-job-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/mayo-job-dependencys/mayo-job-dependencys.iml" filepath="$PROJECT_DIR$/mayo-job-dependencys/mayo-job-dependencys.iml" />
       <module fileurl="file://$PROJECT_DIR$/mayo-job-manager/mayo-job-manager.iml" filepath="$PROJECT_DIR$/mayo-job-manager/mayo-job-manager.iml" />
       <module fileurl="file://$PROJECT_DIR$/mayo-job-node/mayo-job-node.iml" filepath="$PROJECT_DIR$/mayo-job-node/mayo-job-node.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mayo-job-parent/mayo-job-parent.iml" filepath="$PROJECT_DIR$/mayo-job-parent/mayo-job-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/mayo-job-server/mayo-job-server.iml" filepath="$PROJECT_DIR$/mayo-job-server/mayo-job-server.iml" />
     </modules>
   </component>
