@@ -13,7 +13,7 @@ import io.netty.util.concurrent.DefaultThreadFactory;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import mayo.job.parent.protocol.ProtocolConfiguration;
-import mayo.job.parent.server.JobServer;
+import mayo.job.server.JobServer;
 import mayo.job.parent.service.JobService;
 import mayo.job.server.netty.handler.JobServerHandler;
 import org.springframework.boot.context.properties.ConfigurationProperties;

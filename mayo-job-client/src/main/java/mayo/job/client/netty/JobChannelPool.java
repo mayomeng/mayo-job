@@ -1,6 +1,6 @@
 package mayo.job.client.netty;
 
-import mayo.job.client.config.JobClientProperties;
+import lombok.Setter;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -8,6 +8,8 @@ import io.netty.channel.pool.ChannelPool;
 import io.netty.channel.pool.FixedChannelPool;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import java.net.InetSocketAddress;
@@ -17,15 +19,19 @@ import java.util.concurrent.ExecutionException;
 /**
  * Marshalling协议的客户端连接池
  */
+@PropertySource("classpath:client.properties")
+@ConfigurationProperties(prefix = "client")
 @Component
 public class JobChannelPool {
+
+    @Setter
+    private int clientCount;
+    @Setter
+    private int clientThreadCount;
 
     private ChannelPool channelPool;
 
     private NioEventLoopGroup group;
-
-    @Autowired
-    private JobClientProperties jobClientProperties;
 
     @Autowired
     private JobChannelPoolHandler jobChannelPoolHandler;
@@ -34,10 +40,10 @@ public class JobChannelPool {
      * 初始化
      */
     public void init() {
-        group = new NioEventLoopGroup(jobClientProperties.ClientThreadCount);
+        group = new NioEventLoopGroup(clientThreadCount);
         Bootstrap bootstrap = new Bootstrap().channel(NioSocketChannel.class).group(group);
         bootstrap.remoteAddress(getJobServerAddress());
-        channelPool = new FixedChannelPool(bootstrap, jobChannelPoolHandler, jobClientProperties.ClientCount);
+        channelPool = new FixedChannelPool(bootstrap, jobChannelPoolHandler, clientCount);
     }
 
     /**

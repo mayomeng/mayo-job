@@ -1,4 +1,4 @@
-package mayo.job.parent.server;
+package mayo.job.server;
 
 import mayo.job.parent.service.JobService;
 

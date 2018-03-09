@@ -1,8 +1,5 @@
 package mayo.job.parent.service;
 
-import mayo.job.parent.param.JobParam;
-import mayo.job.parent.result.JobResult;
-
 /**
  * 任务服务
  */

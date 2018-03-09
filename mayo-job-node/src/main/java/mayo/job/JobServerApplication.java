@@ -1,6 +1,6 @@
 package mayo.job;
 
-import mayo.job.parent.node.JobNode;
+import mayo.job.node.JobNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

@@ -1,4 +1,4 @@
-package mayo.job.parent.node;
+package mayo.job.node;
 
 /**
  * 任务节点接口.

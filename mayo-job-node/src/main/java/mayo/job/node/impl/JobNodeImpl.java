@@ -1,10 +1,10 @@
-package mayo.job.node;
+package mayo.job.node.impl;
 
 import lombok.Getter;
 import lombok.Setter;
+import mayo.job.node.JobNode;
 import mayo.job.node.coordinate.JobCoordinate;
-import mayo.job.parent.node.JobNode;
-import mayo.job.parent.server.JobServer;
+import mayo.job.server.JobServer;
 import mayo.job.parent.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
