@@ -2,10 +2,13 @@ package mayo.job.node;
 
 import mayo.job.node.coordinate.JobCoordinate;
 import mayo.job.parent.enums.NodeRoleEnum;
+import mayo.job.parent.environment.JobEnvironment;
 import mayo.job.parent.param.JobParam;
 import mayo.job.parent.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
 
 /**
  * 节点容器.
@@ -18,6 +21,9 @@ public class JobServiceContainer implements JobService {
 
     @Autowired
     private JobDict jobDict;
+
+    @Autowired
+    private JobEnvironment jobEnvironment;
 
     /**
      * 执行任务.
@@ -36,8 +42,9 @@ public class JobServiceContainer implements JobService {
     }
 
     @Override
+    @PostConstruct
     public void init() {
-
+        jobEnvironment.setJobList(jobDict.getJobNameList());
     }
 
     @Override

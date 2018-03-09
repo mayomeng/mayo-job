@@ -12,10 +12,12 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.util.concurrent.DefaultThreadFactory;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import mayo.job.parent.environment.JobEnvironment;
 import mayo.job.parent.protocol.ProtocolConfiguration;
 import mayo.job.server.JobServer;
 import mayo.job.parent.service.JobService;
 import mayo.job.server.netty.handler.JobServerHandler;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
@@ -46,6 +48,9 @@ public class JobNettyServer implements JobServer {
     @Setter
     private String protocol; // 协议
 
+    @Autowired
+    private JobEnvironment jobEnvironment;
+
     private JobService jobService;
 
     private EventLoopGroup bossLoopGroup;
@@ -61,6 +66,10 @@ public class JobNettyServer implements JobServer {
      */
     @Override
     public void startup() {
+
+        jobEnvironment.setHost(host);
+        jobEnvironment.setPort(port);
+
         ServerBootstrap serverBootstrap = new ServerBootstrap();
         bossLoopGroup = new NioEventLoopGroup(accpectCount);
         workLoogGroup = new NioEventLoopGroup(workCount,

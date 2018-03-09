@@ -8,4 +8,5 @@ import mayo.job.parent.service.JobService;
 public interface JobServer {
     void setService(JobService jobService);
     void startup();
+
 }
