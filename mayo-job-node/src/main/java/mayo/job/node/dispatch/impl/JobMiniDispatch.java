@@ -1,11 +1,8 @@
 package mayo.job.node.dispatch.impl;
 
 import mayo.job.parent.enums.JobTypeEnum;
-import mayo.job.parent.param.JobParam;
-import mayo.job.parent.result.JobResult;
-import mayo.job.node.JobDict;
+import mayo.job.node.service.JobDict;
 import mayo.job.node.dispatch.JobDispatch;
-import mayo.job.parent.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

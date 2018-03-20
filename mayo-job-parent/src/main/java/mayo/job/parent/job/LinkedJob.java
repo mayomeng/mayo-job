@@ -5,11 +5,12 @@ import mayo.job.parent.enums.JobTypeEnum;
 /**
  * 链式任务
  */
-public class LinkedJob extends JobAdapter implements Job {
+public class LinkedJob extends JobAdapter {
     protected long nextJobId; // 下一个任务ID
     protected int jobCount; // 任务个数
+
     @Override
-    public String getJobType() {
-        return JobTypeEnum.LINKED_JOB.VALUE;
+    protected void setJobType() {
+        addJobType(JobTypeEnum.LINKED_JOB.VALUE);
     }
 }

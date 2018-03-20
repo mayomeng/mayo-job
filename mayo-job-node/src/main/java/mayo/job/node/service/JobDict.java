@@ -1,4 +1,4 @@
-package mayo.job.node;
+package mayo.job.node.service;
 
 import lombok.Getter;
 import mayo.job.node.dispatch.JobDispatch;

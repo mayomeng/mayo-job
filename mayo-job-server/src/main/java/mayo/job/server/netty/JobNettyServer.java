@@ -10,12 +10,15 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.util.concurrent.DefaultThreadFactory;
+import io.netty.util.concurrent.Future;
+import io.netty.util.concurrent.GenericFutureListener;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import mayo.job.parent.environment.JobEnvironment;
 import mayo.job.parent.protocol.ProtocolConfiguration;
 import mayo.job.server.JobServer;
 import mayo.job.parent.service.JobService;
+import mayo.job.server.JobServerProperties;
 import mayo.job.server.netty.handler.JobServerHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -26,30 +29,17 @@ import java.net.InetSocketAddress;
 import java.nio.channels.spi.SelectorProvider;
 
 /**
- * netty实现的job服务器
+ * netty实现的job服务器(处理同步请求)
  */
-@PropertySource("classpath:job.properties")
-@ConfigurationProperties(prefix = "server")
-@Component
+@Component("syncServer")
 @Slf4j
 public class JobNettyServer implements JobServer {
 
-    // 服务器配置
-    @Setter
-    private String host; // IP
-    @Setter
-    private int port; // 端口
-    @Setter
-    private int backlog; // 最大连接数(还需要修改服务器的somaxconn)
-    @Setter
-    private int accpectCount; // 响应线程数
-    @Setter
-    private int workCount; // 工作线程数
-    @Setter
-    private String protocol; // 协议
-
     @Autowired
     private JobEnvironment jobEnvironment;
+
+    @Autowired
+    private JobServerProperties jobServerProperties;
 
     private JobService jobService;
 
@@ -67,12 +57,12 @@ public class JobNettyServer implements JobServer {
     @Override
     public void startup() {
 
-        jobEnvironment.setHost(host);
-        jobEnvironment.setPort(port);
+        jobEnvironment.setHost(jobServerProperties.getHost());
+        jobEnvironment.setPort(jobServerProperties.getPort());
 
         ServerBootstrap serverBootstrap = new ServerBootstrap();
-        bossLoopGroup = new NioEventLoopGroup(accpectCount);
-        workLoogGroup = new NioEventLoopGroup(workCount,
+        bossLoopGroup = new NioEventLoopGroup(jobServerProperties.getAccpectCount());
+        workLoogGroup = new NioEventLoopGroup(jobServerProperties.getWorkCount(),
                 new DefaultThreadFactory("work thread pool"), SelectorProvider.provider());
         serverBootstrap.group(bossLoopGroup , workLoogGroup);
 
@@ -86,13 +76,41 @@ public class JobNettyServer implements JobServer {
                     ch.pipeline().addLast(new JobServerHandler(jobService));
                 }
             });
-            serverBootstrap.option(ChannelOption.SO_BACKLOG, backlog); // 服务端可连接队列大小
+            serverBootstrap.option(ChannelOption.SO_BACKLOG, jobServerProperties.getBacklog()); // 服务端可连接队列大小
             serverBootstrap.option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT); // 使用对象池，重用缓冲区
             serverBootstrap.childOption(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT); // 使用对象池，重用缓冲区
-            ChannelFuture channelFuture = serverBootstrap.bind(new InetSocketAddress(host, port));
+            ChannelFuture channelFuture = serverBootstrap.bind(new InetSocketAddress(jobServerProperties.getHost(),
+                    jobServerProperties.getPort()));
+            log.info("the syncJobServer is run.");
             channelFuture.channel().closeFuture().sync();
         } catch(Exception e) {
             log.error(e.getMessage());
         }
+    }
+
+    /**
+     * 关闭服务
+     */
+    @Override
+    public void shutdown() {
+        Future bossCloseFuture = bossLoopGroup.shutdownGracefully();
+        Future workCloseFuture = workLoogGroup.shutdownGracefully();
+
+        bossCloseFuture.addListeners(new GenericFutureListener() {
+            @Override
+            public void operationComplete(Future future) throws Exception {
+                if (future.isDone()) {
+                    log.info("the syncJobServer'accpect thread is shutdown.");
+                }
+            }
+        });
+        workCloseFuture.addListeners(new GenericFutureListener() {
+            @Override
+            public void operationComplete(Future future) throws Exception {
+                if (future.isDone()) {
+                    log.info("the syncJobServer'work thread is shutdown.");
+                }
+            }
+        });
     }
 }

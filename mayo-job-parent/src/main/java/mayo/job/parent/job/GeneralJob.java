@@ -5,9 +5,9 @@ import mayo.job.parent.enums.JobTypeEnum;
 /**
  * 普通任务.
  */
-public class GeneralJob extends JobAdapter implements Job {
+public class GeneralJob extends JobAdapter {
     @Override
-    public String getJobType() {
-        return JobTypeEnum.GENERAL_JOB.VALUE;
+    protected void setJobType() {
+        addJobType(JobTypeEnum.GENERAL_JOB.VALUE);
     }
 }

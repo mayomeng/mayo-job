@@ -15,7 +15,7 @@ public class JobClientFactory {
     private JobChannelPool pool;
 
     public JobClient getJobClient() {
-        JobClientImpl jobClient = new JobClientImpl(pool);
+        JobClient jobClient = new JobClientImpl(pool);
         return jobClient;
     }
 }

@@ -5,10 +5,11 @@ import mayo.job.parent.enums.JobTypeEnum;
 /**
  * 定时任务
  */
-public class TimingJob extends JobAdapter implements Job {
+public class TimingJob extends JobAdapter {
     protected String cron; // 任务执行周期
+
     @Override
-    public String getJobType() {
-        return JobTypeEnum.TIMING_JOB.VALUE;
+    protected void setJobType() {
+        addJobType(JobTypeEnum.TIMING_JOB.VALUE);
     }
 }

@@ -29,22 +29,30 @@ public class JobNodeImpl implements JobNode {
     @Qualifier("JobServiceContainer")
     private JobService jobService;
     @Autowired
-    private JobServer jobServer;
+    @Qualifier("syncServer")
+    private JobServer syncServer;
+    @Autowired
+    @Qualifier("asyncServer")
+    private JobServer asyncServer;
     @Autowired
     private JobEnvironment jobEnvironment;
 
     @Override
     public void startup() {
+        // 设置环境变量
         jobEnvironment.setNodeId(nodeId);
         jobEnvironment.setRole(jobCoordinate.getRole());
+
+        // 启动选举监控
         jobCoordinate.election();
         jobCoordinate.monitor();
-        jobServer.setService(jobService);
-        jobServer.startup();
-    }
 
-    @Override
-    public JobEnvironment getJobEnvironment() {
-        return jobEnvironment;
+        // 启动同步服务器
+        syncServer.setService(jobService);
+        syncServer.startup();
+
+        // 启动异步服务器
+        asyncServer.setService(jobService);
+        asyncServer.startup();
     }
 }

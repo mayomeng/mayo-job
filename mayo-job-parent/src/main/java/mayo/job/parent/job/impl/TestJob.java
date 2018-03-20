@@ -18,6 +18,7 @@ public class TestJob extends GeneralJob {
         jobResult.setEndTime(new Date());
         return jobResult;
     }
+
     public String getJobName() {
         return "Test";
     }

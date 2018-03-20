@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import mayo.job.parent.service.JobService;
 
 /**
- * 执行器handler
+ * 同步任务执行器
  */
 @Sharable
 @Slf4j

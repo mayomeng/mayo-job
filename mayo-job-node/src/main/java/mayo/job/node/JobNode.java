@@ -7,5 +7,4 @@ import mayo.job.parent.environment.JobEnvironment;
  */
 public interface JobNode {
     void startup();
-    JobEnvironment getJobEnvironment();
 }
