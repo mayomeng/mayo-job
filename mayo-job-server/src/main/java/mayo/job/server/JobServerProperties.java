@@ -18,7 +18,7 @@ public class JobServerProperties {
     private String host; // IP
     private int port; // 端口
     private int backlog; // 最大连接数(还需要修改服务器的somaxconn)
-    private int accpectCount; // 响应线程数
+    private int acceptCount; // 响应线程数
     private int workCount; // 工作线程数
     private String protocol; // 协议
 }
