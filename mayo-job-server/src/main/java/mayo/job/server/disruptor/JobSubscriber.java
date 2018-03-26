@@ -2,6 +2,7 @@ package mayo.job.server.disruptor;
 
 import com.lmax.disruptor.WorkHandler;
 import mayo.job.parent.param.JobParam;
+import mayo.job.parent.result.JobResult;
 import mayo.job.parent.service.JobService;
 
 /**
@@ -20,6 +21,7 @@ public class JobSubscriber implements WorkHandler<JobParam> {
      */
     @Override
     public void onEvent(JobParam jobParam) throws Exception {
-        // TODO
+        JobResult result = (JobResult)jobService.execute(jobParam);
+        // TODO 将执行结果添加到缓存
     }
 }

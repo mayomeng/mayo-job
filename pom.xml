@@ -17,6 +17,7 @@
         <module>mayo-job-manager</module>
         <module>mayo-job-dependencys</module>
         <module>mayo-job-node</module>
+        <module>mayo-job-storer</module>
     </modules>
 
     <properties>
