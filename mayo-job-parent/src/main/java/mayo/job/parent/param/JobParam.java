@@ -14,6 +14,7 @@ import java.util.Date;
 @Setter
 @ToString
 public class JobParam implements Serializable {
+    protected long jobId; // 任务ID
     protected String jobName; // 任务名称(根据此字段选择执行器)
     protected Date submitTime; // 任务提交时间
     protected Date createTime; // 任务创建时间

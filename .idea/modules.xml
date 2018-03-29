@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/mayo-job-node/mayo-job-node.iml" filepath="$PROJECT_DIR$/mayo-job-node/mayo-job-node.iml" />
       <module fileurl="file://$PROJECT_DIR$/mayo-job-parent/mayo-job-parent.iml" filepath="$PROJECT_DIR$/mayo-job-parent/mayo-job-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/mayo-job-server/mayo-job-server.iml" filepath="$PROJECT_DIR$/mayo-job-server/mayo-job-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mayo-job-storer/mayo-job-storer.iml" filepath="$PROJECT_DIR$/mayo-job-storer/mayo-job-storer.iml" />
     </modules>
   </component>
 </project>

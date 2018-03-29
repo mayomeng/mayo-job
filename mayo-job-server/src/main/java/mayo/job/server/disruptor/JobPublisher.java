@@ -7,6 +7,7 @@ import com.lmax.disruptor.YieldingWaitStrategy;
 import lombok.Getter;
 import mayo.job.parent.param.JobParam;
 import mayo.job.server.JobServerProperties;
+import mayo.job.store.AsyncJobStorer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,6 +25,8 @@ public class JobPublisher {
 
     @Autowired
     private JobServerProperties jobServerProperties;
+    @Autowired
+    private AsyncJobStorer asyncJobStorer;
 
     @Getter
     private RingBuffer<JobParam> ringBuffer;

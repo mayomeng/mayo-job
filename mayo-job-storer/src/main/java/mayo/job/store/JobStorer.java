@@ -4,7 +4,7 @@ import mayo.job.parent.param.JobParam;
 import mayo.job.parent.result.JobResult;
 
 /**
- * 任务持久层
+ * 任务存储器
  */
 public interface JobStorer {
     /**
@@ -15,4 +15,12 @@ public interface JobStorer {
      * 取得任务执行结果
      */
     JobResult getJobResult(long jobId);
+    /**
+     * 设置任务执行结果
+     */
+    void setJobResult(JobResult jobResult);
+    /**
+     * 持久化任务执行记录
+     */
+    long persistenceJobResume(JobResult jobResult);
 }
