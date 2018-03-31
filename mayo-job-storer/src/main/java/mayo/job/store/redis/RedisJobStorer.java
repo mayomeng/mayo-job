@@ -91,7 +91,7 @@ public class RedisJobStorer implements AsyncJobStorer {
      * 拉取任务至执行器
      */
     @Override
-    public List pullMultipleJob(String nodeId, String jobName) {
+    public List<JobParam> pullMultipleJob(String nodeId, String jobName) {
         return redisTemplate.opsForList().range(JobKeyCreator.getHandlingJobList(nodeId, jobName), 0, -1);
     }
 
@@ -100,7 +100,7 @@ public class RedisJobStorer implements AsyncJobStorer {
      */
     @Override
     public void clearHandlingJobList(String nodeId, String jobName) {
-        redisTemplate.opsForList().leftPushAll(JobKeyCreator.getHandlingJobList(nodeId, jobName));
+        redisTemplate.opsForList().remove(JobKeyCreator.getHandlingJobList(nodeId, jobName), -1, null);
     }
 
     /**

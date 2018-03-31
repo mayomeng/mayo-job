@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 
 /**
  * 最小连接调度器（将任务分配给任务数最少的执行器）.
@@ -26,6 +27,11 @@ public class JobMiniDispatch implements JobDispatch {
     @Override
     public String getJobType() {
         return JobTypeEnum.GENERAL_JOB.VALUE;
+    }
+
+    @Override
+    public List<String> getJobNameList() {
+        return null;
     }
 
     @Override

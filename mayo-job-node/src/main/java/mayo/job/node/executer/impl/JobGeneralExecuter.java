@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.ServiceLoader;
 
@@ -22,8 +23,8 @@ public class JobGeneralExecuter implements JobExecuter {
 
     @Autowired
     private JobDict jobDict;
-
     private Map<String, Job> jobMap;
+    private List<String> jobNameList;
 
     @Override
     public Object execute(Object param) {
@@ -41,6 +42,7 @@ public class JobGeneralExecuter implements JobExecuter {
             if (StringUtils.isNoneEmpty(job.getJobName())) {
                 jobMap.put(job.getJobName(), job);
                 jobDict.put(job.getJobName(), getJobType());
+                jobNameList.add(job.getJobName());
             }
         });
     }
@@ -48,5 +50,10 @@ public class JobGeneralExecuter implements JobExecuter {
     @Override
     public String getJobType() {
         return JobTypeEnum.GENERAL_JOB.VALUE;
+    }
+
+    @Override
+    public List<String> getJobNameList() {
+        return jobNameList;
     }
 }

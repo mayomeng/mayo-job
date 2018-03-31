@@ -15,7 +15,7 @@ import java.util.List;
 @ToString
 @Component
 public class JobEnvironment {
-    private int nodeId;
+    private String nodeId;
     private String host;
     private int port;
     private String role;

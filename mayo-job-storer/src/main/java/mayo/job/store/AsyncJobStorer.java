@@ -1,5 +1,7 @@
 package mayo.job.store;
 
+import mayo.job.parent.param.JobParam;
+
 import java.util.List;
 
 /**
@@ -17,7 +19,7 @@ public interface AsyncJobStorer extends  JobStorer {
     /**
      * 拉取任务至执行器
      */
-    List pullMultipleJob(String nodeId, String jobName);
+    List<JobParam> pullMultipleJob(String nodeId, String jobName);
     /**
      * 删除执行完的任务
      */
