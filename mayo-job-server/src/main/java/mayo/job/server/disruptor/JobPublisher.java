@@ -1,22 +1,16 @@
 package mayo.job.server.disruptor;
 
-import com.lmax.disruptor.EventFactory;
-import com.lmax.disruptor.EventTranslatorOneArg;
-import com.lmax.disruptor.RingBuffer;
-import com.lmax.disruptor.YieldingWaitStrategy;
+import com.lmax.disruptor.*;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import mayo.job.parent.environment.JobEnvironment;
 import mayo.job.parent.param.JobParam;
-import mayo.job.parent.service.JobService;
-import mayo.job.server.JobServer;
 import mayo.job.server.JobServerProperties;
 import mayo.job.store.AsyncJobStorer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -41,7 +35,8 @@ public class JobPublisher {
     private ExecutorService acceptThreadPool;
     private volatile boolean isStartup = true;
 
-    private JobService jobService;
+    private List<String> jobNameList;
+    private SequenceBarrier subscribeBarrier;
 
     private static class JobEventFactory implements EventFactory<JobParam> {
         @Override
@@ -67,8 +62,9 @@ public class JobPublisher {
     /**
      * 向环形缓冲区中放入任务参数
      */
-    public void startup(JobService jobService) {
-        this.jobService = jobService;
+    public void startup(List<String> jobNameList, SequenceBarrier subscribeBarrier) {
+        this.jobNameList = jobNameList;
+        this.subscribeBarrier = subscribeBarrier;
         for (int i = 0 ; i < jobServerProperties.getAcceptCount() ; i++) {
             acceptThreadPool.submit(new Runnable() {
                 @Override
@@ -87,12 +83,12 @@ public class JobPublisher {
      * 从任务存储节点批量拉取任务
      */
     private void pullJobParam() {
-        jobService.getJobNameList().forEach(jobName -> {
+        jobNameList.forEach(jobName -> {
             asyncJobStorer.allotJob(jobEnvironment.getNodeId(), jobName, jobServerProperties.getPullCount());
             asyncJobStorer.prepareJob(jobEnvironment.getNodeId(), jobName, jobServerProperties.getPullCount());
             List<JobParam> jobParamList = asyncJobStorer.pullMultipleJob(jobEnvironment.getNodeId(), jobName);
             log.debug("拉取任务个数{}.", jobParamList.size());
-            jobParamList.forEach(jobParam ->  {
+            jobParamList.forEach(jobParam -> {
                 ringBuffer.publishEvent(TRANSLATOR, jobParam);
             });
         });
@@ -102,8 +98,12 @@ public class JobPublisher {
      * 是否可以拉取任务
      */
     private boolean isPullAble() {
-        // TODO
-        return true;
+        // TODO 需要测试
+        boolean isPullAble = false;
+        if (ringBuffer.getCursor() == subscribeBarrier.getCursor()) {
+            isPullAble = true;
+        }
+        return isPullAble;
     }
 
     /**

@@ -21,7 +21,7 @@ import org.springframework.stereotype.Component;
 public class JobNodeImpl implements JobNode {
 
     @Setter
-    private int nodeId; // 节点ID
+    private String nodeId; // 节点ID
 
     @Autowired
     private JobCoordinate jobCoordinate;

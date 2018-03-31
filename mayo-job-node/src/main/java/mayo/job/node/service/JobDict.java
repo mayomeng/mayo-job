@@ -19,6 +19,7 @@ public class JobDict {
     private Map<String, String> jobNameTypewMap = new HashMap<>(); // 任务名称-类型映射关系
     private Map<String, JobDispatch> jobDispatchMap = new HashMap<>(); // 任务类型-调度器映射关系
     private Map<String, JobExecuter> jobExecuterMap = new HashMap<>(); // 任务类型-执行器映射关系
+    @Getter
     private List<String> jobNameList = new ArrayList<>(); // 支持的任务列表
 
     public void put(String jobType, JobDispatch jobDispatch) {

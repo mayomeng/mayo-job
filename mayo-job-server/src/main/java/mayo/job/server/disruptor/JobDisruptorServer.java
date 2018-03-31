@@ -45,17 +45,17 @@ public class JobDisruptorServer implements JobServer {
     @Override
     public void startup() {
         workThreadPool = Executors.newFixedThreadPool(jobServerProperties.getWorkCount());
-        SequenceBarrier consumerBarrier = jobPublisher.getRingBuffer().newBarrier();
+        SequenceBarrier subscribeBarrier = jobPublisher.getRingBuffer().newBarrier();
         JobSubscriber[] jobSubscribers = new JobSubscriber[jobServerProperties.getWorkCount()];
         for (int i = 0 ; i < jobServerProperties.getWorkCount() ; i++) {
             jobSubscribers[i] = new JobSubscriber(jobService);
         }
         workerPool = new WorkerPool<>(jobPublisher.getRingBuffer(),
-                consumerBarrier, new IgnoreExceptionHandler(), jobSubscribers);
+                subscribeBarrier, new IgnoreExceptionHandler(), jobSubscribers);
         Sequence[] sequences = workerPool.getWorkerSequences();
         jobPublisher.getRingBuffer().addGatingSequences(sequences);
         workerPool.start(workThreadPool);
-        jobPublisher.startup();
+        jobPublisher.startup(jobService.getJobNameList(), subscribeBarrier);
     }
 
     /**

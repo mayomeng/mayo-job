@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 
 /**
  * 节点容器.
@@ -50,5 +51,10 @@ public class JobServiceContainer implements JobService {
     @Override
     public String getJobType() {
         return null;
+    }
+
+    @Override
+    public List<String> getJobNameList() {
+        return jobDict.getJobNameList();
     }
 }
