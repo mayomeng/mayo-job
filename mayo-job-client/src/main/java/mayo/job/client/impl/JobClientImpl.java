@@ -9,9 +9,10 @@ import io.netty.channel.ChannelFutureListener;
 import mayo.job.parent.param.JobParam;
 import mayo.job.parent.result.JobResult;
 import mayo.job.client.netty.JobChannelPool;
+import mayo.job.store.AsyncJobStorer;
 
 /**
- * Marshalling协议任务客户端
+ * 任务客户端
  */
 @Slf4j
 public class JobClientImpl implements JobClient {
@@ -19,11 +20,12 @@ public class JobClientImpl implements JobClient {
     public final static AttributeKey<JobClientImpl> JOB_CLIENT = AttributeKey.newInstance("JobClient");
 
     private JobChannelPool pool;
-
     private JobResult jobResult;
+    private AsyncJobStorer asyncJobStorer;
 
-    public JobClientImpl(JobChannelPool pool) {
+    public JobClientImpl(JobChannelPool pool, AsyncJobStorer asyncJobStorer) {
         this.pool = pool;
+        this.asyncJobStorer = asyncJobStorer;
     }
 
     @Override
@@ -51,15 +53,13 @@ public class JobClientImpl implements JobClient {
 
     @Override
     public long asynRequest(JobParam jobParam) {
-        Channel channel = pool.getChannel();
-        channel.writeAndFlush(jobParam);
-        pool.release(channel);
-        return 0;
+        long jobId = asyncJobStorer.createJob(jobParam);
+        return jobId;
     }
 
     @Override
     public JobResult queryResult(long jobId) {
-        return null;
+        return asyncJobStorer.getJobResult(jobId);
     }
 
     public void setResult(JobResult jobResult) {

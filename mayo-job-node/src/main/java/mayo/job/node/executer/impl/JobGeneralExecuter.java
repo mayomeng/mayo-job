@@ -10,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.ServiceLoader;
+import java.util.*;
 
 /**
  * 普通任务执行器
@@ -37,6 +34,7 @@ public class JobGeneralExecuter implements JobExecuter {
     public void init() {
         jobDict.put(getJobType(), this);
         jobMap = new HashMap<>();
+        jobNameList = new ArrayList<>();
         ServiceLoader<Job> jobs = ServiceLoader.load(Job.class);
         jobs.forEach(job -> {
             if (StringUtils.isNoneEmpty(job.getJobName())) {

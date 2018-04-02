@@ -48,11 +48,21 @@ public class JobNodeImpl implements JobNode {
         jobCoordinate.monitor();
 
         // 启动同步服务器
-        syncServer.setService(jobService);
-        syncServer.startup();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                syncServer.setService(jobService);
+                syncServer.startup();
+            }
+        }).start();
 
         // 启动异步服务器
-        asyncServer.setService(jobService);
-        asyncServer.startup();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                asyncServer.setService(jobService);
+                asyncServer.startup();
+            }
+        }).start();
     }
 }

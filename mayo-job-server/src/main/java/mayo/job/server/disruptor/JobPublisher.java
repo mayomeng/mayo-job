@@ -87,7 +87,7 @@ public class JobPublisher {
             asyncJobStorer.allotJob(jobEnvironment.getNodeId(), jobName, jobServerProperties.getPullCount());
             asyncJobStorer.prepareJob(jobEnvironment.getNodeId(), jobName, jobServerProperties.getPullCount());
             List<JobParam> jobParamList = asyncJobStorer.pullMultipleJob(jobEnvironment.getNodeId(), jobName);
-            log.debug("拉取任务个数{}.", jobParamList.size());
+            //log.debug("拉取任务个数{}.", jobParamList.size());
             jobParamList.forEach(jobParam -> {
                 ringBuffer.publishEvent(TRANSLATOR, jobParam);
             });

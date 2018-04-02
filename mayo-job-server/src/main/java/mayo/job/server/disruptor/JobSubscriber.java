@@ -4,6 +4,7 @@ import com.lmax.disruptor.WorkHandler;
 import mayo.job.parent.param.JobParam;
 import mayo.job.parent.result.JobResult;
 import mayo.job.parent.service.JobService;
+import mayo.job.store.AsyncJobStorer;
 
 /**
  * 任务订阅者
@@ -11,9 +12,11 @@ import mayo.job.parent.service.JobService;
 public class JobSubscriber implements WorkHandler<JobParam> {
 
     private JobService jobService;
+    private AsyncJobStorer asyncJobStorer;
 
-    public JobSubscriber(JobService jobService) {
+    public JobSubscriber(JobService jobService, AsyncJobStorer asyncJobStorer) {
         this.jobService = jobService;
+        this.asyncJobStorer = asyncJobStorer;
     }
 
     /**
@@ -21,7 +24,7 @@ public class JobSubscriber implements WorkHandler<JobParam> {
      */
     @Override
     public void onEvent(JobParam jobParam) throws Exception {
-        JobResult result = (JobResult)jobService.execute(jobParam);
-        // TODO 将执行结果添加到缓存
+        JobResult jobResult = (JobResult)jobService.execute(jobParam);
+        asyncJobStorer.setJobResult(jobResult);
     }
 }
