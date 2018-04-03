@@ -71,6 +71,7 @@ public class JobPublisher {
                 public void run() {
                     for (;isStartup;) {
                         if (isPullAble()) {
+                            clearCompleteJob();
                             pullJobParam();
                         }
                     }
@@ -91,6 +92,15 @@ public class JobPublisher {
             jobParamList.forEach(jobParam -> {
                 ringBuffer.publishEvent(TRANSLATOR, jobParam);
             });
+        });
+    }
+
+    /**
+     * 清除执行完毕的任务
+     */
+    private void clearCompleteJob() {
+        jobNameList.forEach(jobName -> {
+           asyncJobStorer.clearHandlingJobList(jobEnvironment.getNodeId(), jobName);
         });
     }
 
