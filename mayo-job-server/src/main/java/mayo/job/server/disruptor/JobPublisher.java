@@ -7,10 +7,12 @@ import mayo.job.parent.environment.JobEnvironment;
 import mayo.job.parent.param.JobParam;
 import mayo.job.server.JobServerProperties;
 import mayo.job.store.AsyncJobStorer;
+import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -28,6 +30,8 @@ public class JobPublisher {
     private AsyncJobStorer asyncJobStorer;
     @Autowired
     private JobEnvironment jobEnvironment;
+    @Autowired
+    private Mapper mapper;
 
     @Getter
     private RingBuffer<JobParam> ringBuffer;
@@ -55,7 +59,9 @@ public class JobPublisher {
 
     private static final EventTranslatorOneArg<JobParam, JobParam> TRANSLATOR = new EventTranslatorOneArg<JobParam, JobParam>() {
         public void translateTo(JobParam event, long sequence, JobParam param) {
-            event = param;
+            event.setJobId(param.getJobId());
+            event.setJobName(param.getJobName());
+            event.setParams(param.getParams());
         }
     };
 
@@ -87,10 +93,10 @@ public class JobPublisher {
         jobNameList.forEach(jobName -> {
             asyncJobStorer.allotJob(jobEnvironment.getNodeId(), jobName, jobServerProperties.getPullCount());
             asyncJobStorer.prepareJob(jobEnvironment.getNodeId(), jobName, jobServerProperties.getPullCount());
-            List<JobParam> jobParamList = asyncJobStorer.pullMultipleJob(jobEnvironment.getNodeId(), jobName);
+            List<Object> jobParamList = asyncJobStorer.pullMultipleJob(jobEnvironment.getNodeId(), jobName);
             //log.debug("拉取任务个数{}.", jobParamList.size());
             jobParamList.forEach(jobParam -> {
-                ringBuffer.publishEvent(TRANSLATOR, jobParam);
+                ringBuffer.publishEvent(TRANSLATOR, mapper.map(jobParam, JobParam.class));
             });
         });
     }

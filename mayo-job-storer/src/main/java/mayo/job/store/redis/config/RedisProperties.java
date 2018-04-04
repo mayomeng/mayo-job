@@ -17,6 +17,8 @@ import java.util.List;
 @Getter
 @Setter
 public class RedisProperties {
+    private String host; // ip
+    private int port; //
     private List<String> redisHosts; // 集群ip
     private List<Integer> ports; // 集群port
     private int maxTotal;

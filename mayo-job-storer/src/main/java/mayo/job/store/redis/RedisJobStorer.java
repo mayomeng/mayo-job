@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 任务存储
@@ -20,7 +21,7 @@ import java.util.Map;
 public class RedisJobStorer implements AsyncJobStorer {
 
     @Autowired
-    private RedisTemplate redisTemplate;
+    private RedisTemplate<String, Object> redisTemplate;
     @Autowired
     private Mapper mapper;
 
@@ -80,10 +81,13 @@ public class RedisJobStorer implements AsyncJobStorer {
     @Override
     public void prepareJob(String nodeId, String jobName, int count) {
         for (int i = 0 ; i < count ; i++) {
-            redisTemplate.opsForList().rightPopAndLeftPush(
+            Object o = redisTemplate.opsForList().rightPopAndLeftPush(
                     JobKeyCreator.getPendingJobKey(nodeId, jobName),
-                    JobKeyCreator.getHandlingJobList(nodeId, jobName)
+                    JobKeyCreator.getHandlingJobList(nodeId, jobName),
+                    1,
+                    TimeUnit.SECONDS
             );
+            System.out.println(o);
         }
     }
 
@@ -91,7 +95,7 @@ public class RedisJobStorer implements AsyncJobStorer {
      * 拉取任务至执行器
      */
     @Override
-    public List<JobParam> pullMultipleJob(String nodeId, String jobName) {
+    public List<Object> pullMultipleJob(String nodeId, String jobName) {
         return redisTemplate.opsForList().range(JobKeyCreator.getHandlingJobList(nodeId, jobName), 0, -1);
     }
 
