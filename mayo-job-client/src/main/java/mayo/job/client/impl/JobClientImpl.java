@@ -59,7 +59,15 @@ public class JobClientImpl implements JobClient {
 
     @Override
     public JobResult queryResult(long jobId) {
-        return asyncJobStorer.getJobResult(jobId);
+            try {
+                for (;!asyncJobStorer.isJobComplete(jobId);) {
+                    Thread.sleep(500);
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        JobResult jobResult = asyncJobStorer.getJobResult(jobId);
+        return jobResult;
     }
 
     public void setResult(JobResult jobResult) {

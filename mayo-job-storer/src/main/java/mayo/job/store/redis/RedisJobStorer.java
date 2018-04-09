@@ -45,6 +45,11 @@ public class RedisJobStorer implements AsyncJobStorer {
         return mapper.map(jobResultMap, JobResult.class);
     }
 
+    @Override
+    public boolean isJobComplete(long jobId) {
+        return redisTemplate.hasKey(JobKeyCreator.getJobKey(jobId));
+    }
+
     /**
      * 设置任务执行结果
      */
@@ -70,24 +75,10 @@ public class RedisJobStorer implements AsyncJobStorer {
         for (int i = 0 ; i < count ; i++) {
             redisTemplate.opsForList().rightPopAndLeftPush(
                     JobKeyCreator.getUnallotJobListKey(jobName),
-                    JobKeyCreator.getPendingJobKey(nodeId, jobName)
-            );
-        }
-    }
-
-    /**
-     * 将待处理任务分配给任务执行节点
-     */
-    @Override
-    public void prepareJob(String nodeId, String jobName, int count) {
-        for (int i = 0 ; i < count ; i++) {
-            Object o = redisTemplate.opsForList().rightPopAndLeftPush(
                     JobKeyCreator.getPendingJobKey(nodeId, jobName),
-                    JobKeyCreator.getHandlingJobList(nodeId, jobName),
                     1,
                     TimeUnit.SECONDS
             );
-            System.out.println(o);
         }
     }
 
@@ -96,15 +87,23 @@ public class RedisJobStorer implements AsyncJobStorer {
      */
     @Override
     public List<Object> pullMultipleJob(String nodeId, String jobName) {
-        return redisTemplate.opsForList().range(JobKeyCreator.getHandlingJobList(nodeId, jobName), 0, -1);
+        return redisTemplate.opsForList().range(JobKeyCreator.getPendingJobKey(nodeId, jobName), 0, -1);
     }
 
     /**
      * 删除执行完的任务
      */
     @Override
-    public void clearHandlingJobList(String nodeId, String jobName) {
-        redisTemplate.opsForList().remove(JobKeyCreator.getHandlingJobList(nodeId, jobName), -1, null);
+    public void clearJobFromeList(String nodeId, String jobName) {
+        redisTemplate.opsForList().trim(JobKeyCreator.getHandlingJobList(nodeId, jobName), 100000, 10000);
+    }
+
+    /**
+     * 删除执行完的任务
+     */
+    @Override
+    public void removeJob(String nodeId, String jobName, Object value) {
+        redisTemplate.opsForList().remove(JobKeyCreator.getHandlingJobList(nodeId, jobName), 1, value);
     }
 
     /**

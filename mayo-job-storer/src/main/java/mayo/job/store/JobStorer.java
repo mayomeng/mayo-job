@@ -16,6 +16,10 @@ public interface JobStorer {
      */
     JobResult getJobResult(long jobId);
     /**
+     * 取得任务是否执行完毕
+     */
+    boolean isJobComplete(long jobId);
+    /**
      * 设置任务执行结果
      */
     void setJobResult(JobResult jobResult);

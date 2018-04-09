@@ -13,7 +13,7 @@ public class TestJob extends GeneralJob {
 
     public JobResult handle(JobParam jobParam) {
         JobResult jobResult = new JobResult();
-        jobResult.setJobId(100001);
+        jobResult.setJobId(jobParam.getJobId());
         jobResult.setResult(jobParam.getParams());
         jobResult.setEndTime(new Date());
         return jobResult;

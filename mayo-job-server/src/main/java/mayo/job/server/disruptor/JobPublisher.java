@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -77,7 +76,6 @@ public class JobPublisher {
                 public void run() {
                     for (;isStartup;) {
                         if (isPullAble()) {
-                            clearCompleteJob();
                             pullJobParam();
                         }
                     }
@@ -92,11 +90,12 @@ public class JobPublisher {
     private void pullJobParam() {
         jobNameList.forEach(jobName -> {
             asyncJobStorer.allotJob(jobEnvironment.getNodeId(), jobName, jobServerProperties.getPullCount());
-            asyncJobStorer.prepareJob(jobEnvironment.getNodeId(), jobName, jobServerProperties.getPullCount());
             List<Object> jobParamList = asyncJobStorer.pullMultipleJob(jobEnvironment.getNodeId(), jobName);
             //log.debug("拉取任务个数{}.", jobParamList.size());
-            jobParamList.forEach(jobParam -> {
-                ringBuffer.publishEvent(TRANSLATOR, mapper.map(jobParam, JobParam.class));
+            jobParamList.forEach(item -> {
+                JobParam jobParam = mapper.map(item, JobParam.class);
+                jobParam.setNodeId(jobEnvironment.getNodeId());
+                ringBuffer.publishEvent(TRANSLATOR, jobParam);
             });
         });
     }
@@ -106,7 +105,7 @@ public class JobPublisher {
      */
     private void clearCompleteJob() {
         jobNameList.forEach(jobName -> {
-           asyncJobStorer.clearHandlingJobList(jobEnvironment.getNodeId(), jobName);
+           asyncJobStorer.clearJobFromeList(jobEnvironment.getNodeId(), jobName);
         });
     }
 
