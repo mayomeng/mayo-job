@@ -1,7 +1,6 @@
-package mayo.job.store.redis;
+package mayo.job.store.impl;
 
 import mayo.job.parent.param.JobParam;
-import mayo.job.parent.result.JobResult;
 import mayo.job.store.AsyncJobStorer;
 import mayo.job.store.JobKeyCreator;
 import org.dozer.Mapper;
@@ -9,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 /**
  * 任务存储
@@ -37,12 +36,21 @@ public class RedisJobStorer implements AsyncJobStorer {
     }
 
     /**
+     * 重新添加任务
+     */
+    @Override
+    public long reCreateJob(JobParam jobParam) {
+        redisTemplate.opsForList().rightPush(JobKeyCreator.getUnallotJobListKey(jobParam.getJobName()), jobParam);
+        return jobParam.getJobId();
+    }
+
+    /**
      * 取得任务执行结果
      */
     @Override
-    public JobResult getJobResult(long jobId) {
+    public JobParam getJobResult(long jobId) {
         Map jobResultMap =  redisTemplate.opsForHash().entries(JobKeyCreator.getJobKey(jobId));
-        return mapper.map(jobResultMap, JobResult.class);
+        return mapper.map(jobResultMap, JobParam.class);
     }
 
     @Override
@@ -54,7 +62,7 @@ public class RedisJobStorer implements AsyncJobStorer {
      * 设置任务执行结果
      */
     @Override
-    public void setJobResult(JobResult jobResult) {
+    public void setJobResult(JobParam jobResult) {
         redisTemplate.opsForHash().putAll(
                 JobKeyCreator.getJobKey(jobResult.getJobId()), mapper.map(jobResult, HashMap.class));
     }
@@ -63,7 +71,7 @@ public class RedisJobStorer implements AsyncJobStorer {
      * 持久化任务执行数据
      */
     @Override
-    public long persistenceJobResume(JobResult jobResult) {
+    public long persistenceJobResume(JobParam jobResult) {
         return 0;
     }
 
@@ -75,35 +83,44 @@ public class RedisJobStorer implements AsyncJobStorer {
         for (int i = 0 ; i < count ; i++) {
             redisTemplate.opsForList().rightPopAndLeftPush(
                     JobKeyCreator.getUnallotJobListKey(jobName),
-                    JobKeyCreator.getPendingJobKey(nodeId, jobName),
+                    JobKeyCreator.getPendingJobKey(nodeId, jobName)/*,
                     1,
-                    TimeUnit.SECONDS
+                    TimeUnit.SECONDS*/
             );
         }
+    }
+
+    /**
+     * 取得待执行任务个数
+     */
+    @Override
+    public long getPendingJobCount(String nodeId, String jobName) {
+        return redisTemplate.opsForList().size(JobKeyCreator.getPendingJobKey(nodeId, jobName));
     }
 
     /**
      * 拉取任务至执行器
      */
     @Override
-    public List<Object> pullMultipleJob(String nodeId, String jobName) {
-        return redisTemplate.opsForList().range(JobKeyCreator.getPendingJobKey(nodeId, jobName), 0, -1);
+    public List<Object> pullMultipleJob(String nodeId, String jobName, int count) {
+        List<Object> list = new ArrayList<>();
+        for (int i = 0 ; i < count ; i++) {
+            list.add(redisTemplate.opsForList().rightPop(JobKeyCreator.getPendingJobKey(nodeId, jobName)));
+        }
+        return list;
     }
 
     /**
      * 删除执行完的任务
      */
     @Override
-    public void clearJobFromeList(String nodeId, String jobName) {
-        redisTemplate.opsForList().trim(JobKeyCreator.getHandlingJobList(nodeId, jobName), 100000, 10000);
+    public void removeJob(long jobId) {
+        redisTemplate.delete(JobKeyCreator.getJobKey(jobId));
     }
 
-    /**
-     * 删除执行完的任务
-     */
     @Override
-    public void removeJob(String nodeId, String jobName, Object value) {
-        redisTemplate.opsForList().remove(JobKeyCreator.getHandlingJobList(nodeId, jobName), 1, value);
+    public void reAllotJob() {
+
     }
 
     /**
@@ -111,6 +128,6 @@ public class RedisJobStorer implements AsyncJobStorer {
      */
     @Override
     public void completeJob(String jobName) {
-
+        // TODO
     }
 }

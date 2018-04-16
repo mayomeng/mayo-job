@@ -1,4 +1,4 @@
-package mayo.job.store.redis.config;
+package mayo.job.config.redis;
 
 import lombok.Getter;
 import lombok.Setter;

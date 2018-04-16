@@ -7,7 +7,6 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import mayo.job.parent.param.JobParam;
-import mayo.job.parent.result.JobResult;
 import mayo.job.client.netty.JobChannelPool;
 import mayo.job.store.AsyncJobStorer;
 
@@ -20,7 +19,7 @@ public class JobClientImpl implements JobClient {
     public final static AttributeKey<JobClientImpl> JOB_CLIENT = AttributeKey.newInstance("JobClient");
 
     private JobChannelPool pool;
-    private JobResult jobResult;
+    private JobParam jobResult;
     private AsyncJobStorer asyncJobStorer;
 
     public JobClientImpl(JobChannelPool pool, AsyncJobStorer asyncJobStorer) {
@@ -29,7 +28,7 @@ public class JobClientImpl implements JobClient {
     }
 
     @Override
-    public JobResult syncRequest(JobParam jobParam) {
+    public JobParam syncRequest(JobParam jobParam) {
         Channel channel = pool.getChannel();
         channel.attr(JOB_CLIENT).set(this);
         ChannelFuture channelFuture = channel.writeAndFlush(jobParam);
@@ -58,7 +57,7 @@ public class JobClientImpl implements JobClient {
     }
 
     @Override
-    public JobResult queryResult(long jobId) {
+    public JobParam queryResult(long jobId) {
             try {
                 for (;!asyncJobStorer.isJobComplete(jobId);) {
                     Thread.sleep(500);
@@ -66,11 +65,14 @@ public class JobClientImpl implements JobClient {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        JobResult jobResult = asyncJobStorer.getJobResult(jobId);
+        JobParam jobResult = asyncJobStorer.getJobResult(jobId);
+        if (jobResult.isSuccess()) { // 执行成功的时候，删除缓存结果
+            asyncJobStorer.removeJob(jobResult.getJobId());
+        }
         return jobResult;
     }
 
-    public void setResult(JobResult jobResult) {
+    public void setResult(JobParam jobResult) {
         this.jobResult = jobResult;
     }
 }

@@ -1,6 +1,7 @@
 package mayo.job.server;
 
 import mayo.job.parent.service.JobService;
+import org.quartz.SchedulerException;
 
 /**
  * 任务服务器接口.
@@ -13,7 +14,7 @@ public interface JobServer {
     /**
      * 启动服务器.
      */
-    void startup();
+    void startup() throws Exception;
     /**
      * 关闭服务器.
      */

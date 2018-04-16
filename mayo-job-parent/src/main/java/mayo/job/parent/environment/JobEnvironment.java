@@ -16,8 +16,9 @@ import java.util.List;
 @Component
 public class JobEnvironment {
     private String nodeId;
+    private String nodeType;
     private String host;
     private int port;
-    private String role;
+    private String nodeRole;
     private List<String> jobList;
 }

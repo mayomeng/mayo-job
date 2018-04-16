@@ -20,4 +20,7 @@ public class JobParam implements Serializable {
     protected Date submitTime; // 任务提交时间
     protected Date createTime; // 任务创建时间
     protected Object params; // 任务参数
+    protected Date endTime; // 任务结束时间
+    protected boolean isSuccess; // 成功 or 失败
+    protected Object result; // 任务执行结果
 }

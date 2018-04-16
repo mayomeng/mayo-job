@@ -2,7 +2,6 @@ package mayo.job.parent.job.impl;
 
 import mayo.job.parent.job.GeneralJob;
 import mayo.job.parent.param.JobParam;
-import mayo.job.parent.result.JobResult;
 
 import java.util.Date;
 
@@ -11,12 +10,10 @@ import java.util.Date;
  */
 public class TestJob extends GeneralJob {
 
-    public JobResult handle(JobParam jobParam) {
-        JobResult jobResult = new JobResult();
-        jobResult.setJobId(jobParam.getJobId());
-        jobResult.setResult(jobParam.getParams());
-        jobResult.setEndTime(new Date());
-        return jobResult;
+    public JobParam handle(JobParam jobParam) {
+        jobParam.setResult(jobParam.getParams());
+        jobParam.setEndTime(new Date());
+        return jobParam;
     }
 
     public String getJobName() {

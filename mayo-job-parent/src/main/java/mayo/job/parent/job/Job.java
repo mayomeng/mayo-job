@@ -1,7 +1,6 @@
 package mayo.job.parent.job;
 
 import mayo.job.parent.param.JobParam;
-import mayo.job.parent.result.JobResult;
 
 import java.util.Set;
 
@@ -12,7 +11,7 @@ public interface Job {
     /**
      * 执行任务.
      */
-    JobResult handle(JobParam jobParam);
+    JobParam handle(JobParam jobParam);
 
     /**
      * 返回任务类型.

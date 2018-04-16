@@ -1,4 +1,4 @@
-package mayo.job.server.netty.handler;
+package mayo.job.server.sync.netty.handler;
 
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;

@@ -1,8 +1,6 @@
 package mayo.job.parent.job;
 
-import lombok.Getter;
 import mayo.job.parent.param.JobParam;
-import mayo.job.parent.result.JobResult;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -21,7 +19,7 @@ public abstract class JobAdapter implements Job {
     protected abstract void setJobType();
 
     @Override
-    public JobResult handle(JobParam jobParam) {
+    public JobParam handle(JobParam jobParam) {
         return null;
     }
     @Override

@@ -6,12 +6,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * 任务框架启动类.
  */
 @EnableConfigurationProperties
 @SpringBootApplication
+@EnableScheduling
 public class JobServerApplication implements CommandLineRunner {
 
     @Autowired

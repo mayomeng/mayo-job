@@ -4,7 +4,7 @@ import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
-import mayo.job.parent.result.JobResult;
+import mayo.job.parent.param.JobParam;
 import mayo.job.client.impl.JobClientImpl;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +20,7 @@ public class JobClientHandler extends SimpleChannelInboundHandler {
     protected void channelRead0(ChannelHandlerContext ctx, Object o) throws Exception {
         JobClientImpl jobClient = ctx.channel().attr(JobClientImpl.JOB_CLIENT).get();
         log.debug("the channel thread {}", Thread.currentThread().getName());
-        jobClient.setResult((JobResult)o);
+        jobClient.setResult((JobParam)o);
     }
 
     /**

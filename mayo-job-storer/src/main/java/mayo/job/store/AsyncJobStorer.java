@@ -11,17 +11,19 @@ public interface AsyncJobStorer extends  JobStorer {
      */
     void allotJob(String nodeId, String jobName, int count);
     /**
+     * 取得待执行任务个数
+     */
+    long getPendingJobCount(String nodeId, String jobName);
+    /**
      * 拉取任务至执行器
      */
-    List<Object> pullMultipleJob(String nodeId, String jobName);
+    List<Object> pullMultipleJob(String nodeId, String jobName, int count);
     /**
      * 删除执行完的任务
      */
-    void clearJobFromeList(String nodeId, String jobName);
-    /**
-     * 删除执行完的任务
-     */
-    void removeJob(String nodeId, String jobName, Object value);
+    void removeJob(long jobId);
+
+    void reAllotJob();
     /**
      * 将执行完的任务状态置为完成
      */

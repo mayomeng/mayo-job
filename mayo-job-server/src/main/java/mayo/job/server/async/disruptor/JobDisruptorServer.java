@@ -1,8 +1,7 @@
-package mayo.job.server.disruptor;
+package mayo.job.server.async.disruptor;
 
 import com.lmax.disruptor.IgnoreExceptionHandler;
 import com.lmax.disruptor.Sequence;
-import com.lmax.disruptor.SequenceBarrier;
 import com.lmax.disruptor.WorkerPool;
 import lombok.extern.slf4j.Slf4j;
 import mayo.job.parent.param.JobParam;
@@ -10,8 +9,8 @@ import mayo.job.parent.service.JobService;
 import mayo.job.server.JobServer;
 import mayo.job.server.JobServerProperties;
 import mayo.job.store.AsyncJobStorer;
+import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.ExecutorService;
@@ -26,17 +25,19 @@ public class JobDisruptorServer implements JobServer {
 
     @Autowired
     private JobServerProperties jobServerProperties;
-
-    private JobService jobService;
-
     @Autowired
-    private JobPublisher jobPublisher;
-
+    private JobDisruptorPublisher jobDisruptorPublisher;
     @Autowired
     private AsyncJobStorer asyncJobStorer;
+    @Autowired
+    private JobAllotStrategy jobAllotStrategy;
+    @Autowired
+    private JobPullStrategy jobPullStrategy;
+    @Autowired
+    private Scheduler scheduler;
 
+    private JobService jobService;
     private ExecutorService workThreadPool;
-
     private WorkerPool<JobParam> workerPool;
 
     @Override
@@ -48,19 +49,21 @@ public class JobDisruptorServer implements JobServer {
      * 启动异步服务器
      */
     @Override
-    public void startup() {
+    public void startup() throws SchedulerException {
         workThreadPool = Executors.newFixedThreadPool(jobServerProperties.getWorkCount());
-        SequenceBarrier subscribeBarrier = jobPublisher.getRingBuffer().newBarrier();
-        JobSubscriber[] jobSubscribers = new JobSubscriber[jobServerProperties.getWorkCount()];
+        JobDisruptorSubscriber[] jobDisruptorSubscribers = new JobDisruptorSubscriber[jobServerProperties.getWorkCount()];
         for (int i = 0 ; i < jobServerProperties.getWorkCount() ; i++) {
-            jobSubscribers[i] = new JobSubscriber(jobService, asyncJobStorer);
+            jobDisruptorSubscribers[i] = new JobDisruptorSubscriber(jobService, asyncJobStorer);
         }
-        workerPool = new WorkerPool<>(jobPublisher.getRingBuffer(),
-                subscribeBarrier, new IgnoreExceptionHandler(), jobSubscribers);
+        workerPool = new WorkerPool<>(jobDisruptorPublisher.getRingBuffer(),
+                jobDisruptorPublisher.getSubscribeBarrier(), new IgnoreExceptionHandler(), jobDisruptorSubscribers);
         Sequence[] sequences = workerPool.getWorkerSequences();
-        jobPublisher.getRingBuffer().addGatingSequences(sequences);
+        jobDisruptorPublisher.getRingBuffer().addGatingSequences(sequences);
         workerPool.start(workThreadPool);
-        jobPublisher.startup(jobService.getJobNameList(), subscribeBarrier);
+
+        jobAllotStrategy.setJobNameList(jobService.getJobNameList());
+        jobPullStrategy.setJobNameList(jobService.getJobNameList());
+        jobDisruptorPublisher.startup();
         log.info("the asyncJobServer is run.");
     }
 
@@ -69,7 +72,7 @@ public class JobDisruptorServer implements JobServer {
      */
     @Override
     public void shutdown() {
-        jobPublisher.shutdown();
+        jobDisruptorPublisher.shutdown();
         workerPool.halt();
         workThreadPool.shutdown();
     }

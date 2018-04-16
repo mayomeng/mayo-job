@@ -1,4 +1,4 @@
-package mayo.job.server.netty;
+package mayo.job.server.sync.netty;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.PooledByteBufAllocator;
@@ -18,7 +18,7 @@ import mayo.job.parent.protocol.ProtocolConfiguration;
 import mayo.job.server.JobServer;
 import mayo.job.parent.service.JobService;
 import mayo.job.server.JobServerProperties;
-import mayo.job.server.netty.handler.JobServerHandler;
+import mayo.job.server.sync.netty.handler.JobServerHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
