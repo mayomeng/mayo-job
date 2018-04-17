@@ -1,4 +1,4 @@
-package mayo.job.server.async.disruptor;
+package mayo.job.server.async.disruptor.assembly;
 
 import com.lmax.disruptor.*;
 import lombok.Getter;

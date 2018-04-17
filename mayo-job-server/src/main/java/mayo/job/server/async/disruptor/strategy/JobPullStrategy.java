@@ -1,10 +1,11 @@
-package mayo.job.server.async.disruptor;
+package mayo.job.server.async.disruptor.strategy;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import mayo.job.parent.environment.JobEnvironment;
 import mayo.job.parent.param.JobParam;
 import mayo.job.server.JobServerProperties;
+import mayo.job.server.async.disruptor.assembly.JobDisruptorPublisher;
 import mayo.job.store.AsyncJobStorer;
 import org.dozer.Mapper;
 import org.quartz.*;
@@ -44,8 +45,6 @@ public class JobPullStrategy {
     @PostConstruct
     public void startup() throws Exception {
         MethodInvokingJobDetailFactoryBean jobDetailFactoryBean = new MethodInvokingJobDetailFactoryBean();
-/*        jobDetailFactoryBean.setName("allot");
-        jobDetailFactoryBean.setGroup("allot_group");*/
         jobDetailFactoryBean.setTargetObject(this);
         jobDetailFactoryBean.setTargetMethod("pullJobParam");
         jobDetailFactoryBean.setConcurrent(false);
@@ -56,7 +55,7 @@ public class JobPullStrategy {
         triggerFactoryBean.setRepeatInterval(jobServerProperties.getPullTime()*1000);
         triggerFactoryBean.afterPropertiesSet();
 
-        scheduler.scheduleJob(triggerFactoryBean.getObject());
+        scheduler.scheduleJob(jobDetailFactoryBean.getObject(), triggerFactoryBean.getObject());
     }
 
     /**
