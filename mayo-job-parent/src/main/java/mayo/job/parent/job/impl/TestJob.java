@@ -11,6 +11,7 @@ import java.util.Date;
 public class TestJob extends GeneralJob {
 
     public JobParam handle(JobParam jobParam) {
+        jobParam.setSuccess(true);
         jobParam.setResult(jobParam.getParams());
         jobParam.setEndTime(new Date());
         return jobParam;

@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean;
 import org.springframework.scheduling.quartz.SimpleTriggerFactoryBean;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -68,11 +69,13 @@ public class JobPullStrategy {
         jobNameList.forEach(jobName -> {
             if (isPullAble(jobName)) {
                 List<Object> jobParamList = asyncJobStorer.pullMultipleJob(jobEnvironment.getNodeId(), jobName, jobServerProperties.getPullCount());
-                jobParamList.forEach(item -> {
-                    JobParam jobParam = mapper.map(item, JobParam.class);
-                    jobParam.setNodeId(jobEnvironment.getNodeId());
-                    jobDisruptorPublisher.publish(jobParam);
-                });
+                if (!CollectionUtils.isEmpty(jobParamList)) {
+                    jobParamList.forEach(item -> {
+                        JobParam jobParam = mapper.map(item, JobParam.class);
+                        jobParam.setNodeId(jobEnvironment.getNodeId());
+                        jobDisruptorPublisher.publish(jobParam);
+                    });
+                }
             }
         });
     }
@@ -83,9 +86,7 @@ public class JobPullStrategy {
     private boolean isPullAble(String jobName) {
         boolean isPullAble = false;
         if (jobDisruptorPublisher.getRingBuffer().getCursor() - jobDisruptorPublisher.getSubscribeBarrier().getCursor()  < jobServerProperties.getBacklog()/2) {
-            if (asyncJobStorer.getPendingJobCount(jobEnvironment.getNodeId(), jobName) >= jobServerProperties.getPullCount()) {
-                isPullAble = true;
-            }
+            isPullAble = true;
         }
         return isPullAble;
     }

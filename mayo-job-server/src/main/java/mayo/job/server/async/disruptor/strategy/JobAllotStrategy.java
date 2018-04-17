@@ -42,16 +42,12 @@ public class JobAllotStrategy {
     @PostConstruct
     public void startup() throws Exception {
         MethodInvokingJobDetailFactoryBean jobDetailFactoryBean = new MethodInvokingJobDetailFactoryBean();
-/*        jobDetailFactoryBean.setName("allot_job");
-        jobDetailFactoryBean.setGroup("allot_job_group");*/
         jobDetailFactoryBean.setTargetObject(this);
         jobDetailFactoryBean.setTargetMethod("allot");
         jobDetailFactoryBean.setConcurrent(false);
         jobDetailFactoryBean.afterPropertiesSet();
 
         SimpleTriggerFactoryBean triggerFactoryBean = new SimpleTriggerFactoryBean();
-/*        triggerFactoryBean.setName("allot_trigger");
-        triggerFactoryBean.setGroup("allot_trigger_group");*/
         triggerFactoryBean.setJobDetail(jobDetailFactoryBean.getObject());
         triggerFactoryBean.setRepeatInterval(jobServerProperties.getAllotTime()*1000);
         triggerFactoryBean.afterPropertiesSet();
@@ -67,7 +63,7 @@ public class JobAllotStrategy {
             return;
         }
         jobNameList.forEach(jobName -> {
-            if (asyncJobStorer.getPendingJobCount(jobEnvironment.getNodeId(), jobName) == 0) {
+            if (asyncJobStorer.getPendingJobCount(jobEnvironment.getNodeId(), jobName) < jobServerProperties.getAllotCount()) {
                 asyncJobStorer.allotJob(jobEnvironment.getNodeId(), jobName, jobServerProperties.getAllotCount());
             }
         });
