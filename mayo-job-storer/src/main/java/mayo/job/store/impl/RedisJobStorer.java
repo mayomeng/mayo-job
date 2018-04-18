@@ -105,7 +105,10 @@ public class RedisJobStorer implements AsyncJobStorer {
     public List<Object> pullMultipleJob(String nodeId, String jobName, int count) {
         List<Object> list = new ArrayList<>();
         for (int i = 0 ; i < count ; i++) {
-            list.add(redisTemplate.opsForList().rightPop(JobKeyCreator.getPendingJobKey(nodeId, jobName)));
+            Object jopParam = redisTemplate.opsForList().rightPop(JobKeyCreator.getPendingJobKey(nodeId, jobName));
+            if (jopParam != null) {
+                list.add(jopParam);
+            }
         }
         return list;
     }
