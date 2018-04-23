@@ -33,7 +33,7 @@ public class JobServiceContainer implements JobService {
     public Object execute(Object param) {
         JobParam jobParam = (JobParam)param;
         String jobType = jobDict.getJobType(jobParam.getJobName());
-        if (NodeRoleEnum.ROLE_DISPATH.VALUE.equals(JobCoordinate.getRole())) {
+        if (NodeRoleEnum.ROLE_DISPATH.VALUE.equals(jobEnvironment.getNodeRole())) {
             // 调度器的场合，对任务进行分配
             return jobDict.getJobDispatchMap().get(jobType).execute(jobParam);
         } else {

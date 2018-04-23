@@ -2,15 +2,12 @@ package mayo.job.server.async.disruptor.strategy;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import mayo.job.config.quartz.QuartzJobExecutor;
 import mayo.job.parent.environment.JobEnvironment;
 import mayo.job.server.JobServerProperties;
 import mayo.job.server.async.disruptor.assembly.JobDisruptorPublisher;
 import mayo.job.store.AsyncJobStorer;
-import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean;
-import org.springframework.scheduling.quartz.SimpleTriggerFactoryBean;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -32,7 +29,7 @@ public class JobAllotStrategy {
     @Autowired
     private JobDisruptorPublisher jobDisruptorPublisher;
     @Autowired
-    private Scheduler scheduler;
+    private QuartzJobExecutor quartzJobExecutor;
     @Setter
     private List<String> jobNameList;
 
@@ -41,18 +38,7 @@ public class JobAllotStrategy {
      */
     @PostConstruct
     public void startup() throws Exception {
-        MethodInvokingJobDetailFactoryBean jobDetailFactoryBean = new MethodInvokingJobDetailFactoryBean();
-        jobDetailFactoryBean.setTargetObject(this);
-        jobDetailFactoryBean.setTargetMethod("allot");
-        jobDetailFactoryBean.setConcurrent(false);
-        jobDetailFactoryBean.afterPropertiesSet();
-
-        SimpleTriggerFactoryBean triggerFactoryBean = new SimpleTriggerFactoryBean();
-        triggerFactoryBean.setJobDetail(jobDetailFactoryBean.getObject());
-        triggerFactoryBean.setRepeatInterval(jobServerProperties.getAllotTime()*1000);
-        triggerFactoryBean.afterPropertiesSet();
-
-        scheduler.scheduleJob(jobDetailFactoryBean.getObject(), triggerFactoryBean.getObject());
+        quartzJobExecutor.submit(this, "allot", jobServerProperties.getAllotTime()*1000);
     }
 
     /**

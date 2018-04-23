@@ -2,16 +2,14 @@ package mayo.job.server.async.disruptor.strategy;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import mayo.job.config.quartz.QuartzJobExecutor;
 import mayo.job.parent.environment.JobEnvironment;
 import mayo.job.parent.param.JobParam;
 import mayo.job.server.JobServerProperties;
 import mayo.job.server.async.disruptor.assembly.JobDisruptorPublisher;
 import mayo.job.store.AsyncJobStorer;
 import org.dozer.Mapper;
-import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean;
-import org.springframework.scheduling.quartz.SimpleTriggerFactoryBean;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
@@ -36,7 +34,7 @@ public class JobPullStrategy {
     @Autowired
     private JobDisruptorPublisher jobDisruptorPublisher;
     @Autowired
-    private Scheduler scheduler;
+    private QuartzJobExecutor quartzJobExecutor;
     @Setter
     private List<String> jobNameList;
 
@@ -45,18 +43,7 @@ public class JobPullStrategy {
      */
     @PostConstruct
     public void startup() throws Exception {
-        MethodInvokingJobDetailFactoryBean jobDetailFactoryBean = new MethodInvokingJobDetailFactoryBean();
-        jobDetailFactoryBean.setTargetObject(this);
-        jobDetailFactoryBean.setTargetMethod("pullJobParam");
-        jobDetailFactoryBean.setConcurrent(false);
-        jobDetailFactoryBean.afterPropertiesSet();
-
-        SimpleTriggerFactoryBean triggerFactoryBean = new SimpleTriggerFactoryBean();
-        triggerFactoryBean.setJobDetail(jobDetailFactoryBean.getObject());
-        triggerFactoryBean.setRepeatInterval(jobServerProperties.getPullTime()*1000);
-        triggerFactoryBean.afterPropertiesSet();
-
-        scheduler.scheduleJob(jobDetailFactoryBean.getObject(), triggerFactoryBean.getObject());
+        quartzJobExecutor.submit(this, "pullJobParam", jobServerProperties.getPullTime()*1000);
     }
 
     /**
@@ -67,7 +54,7 @@ public class JobPullStrategy {
             return;
         }
         jobNameList.forEach(jobName -> {
-            if (isPullAble(jobName)) {
+            if (isPullAble()) {
                 List<Object> jobParamList = asyncJobStorer.pullMultipleJob(jobEnvironment.getNodeId(), jobName, jobServerProperties.getPullCount());
                 if (!CollectionUtils.isEmpty(jobParamList)) {
                     jobParamList.forEach(item -> {
@@ -83,7 +70,7 @@ public class JobPullStrategy {
     /**
      * 是否可以拉取任务
      */
-    private boolean isPullAble(String jobName) {
+    private boolean isPullAble() {
         boolean isPullAble = false;
         if (jobDisruptorPublisher.getRingBuffer().getCursor() - jobDisruptorPublisher.getSubscribeBarrier().getCursor()  < jobServerProperties.getBacklog()/2) {
             isPullAble = true;

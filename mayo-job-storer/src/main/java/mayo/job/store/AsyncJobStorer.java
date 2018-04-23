@@ -22,8 +22,10 @@ public interface AsyncJobStorer extends  JobStorer {
      * 删除执行完的任务
      */
     void removeJob(long jobId);
-
-    void reAllotJob();
+    /**
+     * 将该节点上的任务重新分配给其他节点
+     */
+    void reAllotJob(String nodeId, String jobName);
     /**
      * 将执行完的任务状态置为完成
      */

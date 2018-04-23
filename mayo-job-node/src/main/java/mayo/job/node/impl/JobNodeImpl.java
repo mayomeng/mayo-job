@@ -17,16 +17,9 @@ import org.springframework.stereotype.Component;
 /**
  * 本节点角色
  */
-@PropertySource("classpath:job.properties")
-@ConfigurationProperties(prefix = "node")
 @Component
 @Slf4j
 public class JobNodeImpl implements JobNode {
-
-    @Setter
-    private String nodeId; // 节点ID
-    @Setter
-    private String nodeType; // 节点类型
 
     @Autowired
     private JobCoordinate jobCoordinate;
@@ -43,49 +36,50 @@ public class JobNodeImpl implements JobNode {
     private JobEnvironment jobEnvironment;
 
     @Override
-    public void startup() {
-        // 启动选举监控
-        jobCoordinate.election();
-        jobCoordinate.monitor();
+    public void startup()  {
+        try {
+            // 启动选举监控
+            jobCoordinate.election();
+            jobCoordinate.monitor();
 
-        // 设置环境变量
-        jobEnvironment.setNodeId(nodeId);
-        jobEnvironment.setNodeRole(jobCoordinate.getRole());
-        jobEnvironment.setNodeType(nodeType);
+            // 设置环境变量
+            jobEnvironment.setNodeRole(jobCoordinate.getRole());
 
-        if (NodeTypeEnum.TYPE_SYNC.VALUE.equals(nodeType)) { // 启动同步服务器
-            startupSyncServer();
-        } else if (NodeTypeEnum.TYPE_ASYNC.VALUE.equals(nodeType)) { // 启动异步服务器
-            startupAsyncServer();
+            if (NodeTypeEnum.TYPE_SYNC.VALUE.equals(jobEnvironment.getNodeType())) { // 启动同步服务器
+                startupServer(syncServer);
+            } else if (NodeTypeEnum.TYPE_ASYNC.VALUE.equals(jobEnvironment.getNodeType())) { // 启动异步服务器
+                startupServer(asyncServer);
+            } else { // 同时启动同步，异步服务器
+                startupServer(syncServer);
+                startupServer(asyncServer);
+            }
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+        }
+    }
+
+    @Override
+    public void shutdown() {
+        if (NodeTypeEnum.TYPE_SYNC.VALUE.equals(jobEnvironment.getNodeType())) { // 启动同步服务器
+            syncServer.shutdown();
+        } else if (NodeTypeEnum.TYPE_ASYNC.VALUE.equals(jobEnvironment.getNodeType())) { // 启动异步服务器
+            asyncServer.shutdown();
         } else { // 同时启动同步，异步服务器
-            startupSyncServer();
-            startupAsyncServer();
+            syncServer.shutdown();
+            asyncServer.shutdown();
         }
     }
 
     /**
-     * 启动同步服务器
+     * 启动服务器
      */
-    private void startupSyncServer() {
+    private void startupServer(JobServer jobServer) {
         new Thread(() -> {
-            syncServer.setService(jobService);
+            jobServer.setService(jobService);
             try {
-                syncServer.startup();
+                jobServer.startup();
             } catch (Exception e) {
-                log.error(e.getMessage(), e);
-            }
-        }).start();
-    }
-
-    /**
-     * 启动异步服务器
-     */
-    private void startupAsyncServer() {
-        new Thread(() -> {
-            asyncServer.setService(jobService);
-            try {
-                asyncServer.startup();
-            } catch (Exception e) {
+                jobServer.shutdown();
                 log.error(e.getMessage(), e);
             }
         }).start();

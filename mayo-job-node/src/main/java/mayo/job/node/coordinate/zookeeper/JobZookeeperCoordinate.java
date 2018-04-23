@@ -1,49 +1,114 @@
 package mayo.job.node.coordinate.zookeeper;
 
+import com.alibaba.fastjson.JSON;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
+import mayo.job.config.zookeeper.CuratorOperation;
+import mayo.job.config.zookeeper.ZookeeperProperties;
 import mayo.job.node.coordinate.JobCoordinate;
 import mayo.job.parent.enums.NodeRoleEnum;
+import mayo.job.parent.environment.JobEnvironment;
+import mayo.job.store.AsyncJobStorer;
+import org.apache.curator.framework.CuratorFramework;
+import org.apache.curator.framework.recipes.cache.ChildData;
+import org.apache.curator.framework.recipes.cache.NodeCache;
+import org.apache.curator.framework.recipes.cache.NodeCacheListener;
+import org.apache.curator.framework.recipes.cache.PathChildrenCache;
+import org.apache.curator.framework.recipes.leader.LeaderLatch;
+import org.apache.curator.framework.recipes.leader.LeaderLatchListener;
+import org.apache.curator.utils.CloseableUtils;
+import org.apache.zookeeper.CreateMode;
+import org.apache.zookeeper.data.Stat;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
 
 /**
  * 任务协调器，负责调度器选举，监控.(zookeeper实现)
  */
 @Component
+@Slf4j
 public class JobZookeeperCoordinate implements JobCoordinate {
+    @Autowired
+    private JobEnvironment jobEnvironment;
+    @Autowired
+    private CuratorFramework zookeeperClient;
+    @Autowired
+    private ZookeeperProperties zookeeperProperties;
+    @Autowired
+    private CuratorOperation curatorOperation;
+    @Autowired
+    private AsyncJobStorer asyncJobStorer;
 
-    @Setter
     @Getter
     private String role;
+
+    private LeaderLatch leaderLatch;
 
     /**
      * 初始化
      */
     @Override
-    public void init() {
+    @PostConstruct
+    public void init() throws Exception {
+        // 初始化时默认是执行器
+        role = NodeRoleEnum.ROLE_EXECUTER.VALUE;
+        // 注册执行器到zookeeper
+        curatorOperation.setEphemeralData(getExecuterPath(), jobEnvironment);
+    }
 
+    /**
+     * 取得执行器在zookeeper上的存储目录
+     */
+    private String getExecuterPath() {
+        return zookeeperProperties.getExecuterPath() + "/" + jobEnvironment.getNodeId();
+    }
+
+    /**
+     * 取得调度器在zookeeper上的存储目录
+     */
+    private String getDispatchPath() {
+        return zookeeperProperties.getDispatchPath() + "/" + jobEnvironment.getNodeId();
     }
 
     /**
      * 进行调度器选举
      */
     @Override
-    public void election() {
+    public void election() throws Exception {
         // 选举前先将节点角色设为中间角色
-        setRole(NodeRoleEnum.ROLE_BETWEENNESS.VALUE);
+        role = NodeRoleEnum.ROLE_BETWEENNESS.VALUE;
+        // 选举
+        leaderLatch = new LeaderLatch(zookeeperClient, zookeeperProperties.getLeaderPath(), jobEnvironment.getNodeId());
+        leaderLatch.addListener(new LeaderLatchListener() {
+            @Override
+            public void isLeader() {
+                role = NodeRoleEnum.ROLE_DISPATH.VALUE; // 选举成功的场合
+                try {
+                    curatorOperation.setEphemeralData(getDispatchPath(), jobEnvironment);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
 
-        if (false) {// TODO 选举成功
-            setRole(NodeRoleEnum.ROLE_DISPATH.VALUE);
-        } else {
-            setRole(NodeRoleEnum.ROLE_EXECUTER.VALUE);
-        }
+            @Override
+            public void notLeader() {
+                role = NodeRoleEnum.ROLE_EXECUTER.VALUE;// 选举失败的场合
+            }
+        });
+        leaderLatch.start();
+        Thread.sleep(5000); // 休眠一段时间，等待选举完成
     }
 
     /**
      * 监控
      */
     @Override
-    public void monitor() {
+    public void monitor() throws Exception {
         if (NodeRoleEnum.ROLE_DISPATH.VALUE.equals(getRole())) {
             monitorExecuter();
         } else if (NodeRoleEnum.ROLE_EXECUTER.VALUE.equals(getRole())) {
@@ -54,12 +119,36 @@ public class JobZookeeperCoordinate implements JobCoordinate {
     /**
      * 监控调度器
      */
-    private void monitorDispath() {
+    private void monitorDispath() throws Exception {
+        NodeCache cache = new NodeCache(zookeeperClient, getDispatchPath());
+        NodeCacheListener listener = () -> {
+            ChildData data = cache.getCurrentData();
+            if (data == null) { // 调度器宕机的场合，重新进行选举
+                election();
+            }
+        };
+        cache.getListenable().addListener(listener);
+        cache.start();
     }
 
     /**
      * 监控执行器
      */
     private void monitorExecuter() {
+        PathChildrenCache cache = new PathChildrenCache(zookeeperClient, getExecuterPath(), true);
+        // 执行器宕机的话，将执行器上没处理完的异步任务分配给其他执行器
+    }
+
+    /**
+     * 销毁
+     */
+    @Override
+    public void shutdown() {
+        if (zookeeperClient != null && zookeeperClient.getState() != null) {
+            CloseableUtils.closeQuietly(zookeeperClient);
+        }
+        if (leaderLatch != null && leaderLatch.getState() != null) {
+            CloseableUtils.closeQuietly(leaderLatch);
+        }
     }
 }

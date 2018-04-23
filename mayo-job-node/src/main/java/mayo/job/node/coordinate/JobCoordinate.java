@@ -7,7 +7,7 @@ public interface JobCoordinate {
     /**
      * 进行调度器选举
      */
-    public void init();
+    public void init() throws Exception;
     /**
      * 返回角色
      */
@@ -15,10 +15,15 @@ public interface JobCoordinate {
     /**
      * 进行调度器选举
      */
-    public void election();
+    public void election() throws Exception;
 
     /**
      * 监控
      */
-    public void monitor();
+    public void monitor() throws Exception;
+
+    /**
+     * xiaohui
+     */
+    public void shutdown();
 }

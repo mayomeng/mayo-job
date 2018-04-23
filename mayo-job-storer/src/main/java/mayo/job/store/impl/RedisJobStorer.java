@@ -121,8 +121,11 @@ public class RedisJobStorer implements AsyncJobStorer {
         redisTemplate.delete(JobKeyCreator.getJobKey(jobId));
     }
 
+    /**
+     * 将该节点上的任务重新分配给其他节点
+     */
     @Override
-    public void reAllotJob() {
+    public void reAllotJob(String nodeId, String jobName) {
 
     }
 
