@@ -1,11 +1,17 @@
 package mayo.job.config.zookeeper;
 
 import com.alibaba.fastjson.JSON;
+import org.apache.commons.collections.ArrayStack;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.data.Stat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * zookeeper操作类.
@@ -24,7 +30,8 @@ public class CuratorOperation {
         if (stat != null) {
             zookeeperClient.setData().forPath(executerPath, JSON.toJSONString(data).getBytes());
         } else {
-            zookeeperClient.create().withMode(CreateMode.EPHEMERAL).forPath(executerPath, JSON.toJSONString(data).getBytes());
+            zookeeperClient.create().creatingParentsIfNeeded()
+                    .withMode(CreateMode.EPHEMERAL).forPath(executerPath, JSON.toJSONString(data).getBytes());
         }
     }
 
@@ -36,7 +43,41 @@ public class CuratorOperation {
         if (stat != null) {
             zookeeperClient.setData().forPath(executerPath, JSON.toJSONString(data).getBytes());
         } else {
-            zookeeperClient.create().forPath(executerPath, JSON.toJSONString(data).getBytes());
+            zookeeperClient.create().creatingParentsIfNeeded()
+                    .forPath(executerPath, JSON.toJSONString(data).getBytes());
         }
+    }
+
+    /**
+     * 取得节点内容
+     */
+    public Object getData(String path, Class dataClass) throws Exception {
+        Object result = null;
+        Stat stat = zookeeperClient.checkExists().forPath(path);
+        if (stat != null) {
+            byte[] data = zookeeperClient.getData().forPath(path);
+            if (data != null) {
+                result = JSON.parseObject(new String(data, "UTF-8"), dataClass);
+            }
+        }
+        return result;
+    }
+
+    /**
+     * 取得子节点内容
+     */
+    public List<Object> getChildData(String path, Class dataClass) throws Exception {
+        List<Object> resultList = new ArrayList<>();
+        Stat stat = zookeeperClient.checkExists().forPath(path);
+        if (stat != null) {
+            List<String> childPathList = zookeeperClient.getChildren().forPath(path);
+            if (!CollectionUtils.isEmpty(childPathList)) {
+                for (String childPath : childPathList) {
+                    Object result = getData(path + "/" + childPath, dataClass);
+                    resultList.add(result);
+                }
+            }
+        }
+        return resultList;
     }
 }

@@ -9,7 +9,7 @@ public interface JobClient {
     /**
      * 同步请求，即时返回执行结果.
      */
-    JobParam syncRequest(JobParam jobParam);
+    JobParam syncRequest(JobParam jobParam) throws Exception;
 
     /**
      * 异步请求,返回任务ID

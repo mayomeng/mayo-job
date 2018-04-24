@@ -28,7 +28,7 @@ public class JobClientImpl implements JobClient {
     }
 
     @Override
-    public JobParam syncRequest(JobParam jobParam) {
+    public JobParam syncRequest(JobParam jobParam) throws Exception {
         Channel channel = pool.getChannel();
         channel.attr(JOB_CLIENT).set(this);
         ChannelFuture channelFuture = channel.writeAndFlush(jobParam);

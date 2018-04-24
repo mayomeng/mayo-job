@@ -136,9 +136,7 @@ public class JobZookeeperCoordinate implements JobCoordinate {
         PathChildrenCacheListener listener = (client1, event) -> {
             if (null != event.getData() && PathChildrenCacheEvent.Type.CHILD_REMOVED.equals(event.getType())) {
                 // 执行器被删除的场合，将任务分配给其他执行器
-                log.info("执行器被删除", event.getData().getPath());
-                byte[] data = event.getData().getData();
-                JobEnvironment removedJobEnvironment = JSON.parseObject(new String(data, "UTF-8"), JobEnvironment.class);
+                JobEnvironment removedJobEnvironment = (JobEnvironment)curatorOperation.getData(event.getData().getPath(), JobEnvironment.class);
                 removedJobEnvironment.getJobList().forEach(jobName -> {
                     asyncJobStorer.reAllotJob(removedJobEnvironment.getNodeId(), jobName);
                 });

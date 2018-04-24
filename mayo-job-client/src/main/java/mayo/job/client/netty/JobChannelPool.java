@@ -7,6 +7,9 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.pool.ChannelPool;
 import io.netty.channel.pool.FixedChannelPool;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import mayo.job.config.zookeeper.CuratorOperation;
+import mayo.job.config.zookeeper.ZookeeperProperties;
+import mayo.job.parent.environment.JobEnvironment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
@@ -14,6 +17,7 @@ import org.springframework.stereotype.Component;
 
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -35,11 +39,15 @@ public class JobChannelPool {
 
     @Autowired
     private JobChannelPoolHandler jobChannelPoolHandler;
+    @Autowired
+    private CuratorOperation curatorOperation;
+    @Autowired
+    private ZookeeperProperties zookeeperProperties;
 
     /**
      * 初始化
      */
-    public void init() {
+    public void init() throws Exception {
         group = new NioEventLoopGroup(clientThreadCount);
         Bootstrap bootstrap = new Bootstrap().channel(NioSocketChannel.class).group(group);
         bootstrap.remoteAddress(getJobServerAddress());
@@ -47,17 +55,31 @@ public class JobChannelPool {
     }
 
     /**
-     * 取得调度器地址
+     * 取得执行器地址
      */
-    private SocketAddress getJobServerAddress() {
-        // TODO
-        return InetSocketAddress.createUnresolved("192.168.4.195", 8091);
+    private SocketAddress getJobServerAddress() throws Exception {
+        // 取得目前连接数最小的执行器地址
+        List<Object> childDataList = curatorOperation.getChildData(zookeeperProperties.getExecuterPath(), JobEnvironment.class);
+        int connectCount = 1000000;
+        JobEnvironment jobEnvironment = null;
+        for (Object childData : childDataList) {
+            JobEnvironment tempEnviroment = (JobEnvironment)childData;
+            if (connectCount > tempEnviroment.getConnectCount()) {
+                connectCount = tempEnviroment.getConnectCount();
+                jobEnvironment = tempEnviroment;
+                jobEnvironment.setConnectCount(connectCount + 1);
+            }
+        }
+        if (jobEnvironment != null) {
+            curatorOperation.setEphemeralData(zookeeperProperties.getExecuterPath() + "/" + jobEnvironment.getNodeId(), jobEnvironment);
+        }
+        return InetSocketAddress.createUnresolved(jobEnvironment.getHost(), jobEnvironment.getPort());
     }
 
     /**
      * 取得Channel
      */
-    public Channel getChannel() {
+    public Channel getChannel() throws Exception {
         Channel channel;
         try {
             channel = channelPool.acquire().get();

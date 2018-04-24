@@ -20,8 +20,10 @@ import java.util.List;
 @Component
 public class JobEnvironment {
     private String host;
+    private int port;
     private String nodeId;
     private String nodeType;
     private String nodeRole;
     private List<String> jobList;
+    private int connectCount; // 当前连接数(同步任务用)
 }

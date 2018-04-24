@@ -1,7 +1,5 @@
 package mayo.job.node.service;
 
-import mayo.job.node.coordinate.JobCoordinate;
-import mayo.job.parent.enums.NodeRoleEnum;
 import mayo.job.parent.environment.JobEnvironment;
 import mayo.job.parent.param.JobParam;
 import mayo.job.parent.service.JobService;
@@ -18,9 +16,6 @@ import java.util.List;
 public class JobServiceContainer implements JobService {
 
     @Autowired
-    private JobCoordinate JobCoordinate;
-
-    @Autowired
     private JobDict jobDict;
 
     @Autowired
@@ -33,13 +28,7 @@ public class JobServiceContainer implements JobService {
     public Object execute(Object param) {
         JobParam jobParam = (JobParam)param;
         String jobType = jobDict.getJobType(jobParam.getJobName());
-        if (NodeRoleEnum.ROLE_DISPATH.VALUE.equals(jobEnvironment.getNodeRole())) {
-            // 调度器的场合，对任务进行分配
-            return jobDict.getJobDispatchMap().get(jobType).execute(jobParam);
-        } else {
-            // 执行器的场合执行任务
-            return jobDict.getJobExecuterMap().get(jobType).execute(jobParam);
-        }
+        return jobDict.getJobExecuterMap().get(jobType).execute(jobParam);
     }
 
     @Override
