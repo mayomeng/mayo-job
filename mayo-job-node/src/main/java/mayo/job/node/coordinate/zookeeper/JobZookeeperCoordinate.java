@@ -11,10 +11,7 @@ import mayo.job.parent.enums.NodeRoleEnum;
 import mayo.job.parent.environment.JobEnvironment;
 import mayo.job.store.AsyncJobStorer;
 import org.apache.curator.framework.CuratorFramework;
-import org.apache.curator.framework.recipes.cache.ChildData;
-import org.apache.curator.framework.recipes.cache.NodeCache;
-import org.apache.curator.framework.recipes.cache.NodeCacheListener;
-import org.apache.curator.framework.recipes.cache.PathChildrenCache;
+import org.apache.curator.framework.recipes.cache.*;
 import org.apache.curator.framework.recipes.leader.LeaderLatch;
 import org.apache.curator.framework.recipes.leader.LeaderLatchListener;
 import org.apache.curator.utils.CloseableUtils;
@@ -134,8 +131,21 @@ public class JobZookeeperCoordinate implements JobCoordinate {
     /**
      * 监控执行器
      */
-    private void monitorExecuter() {
-        PathChildrenCache cache = new PathChildrenCache(zookeeperClient, getExecuterPath(), true);
+    private void monitorExecuter() throws Exception {
+        PathChildrenCache cache = new PathChildrenCache(zookeeperClient, zookeeperProperties.getExecuterPath(), true);
+        PathChildrenCacheListener listener = (client1, event) -> {
+            if (null != event.getData() && PathChildrenCacheEvent.Type.CHILD_REMOVED.equals(event.getType())) {
+                // 执行器被删除的场合，将任务分配给其他执行器
+                log.info("执行器被删除", event.getData().getPath());
+                byte[] data = event.getData().getData();
+                JobEnvironment removedJobEnvironment = JSON.parseObject(new String(data, "UTF-8"), JobEnvironment.class);
+                removedJobEnvironment.getJobList().forEach(jobName -> {
+                    asyncJobStorer.reAllotJob(removedJobEnvironment.getNodeId(), jobName);
+                });
+            }
+        };
+        cache.getListenable().addListener(listener);
+        cache.start();
         // 执行器宕机的话，将执行器上没处理完的异步任务分配给其他执行器
     }
 
