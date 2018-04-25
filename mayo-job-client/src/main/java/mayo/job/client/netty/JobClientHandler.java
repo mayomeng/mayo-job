@@ -8,6 +8,8 @@ import mayo.job.parent.param.JobParam;
 import mayo.job.client.impl.JobClientImpl;
 import org.springframework.stereotype.Component;
 
+import java.util.concurrent.locks.LockSupport;
+
 /**
  * Created by SKJ-05A14-0049 on 2018/3/7.
  */
@@ -21,6 +23,7 @@ public class JobClientHandler extends SimpleChannelInboundHandler {
         JobClientImpl jobClient = ctx.channel().attr(JobClientImpl.JOB_CLIENT).get();
         log.debug("the channel thread {}", Thread.currentThread().getName());
         jobClient.setResult((JobParam)o);
+        LockSupport.unpark(jobClient.getSyncRequestThread());
     }
 
     /**

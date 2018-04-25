@@ -1,5 +1,6 @@
 package mayo.job.server.async.disruptor;
 
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.lmax.disruptor.IgnoreExceptionHandler;
 import com.lmax.disruptor.Sequence;
 import com.lmax.disruptor.WorkerPool;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
 
 /**
  * disruptor实现的job服务器(处理异步请求)
@@ -54,7 +56,8 @@ public class JobDisruptorServer implements JobServer {
      */
     @Override
     public void startup() throws SchedulerException {
-        workThreadPool = Executors.newFixedThreadPool(jobServerProperties.getWorkCount());
+        ThreadFactory threadFactory = new ThreadFactoryBuilder().setNameFormat("async-subscriber").build();
+        workThreadPool = Executors.newFixedThreadPool(jobServerProperties.getWorkCount(), threadFactory);
         JobDisruptorSubscriber[] jobDisruptorSubscribers = new JobDisruptorSubscriber[jobServerProperties.getWorkCount()];
         for (int i = 0 ; i < jobServerProperties.getWorkCount() ; i++) {
             jobDisruptorSubscribers[i] = new JobDisruptorSubscriber(jobService, asyncJobStorer);

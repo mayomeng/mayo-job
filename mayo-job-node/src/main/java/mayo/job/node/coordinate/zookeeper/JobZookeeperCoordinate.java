@@ -1,8 +1,6 @@
 package mayo.job.node.coordinate.zookeeper;
 
-import com.alibaba.fastjson.JSON;
 import lombok.Getter;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import mayo.job.config.zookeeper.CuratorOperation;
 import mayo.job.config.zookeeper.ZookeeperProperties;
@@ -15,11 +13,7 @@ import org.apache.curator.framework.recipes.cache.*;
 import org.apache.curator.framework.recipes.leader.LeaderLatch;
 import org.apache.curator.framework.recipes.leader.LeaderLatchListener;
 import org.apache.curator.utils.CloseableUtils;
-import org.apache.zookeeper.CreateMode;
-import org.apache.zookeeper.data.Stat;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;

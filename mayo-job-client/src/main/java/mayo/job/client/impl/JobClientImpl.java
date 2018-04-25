@@ -1,6 +1,8 @@
 package mayo.job.client.impl;
 
 import io.netty.util.AttributeKey;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import mayo.job.client.JobClient;
 import io.netty.channel.Channel;
@@ -9,6 +11,8 @@ import io.netty.channel.ChannelFutureListener;
 import mayo.job.parent.param.JobParam;
 import mayo.job.client.netty.JobChannelPool;
 import mayo.job.store.AsyncJobStorer;
+
+import java.util.concurrent.locks.LockSupport;
 
 /**
  * 任务客户端
@@ -21,6 +25,9 @@ public class JobClientImpl implements JobClient {
     private JobChannelPool pool;
     private JobParam jobResult;
     private AsyncJobStorer asyncJobStorer;
+    @Getter
+    @Setter
+    private Thread syncRequestThread;
 
     public JobClientImpl(JobChannelPool pool, AsyncJobStorer asyncJobStorer) {
         this.pool = pool;
@@ -30,6 +37,7 @@ public class JobClientImpl implements JobClient {
     @Override
     public JobParam syncRequest(JobParam jobParam) throws Exception {
         Channel channel = pool.getChannel();
+        setSyncRequestThread(Thread.currentThread());
         channel.attr(JOB_CLIENT).set(this);
         ChannelFuture channelFuture = channel.writeAndFlush(jobParam);
         channelFuture.addListener(new ChannelFutureListener() {
@@ -39,12 +47,7 @@ public class JobClientImpl implements JobClient {
                 }
             }
         });
-        for (;;) {
-            if (jobResult != null) {
-                log.debug("the client thread {}", Thread.currentThread().getName());
-                break;
-            }
-        }
+        LockSupport.park();
         pool.release(channel);
         return jobResult;
     }

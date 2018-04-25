@@ -12,6 +12,11 @@ public interface JobClient {
     JobParam syncRequest(JobParam jobParam) throws Exception;
 
     /**
+     * 取得同步请求的当前线程.
+     */
+    Thread getSyncRequestThread();
+
+    /**
      * 异步请求,返回任务ID
      */
     long asynRequest(JobParam jobParam);
