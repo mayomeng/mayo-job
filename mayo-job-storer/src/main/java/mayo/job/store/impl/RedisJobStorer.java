@@ -5,13 +5,14 @@ import mayo.job.store.AsyncJobStorer;
 import mayo.job.store.JobKeyCreator;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.script.DefaultRedisScript;
+import org.springframework.scripting.ScriptSource;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import javax.annotation.PostConstruct;
+import java.util.*;
 
 /**
  * 任务存储
@@ -23,6 +24,15 @@ public class RedisJobStorer implements AsyncJobStorer {
     private RedisTemplate<String, Object> redisTemplate;
     @Autowired
     private Mapper mapper;
+
+    // 分配任务脚本
+    private DefaultRedisScript allotScript;
+
+    @PostConstruct
+    public void init() {
+        allotScript = new DefaultRedisScript();
+        allotScript.setLocation(new ClassPathResource("lua/allotJob.lua"));
+    }
 
     /**
      * 创建任务
@@ -80,14 +90,17 @@ public class RedisJobStorer implements AsyncJobStorer {
      */
     @Override
     public void allotJob(String nodeId, String jobName, int count) {
-        for (int i = 0 ; i < count ; i++) {
+/*        for (int i = 0 ; i < count ; i++) {
             redisTemplate.opsForList().rightPopAndLeftPush(
                     JobKeyCreator.getUnallotJobListKey(jobName),
-                    JobKeyCreator.getPendingJobKey(nodeId, jobName)/*,
+                    JobKeyCreator.getPendingJobKey(nodeId, jobName)*//*,
                     1,
-                    TimeUnit.SECONDS*/
+                    TimeUnit.SECONDS*//*
             );
-        }
+        }*/
+        redisTemplate.execute(allotScript,
+                Arrays.asList(JobKeyCreator.getUnallotJobListKey(jobName), JobKeyCreator.getPendingJobKey(nodeId, jobName)),
+                count);
     }
 
     /**
