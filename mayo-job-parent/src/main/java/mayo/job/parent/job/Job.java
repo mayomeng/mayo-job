@@ -17,9 +17,4 @@ public interface Job {
      * 返回任务类型.
      */
     Set<String> getJobType();
-
-    /**
-     * 返回任务名称.
-     */
-    String getJobName();
 }

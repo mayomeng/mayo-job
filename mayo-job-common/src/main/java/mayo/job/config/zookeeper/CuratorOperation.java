@@ -23,6 +23,13 @@ public class CuratorOperation {
     private CuratorFramework zookeeperClient;
 
     /**
+     * 关闭
+     */
+    public void close() {
+        zookeeperClient.close();
+    }
+
+    /**
      * 更新临时节点数据
      */
     public void setEphemeralData(String executerPath, Object data) throws Exception {

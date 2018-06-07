@@ -19,6 +19,7 @@ import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.RejectedExecutionException;
 
 /**
  * Marshalling协议的客户端连接池
@@ -83,8 +84,11 @@ public class JobChannelPool {
         Channel channel;
         try {
             channel = channelPool.acquire().get();
-        } catch (InterruptedException | ExecutionException e) {
-            destroy();
+        } catch (RejectedExecutionException e) {
+            init();
+            channel = getChannel();
+        } catch (Exception e) {
+            // TODO 因为报【java.util.concurrent.RejectedExecutionException: event executor terminated】异常信息，待调查后放开注解 destroy();
             init();
             channel = getChannel();
         }

@@ -26,9 +26,4 @@ public abstract class JobAdapter implements Job {
     public Set<String> getJobType() {
         return jobTypeSet;
     }
-
-    @Override
-    public String getJobName() {
-        return null;
-    }
 }
