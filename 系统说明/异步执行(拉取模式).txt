@@ -1,0 +1,56 @@
+1.启动过程
+	1.添加一个代表节点的zookeeper临时节点（节点名称为node_id）
+	2.进行调度器的选举（选举期间不进行任务的拉取和处理）
+	3.如果选举成功则成为调度器（调度器和执行器是并存的，一个节点成为调度器后，上面还是运行着一个执行器）:
+		1.创建一个名为（job_dispatch）的临时节点，设置属于本节点的ACL权限
+		2.启动一个quartz定时任务，每隔一段时间，对运行的执行器进行检测，如果执行器宕机，将该执行器上的任务重新分配给其他执行器
+	4.如果选举失败则成为执行器
+		1.启动一个线程池，作为accpect线程，从redis里拉取任务，
+		2.启动disruptor作为worker线程，处理任务
+		3.accpect将拉取来的任务投入到worker的任务队列中，worker对任务进行处理
+		4.通过zookeeper的watcher对调度器进行监控，如果调度器宕机则重新进行选举
+
+2.redis中的数据结构:
+	unAllotJobList:未分配任务列表
+		key:unAllot:{jobName}
+		value:	jobParam
+			jobResult
+	pendingJobList:待处理任务列表
+		key:pending:{nodeId}:{jobName}
+		value:	jobParam
+			jobResult
+	completeJobList:完毕任务列表（需要定时持久化并删除已经持久化的数据）
+		key:complete:{jobName}
+		value:	jobParam
+			jobResult
+	jobMap:任务map
+		key:job:{jobId}
+		value:	jobParam
+			jobResult
+	sliceJobList:分片任务列表
+		key:slice:{jobId}
+		value:	jobParam
+			jobResult
+
+3.处理流程
+	1.初始化
+		1.执行节点启动，生成pendingJobList
+
+	2.普通任务
+		1.客户端通过redis的incr生成唯一的jobId。
+		2.客户端将带有jobId的任务添加到unAllotJobList中
+		3.执行器根据任务名将unAllotJobList中的任务批量poppush至pendingJobList中
+		4.执行器从pendingJobList中pop任务，执行任务前添加到jobMap中，然后执行，执行后将执行结果添加到completeJobList中。
+		5.客户端得到返回结果后，删除jobMap中的数据（异步）
+		6.调度器监控所有的执行器，如果有执行器挂掉，将该执行器的pendingJobList的内容poppush到unAllotJobList中，handlingJobList中的任务则要等待该执行器重启执行
+
+	3.分片任务
+		1.客户端通过redis的incr生成唯一的jobId,然后将提交任务至调度器
+		2.调度器根据分片策略将任务分片，为分片后的每个任务生成sliceId，sliceNum
+		3.将分片后的任务添加到unAllotJobList中
+		4.执行器根据任务名将unAllotJobList中的任务批量poppush至pendingJobList中
+		5.执行器从pendingJobList中poppush任务到handlingJobList中，将handlingJobList中的任务添加到本机的阻塞队列并执行，成功则将任务从handlingJobList中删除，并添加到sliceJobList中
+		6.调度器定期查看sliceJobList,如果所有的分片任务都成功了，将sliceJobList的内容poppush到completeJobList中，将执行结果添加到jobMap中
+		7.客户端得到返回结果后，删除jobMap中的数据（异步）
+		8.调度器监控所有的执行器，如果有执行器挂掉，将该执行器的pendingJobList的内容poppush到unAllotJobList中，handlingJobList中的任务则要等待该执行器重启执行
+	4.定时任务
