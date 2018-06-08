@@ -92,7 +92,6 @@ public class JobZookeeperCoordinate implements JobCoordinate {
             }
         });
         leaderLatch.start();
-        Thread.sleep(5000); // 休眠一段时间，等待选举完成
     }
 
     /**
