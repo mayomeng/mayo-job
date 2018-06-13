@@ -1,0 +1,16 @@
+mayo-job-dependencys:
+    各个模块共用的jar都在这个模块中统一引用
+mayo-job-parent:
+    各个模块公用的entity,方法等都在这个模块中统一声明
+mayo-job-common:
+    redis,zookeeper等框架的配置都在这个模块中进行
+mayo-job-node:
+    任务执行节点，有两种角色，任务协调器和任务执行器，每个节点可以同时承担这两个角色
+mayo-job-server:
+    任务执行服务器，有两种服务器，一种是同步执行服务器，一种是异步执行服务器
+mayo-jog-storer:
+    任务存储功能模块
+mayo-job-client:
+    客户端模块
+mayo-job-manager:
+    任务调度中心管理模块（网页形式），待开发。。。
