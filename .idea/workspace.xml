@@ -4,11 +4,11 @@
     <bookmark url="file://$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/async/disruptor/assembly/JobDisruptorPublisher.java" line="66" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d32e109-831c-4097-a768-c1f922f85edd" name="Default" comment="添加">
+    <list default="true" id="8d32e109-831c-4097-a768-c1f922f85edd" name="Default" comment="添加注释">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mayo-job-node/src/main/resources/job.properties" afterPath="$PROJECT_DIR$/mayo-job-node/src/main/resources/job.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mayo-job-storer/src/main/java/mayo/job/store/impl/RedisJobStorer.java" afterPath="$PROJECT_DIR$/mayo-job-storer/src/main/java/mayo/job/store/impl/RedisJobStorer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/系统说明/异步执行(拉取模式).txt" afterPath="$PROJECT_DIR$/系统说明/异步执行(拉取模式).txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/async/disruptor/strategy/JobAllotStrategy.java" afterPath="$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/async/disruptor/strategy/JobAllotStrategy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/async/disruptor/strategy/JobPullStrategy.java" afterPath="$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/async/disruptor/strategy/JobPullStrategy.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -46,7 +46,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RedisJobStorer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RedisJobStorer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mayo-job-storer/src/main/java/mayo/job/store/impl/RedisJobStorer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="439">
@@ -61,8 +61,28 @@
       <file leaf-file-name="JobAllotStrategy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/async/disruptor/strategy/JobAllotStrategy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="678">
-              <caret line="52" column="31" lean-forward="false" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
+            <state relative-caret-position="110">
+              <caret line="16" column="7" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JobPullStrategy.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/async/disruptor/strategy/JobPullStrategy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="19" column="20" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="job.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mayo-job-node/src/main/resources/job.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -184,8 +204,6 @@
         <option value="$PROJECT_DIR$/mayo-job-client/pom.xml" />
         <option value="$PROJECT_DIR$/mayo-job-parent/src/main/java/mayo/job/parent/environment/JobEnvironment.java" />
         <option value="$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/node/service/JobServiceContainer.java" />
-        <option value="$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/async/disruptor/strategy/JobPullStrategy.java" />
-        <option value="$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/async/disruptor/strategy/JobAllotStrategy.java" />
         <option value="$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/async/disruptor/JobDisruptorServer.java" />
         <option value="$PROJECT_DIR$/mayo-job-client/src/main/java/mayo/job/client/JobClient.java" />
         <option value="$PROJECT_DIR$/mayo-job-client/src/main/java/mayo/job/client/netty/JobClientHandler.java" />
@@ -212,9 +230,11 @@
         <option value="$PROJECT_DIR$/系统说明/作者.txt" />
         <option value="$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/node/coordinate/zookeeper/JobZookeeperCoordinate.java" />
         <option value="$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/node/impl/JobNodeImpl.java" />
-        <option value="$PROJECT_DIR$/mayo-job-node/src/main/resources/job.properties" />
         <option value="$PROJECT_DIR$/系统说明/异步执行(拉取模式).txt" />
         <option value="$PROJECT_DIR$/mayo-job-storer/src/main/java/mayo/job/store/impl/RedisJobStorer.java" />
+        <option value="$PROJECT_DIR$/mayo-job-node/src/main/resources/job.properties" />
+        <option value="$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/async/disruptor/strategy/JobAllotStrategy.java" />
+        <option value="$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/async/disruptor/strategy/JobPullStrategy.java" />
       </list>
     </option>
   </component>
@@ -674,6 +694,128 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job-node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job-node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="executer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job-node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="executer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1375,7 +1517,7 @@
       <workItem from="1528418834516" duration="1851000" />
       <workItem from="1528443623487" duration="1388000" />
       <workItem from="1528701153144" duration="5258000" />
-      <workItem from="1528857903151" duration="3263000" />
+      <workItem from="1528857903151" duration="3429000" />
     </task>
     <task id="LOCAL-00001" summary="添加任务执行服务器">
       <created>1519809471618</created>
@@ -1601,11 +1743,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528420357733</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="添加将该宕机节点上的任务重新分配给其他节点的方法">
+      <created>1528869787768</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1528869787768</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="402402000" />
+    <option name="totallyTimeSpent" value="402568000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1682,7 +1831,8 @@
     <MESSAGE value="修改任务加载方式" />
     <MESSAGE value="hehe" />
     <MESSAGE value="修改选举调度器后，执行器zookeeper节点失效的bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改选举调度器后，执行器zookeeper节点失效的bug" />
+    <MESSAGE value="添加将该宕机节点上的任务重新分配给其他节点的方法" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加将该宕机节点上的任务重新分配给其他节点的方法" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2003,14 +2153,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/async/disruptor/strategy/JobPullStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="62" column="49" lean-forward="false" selection-start-line="62" selection-start-column="49" selection-end-line="62" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mayo-job-storer/src/main/java/mayo/job/store/JobKeyCreator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="669">
@@ -2021,14 +2163,6 @@
             <element signature="e#907#908#0" expanded="true" />
             <element signature="e#944#945#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-node/src/main/resources/job.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="20" lean-forward="true" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2047,14 +2181,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/async/disruptor/strategy/JobAllotStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="678">
-          <caret line="52" column="31" lean-forward="false" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -2106,6 +2232,30 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mayo-job-node/src/main/resources/job.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/async/disruptor/strategy/JobAllotStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="16" column="7" lean-forward="false" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/async/disruptor/strategy/JobPullStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="19" column="20" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>

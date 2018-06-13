@@ -14,7 +14,7 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 
 /**
- * 任务分配策略
+ * 任务分配策略（将任务分配给本执行器）
  */
 @Component
 @Slf4j

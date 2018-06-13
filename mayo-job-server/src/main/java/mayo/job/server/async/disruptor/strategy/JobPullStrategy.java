@@ -17,7 +17,7 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 
 /**
- * 任务拉取策略类
+ * 任务拉取策略类（将任务拉取至执行器）
  */
 @Component
 @Slf4j
