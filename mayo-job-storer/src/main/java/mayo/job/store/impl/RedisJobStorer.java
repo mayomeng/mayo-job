@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
-import org.springframework.scripting.ScriptSource;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -90,14 +89,6 @@ public class RedisJobStorer implements AsyncJobStorer {
      */
     @Override
     public void allotJob(String nodeId, String jobName, int count) {
-/*        for (int i = 0 ; i < count ; i++) {
-            redisTemplate.opsForList().rightPopAndLeftPush(
-                    JobKeyCreator.getUnallotJobListKey(jobName),
-                    JobKeyCreator.getPendingJobKey(nodeId, jobName)*//*,
-                    1,
-                    TimeUnit.SECONDS*//*
-            );
-        }*/
         redisTemplate.execute(allotScript,
                 Arrays.asList(JobKeyCreator.getUnallotJobListKey(jobName), JobKeyCreator.getPendingJobKey(nodeId, jobName)),
                 count);
@@ -118,9 +109,9 @@ public class RedisJobStorer implements AsyncJobStorer {
     public List<Object> pullMultipleJob(String nodeId, String jobName, int count) {
         List<Object> list = new ArrayList<>();
         for (int i = 0 ; i < count ; i++) {
-            Object jopParam = redisTemplate.opsForList().rightPop(JobKeyCreator.getPendingJobKey(nodeId, jobName));
-            if (jopParam != null) {
-                list.add(jopParam);
+            Object jobParam = redisTemplate.opsForList().rightPop(JobKeyCreator.getPendingJobKey(nodeId, jobName));
+            if (jobParam != null) {
+                list.add(jobParam);
             }
         }
         return list;
@@ -139,7 +130,11 @@ public class RedisJobStorer implements AsyncJobStorer {
      */
     @Override
     public void reAllotJob(String nodeId, String jobName) {
-
+        long count = redisTemplate.opsForList().size(JobKeyCreator.getPendingJobKey(nodeId, jobName));
+        redisTemplate.execute(allotScript,
+                Arrays.asList(JobKeyCreator.getPendingJobKey(nodeId, jobName),
+                        JobKeyCreator.getUnallotJobListKey(jobName)),
+                count);
     }
 
     /**

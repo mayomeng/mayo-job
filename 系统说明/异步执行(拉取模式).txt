@@ -13,29 +13,23 @@
 2.redis中的数据结构:
 	unAllotJobList:未分配任务列表
 		key:unAllot:{jobName}
-		value:	jobParam
-			jobResult
+		value:jobParam
 	pendingJobList:待处理任务列表
 		key:pending:{nodeId}:{jobName}
-		value:	jobParam
-			jobResult
+		value:jobParam
 	completeJobList:完毕任务列表（需要定时持久化并删除已经持久化的数据）
 		key:complete:{jobName}
-		value:	jobParam
-			jobResult
+		value:jobParam
 	jobMap:任务map
 		key:job:{jobId}
-		value:	jobParam
-			jobResult
+		value:jobResult
 	sliceJobList:分片任务列表
 		key:slice:{jobId}
-		value:	jobParam
-			jobResult
+		value:jobParam
 
 3.处理流程
 	1.初始化
 		1.执行节点启动，生成pendingJobList
-
 	2.普通任务
 		1.客户端通过redis的incr生成唯一的jobId。
 		2.客户端将带有jobId的任务添加到unAllotJobList中
@@ -43,7 +37,6 @@
 		4.执行器从pendingJobList中pop任务，执行任务前添加到jobMap中，然后执行，执行后将执行结果添加到completeJobList中。
 		5.客户端得到返回结果后，删除jobMap中的数据（异步）
 		6.调度器监控所有的执行器，如果有执行器挂掉，将该执行器的pendingJobList的内容poppush到unAllotJobList中，handlingJobList中的任务则要等待该执行器重启执行
-
 	3.分片任务
 		1.客户端通过redis的incr生成唯一的jobId,然后将提交任务至调度器
 		2.调度器根据分片策略将任务分片，为分片后的每个任务生成sliceId，sliceNum
