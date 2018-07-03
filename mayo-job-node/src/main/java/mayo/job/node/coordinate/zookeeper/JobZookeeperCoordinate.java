@@ -1,5 +1,6 @@
 package mayo.job.node.coordinate.zookeeper;
 
+import com.alibaba.fastjson.JSON;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import mayo.job.config.zookeeper.CuratorOperation;
@@ -164,7 +165,7 @@ public class JobZookeeperCoordinate implements JobCoordinate {
         PathChildrenCacheListener listener = (client1, event) -> {
             if (null != event.getData() && PathChildrenCacheEvent.Type.CHILD_REMOVED.equals(event.getType())) {
                 // 执行器被删除的场合，将任务分配给其他执行器
-                JobEnvironment removedJobEnvironment = (JobEnvironment)curatorOperation.getData(event.getData().getPath(), JobEnvironment.class);
+                JobEnvironment removedJobEnvironment = (JobEnvironment) JSON.parseObject(new String(event.getData().getData(), "UTF-8"), JobEnvironment.class);
                 removedJobEnvironment.getJobList().forEach(jobName -> {
                     asyncJobStorer.reAllotJob(removedJobEnvironment.getNodeId(), jobName);
                 });
