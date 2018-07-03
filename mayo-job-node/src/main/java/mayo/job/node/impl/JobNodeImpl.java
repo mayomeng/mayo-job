@@ -40,7 +40,6 @@ public class JobNodeImpl implements JobNode {
         try {
             // 启动选举监控
             jobCoordinate.election();
-            jobCoordinate.monitor();
 
             // 设置环境变量
             jobEnvironment.setNodeRole(jobCoordinate.getRole());

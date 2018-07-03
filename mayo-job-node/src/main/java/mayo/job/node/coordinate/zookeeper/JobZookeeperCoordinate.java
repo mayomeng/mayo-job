@@ -15,8 +15,10 @@ import org.apache.curator.framework.recipes.leader.LeaderLatchListener;
 import org.apache.curator.utils.CloseableUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 
 /**
  * 任务协调器，负责调度器选举，监控.(zookeeper实现)
@@ -44,12 +46,8 @@ public class JobZookeeperCoordinate implements JobCoordinate {
      * 初始化
      */
     @Override
-    @PostConstruct
     public void init() throws Exception {
-        // 初始化时默认是执行器
-        role = NodeRoleEnum.ROLE_EXECUTER.VALUE;
-        // 注册执行器到zookeeper
-        curatorOperation.setEphemeralData(getExecuterPath(), jobEnvironment);
+
     }
 
     /**
@@ -73,25 +71,57 @@ public class JobZookeeperCoordinate implements JobCoordinate {
     public void election() throws Exception {
         // 选举前先将节点角色设为中间角色
         role = NodeRoleEnum.ROLE_BETWEENNESS.VALUE;
+
+        // 判断现在有没有调度器
+        List<Object> disppatherList = curatorOperation.getChildData(zookeeperProperties.getDispatchPath(), JobEnvironment.class);
+        if (!CollectionUtils.isEmpty(disppatherList)) { // 已经存在调度器的场合
+            setExecuter();
+            return;
+        }
+
         // 选举
         leaderLatch = new LeaderLatch(zookeeperClient, zookeeperProperties.getLeaderPath(), jobEnvironment.getNodeId());
         leaderLatch.addListener(new LeaderLatchListener() {
             @Override
             public void isLeader() {
-                role = NodeRoleEnum.ROLE_DISPATH.VALUE; // 选举成功的场合
-                try {
-                    curatorOperation.setEphemeralData(getDispatchPath(), jobEnvironment);
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
+                setDispatcher();
             }
 
             @Override
             public void notLeader() {
-                role = NodeRoleEnum.ROLE_EXECUTER.VALUE;// 选举失败的场合
+                setExecuter();
             }
         });
         leaderLatch.start();
+        Thread.sleep(5000);
+    }
+
+    /**
+     * 设置节点为协调器
+     */
+    private void setDispatcher() {
+        role = NodeRoleEnum.ROLE_DISPATH.VALUE; // 选举成功的场合
+        try {
+            curatorOperation.setEphemeralData(getDispatchPath(), jobEnvironment);
+            monitor();
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * 设置节点为执行器
+     */
+    private void setExecuter() {
+        role = NodeRoleEnum.ROLE_EXECUTER.VALUE;// 选举失败的场合
+        try {
+            curatorOperation.setEphemeralData(getExecuterPath(), jobEnvironment);
+            monitor();
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -110,7 +140,12 @@ public class JobZookeeperCoordinate implements JobCoordinate {
      * 监控调度器
      */
     private void monitorDispath() throws Exception {
-        NodeCache cache = new NodeCache(zookeeperClient, getDispatchPath());
+        List<Object> disppatherList = curatorOperation.getChildData(zookeeperProperties.getDispatchPath(), JobEnvironment.class);
+        JobEnvironment dispatchJobEnvironment = (JobEnvironment)disppatherList.get(0);
+        String dispatchNodeId = dispatchJobEnvironment.getNodeId();
+
+        NodeCache cache = new NodeCache(zookeeperClient, zookeeperProperties.getDispatchPath() + "/" + dispatchNodeId);
+
         NodeCacheListener listener = () -> {
             ChildData data = cache.getCurrentData();
             if (data == null) { // 调度器宕机的场合，重新进行选举

@@ -8,7 +8,7 @@ mayo-job-node:
     任务执行节点，有两种角色，任务协调器和任务执行器，每个节点可以同时承担这两个角色
 mayo-job-server:
     任务执行服务器，有两种服务器，一种是同步执行服务器，一种是异步执行服务器
-mayo-jog-storer:
+mayo-job-storer:
     任务存储功能模块
 mayo-job-client:
     客户端模块
