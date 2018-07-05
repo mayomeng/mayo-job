@@ -60,5 +60,7 @@
                 <directory>src/main/resources</directory>
             </resource>
         </resources>
+
+        <finalName>mayo-job-3</finalName>
     </build>
 </project>

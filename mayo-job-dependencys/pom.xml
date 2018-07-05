@@ -125,5 +125,12 @@
             <version>2.0.0.Beta2</version>
         </dependency>
 
+        <!--google工具包-->
+       <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>25.1-jre</version>
+        </dependency>
+
     </dependencies>
 </project>

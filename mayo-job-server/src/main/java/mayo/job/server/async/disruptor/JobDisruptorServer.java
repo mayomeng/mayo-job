@@ -39,8 +39,6 @@ public class JobDisruptorServer implements JobServer {
     private JobAllotStrategy jobAllotStrategy;
     @Autowired
     private JobPullStrategy jobPullStrategy;
-    @Autowired
-    private Scheduler scheduler;
 
     private JobService jobService;
     private ExecutorService workThreadPool;

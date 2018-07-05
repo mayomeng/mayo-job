@@ -1,5 +1,6 @@
 package mayo.job.node.service;
 
+import mayo.job.parent.enums.NodeRoleEnum;
 import mayo.job.parent.environment.JobEnvironment;
 import mayo.job.parent.param.JobParam;
 import mayo.job.parent.service.JobService;
@@ -28,6 +29,9 @@ public class JobServiceContainer implements JobService {
     public Object execute(Object param) {
         JobParam jobParam = (JobParam)param;
         String jobType = jobDict.getJobType(jobParam.getJobName());
+        if (NodeRoleEnum.ROLE_DISPATH.VALUE.equals(jobEnvironment.getNodeRole())) {
+            return jobDict.getJobDispatchMap().get(jobType).execute(jobParam);
+        }
         return jobDict.getJobExecuterMap().get(jobType).execute(jobParam);
     }
 

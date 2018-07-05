@@ -35,6 +35,9 @@ public class JobGeneralExecuter implements JobExecuter {
         return jobMap.get(jobParam.getJobName()).handle(jobParam);
     }
 
+    /**
+     * 初始化任务
+     */
     @Override
     @PostConstruct
     public void init() {

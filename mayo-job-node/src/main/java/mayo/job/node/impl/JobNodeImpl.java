@@ -1,6 +1,5 @@
 package mayo.job.node.impl;
 
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import mayo.job.node.JobNode;
 import mayo.job.node.coordinate.JobCoordinate;
@@ -10,8 +9,6 @@ import mayo.job.server.JobServer;
 import mayo.job.parent.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 /**
@@ -67,6 +64,7 @@ public class JobNodeImpl implements JobNode {
             syncServer.shutdown();
             asyncServer.shutdown();
         }
+        jobCoordinate.shutdown();
     }
 
     /**
