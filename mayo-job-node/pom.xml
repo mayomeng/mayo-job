@@ -61,6 +61,6 @@
             </resource>
         </resources>
 
-        <finalName>mayo-job-3</finalName>
+        <finalName>mayo-job</finalName>
     </build>
 </project>

@@ -8,6 +8,7 @@ import mayo.job.config.zookeeper.ZookeeperProperties;
 import mayo.job.node.coordinate.JobCoordinate;
 import mayo.job.parent.enums.NodeRoleEnum;
 import mayo.job.parent.environment.JobEnvironment;
+import mayo.job.server.JobServer;
 import mayo.job.store.AsyncJobStorer;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.recipes.cache.*;
@@ -37,6 +38,8 @@ public class JobZookeeperCoordinate implements JobCoordinate {
     private CuratorOperation curatorOperation;
     @Autowired
     private AsyncJobStorer asyncJobStorer;
+    @Autowired
+    private JobServer jobServer;
 
     @Getter
     private String role;
@@ -103,6 +106,8 @@ public class JobZookeeperCoordinate implements JobCoordinate {
     private void setDispatcher() {
         role = NodeRoleEnum.ROLE_DISPATH.VALUE; // 选举成功的场合
         try {
+            jobServer.shutdown(); // 停止任务执行服务器
+            curatorOperation.deleteEphemeralData(getExecuterPath());
             curatorOperation.setEphemeralData(getDispatchPath(), jobEnvironment);
             monitor();
         } catch (Exception e) {
@@ -117,6 +122,8 @@ public class JobZookeeperCoordinate implements JobCoordinate {
     private void setExecuter() {
         role = NodeRoleEnum.ROLE_EXECUTER.VALUE;// 选举失败的场合
         try {
+            jobServer.startup(); // 开启任务执行服务器
+            curatorOperation.deleteEphemeralData(getDispatchPath());
             curatorOperation.setEphemeralData(getExecuterPath(), jobEnvironment);
             monitor();
         } catch (Exception e) {
@@ -165,7 +172,7 @@ public class JobZookeeperCoordinate implements JobCoordinate {
         PathChildrenCacheListener listener = (client1, event) -> {
             if (null != event.getData() && PathChildrenCacheEvent.Type.CHILD_REMOVED.equals(event.getType())) {
                 // 执行器被删除的场合，将任务分配给其他执行器
-                JobEnvironment removedJobEnvironment = (JobEnvironment) JSON.parseObject(new String(event.getData().getData(), "UTF-8"), JobEnvironment.class);
+                JobEnvironment removedJobEnvironment = JSON.parseObject(new String(event.getData().getData(), "UTF-8"), JobEnvironment.class);
                 removedJobEnvironment.getJobList().forEach(jobName -> {
                     asyncJobStorer.reAllotJob(removedJobEnvironment.getNodeId(), jobName);
                 });

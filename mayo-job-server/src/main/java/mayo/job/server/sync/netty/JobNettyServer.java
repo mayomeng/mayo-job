@@ -90,6 +90,11 @@ public class JobNettyServer implements JobServer {
      */
     @Override
     public void shutdown() {
+
+        if (bossLoopGroup == null || workLoogGroup == null) {
+            return;
+        }
+
         Future bossCloseFuture = bossLoopGroup.shutdownGracefully();
         Future workCloseFuture = workLoogGroup.shutdownGracefully();
 

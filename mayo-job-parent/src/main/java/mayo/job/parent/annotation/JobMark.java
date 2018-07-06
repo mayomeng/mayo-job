@@ -1,4 +1,4 @@
-package mayo.job.parent;
+package mayo.job.parent.annotation;
 
 import java.lang.annotation.*;
 

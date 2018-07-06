@@ -29,29 +29,40 @@ public class CuratorOperation {
         zookeeperClient.close();
     }
 
+
+    /**
+     * 删除临时节点数据
+     */
+    public void deleteEphemeralData(String path) throws Exception {
+        Stat stat = zookeeperClient.checkExists().forPath(path);
+        if (stat != null) {
+            zookeeperClient.delete().forPath(path);
+        }
+    }
+
     /**
      * 更新临时节点数据
      */
-    public void setEphemeralData(String executerPath, Object data) throws Exception {
-        Stat stat = zookeeperClient.checkExists().forPath(executerPath);
+    public void setEphemeralData(String path, Object data) throws Exception {
+        Stat stat = zookeeperClient.checkExists().forPath(path);
         if (stat != null) {
-            zookeeperClient.setData().forPath(executerPath, JSON.toJSONString(data).getBytes());
+            zookeeperClient.setData().forPath(path, JSON.toJSONString(data).getBytes());
         } else {
             zookeeperClient.create().creatingParentsIfNeeded()
-                    .withMode(CreateMode.EPHEMERAL).forPath(executerPath, JSON.toJSONString(data).getBytes());
+                    .withMode(CreateMode.EPHEMERAL).forPath(path, JSON.toJSONString(data).getBytes());
         }
     }
 
     /**
      * 更新永久节点数据
      */
-    public void setPersistentData(String executerPath, Object data) throws Exception {
-        Stat stat = zookeeperClient.checkExists().forPath(executerPath);
+    public void setPersistentData(String path, Object data) throws Exception {
+        Stat stat = zookeeperClient.checkExists().forPath(path);
         if (stat != null) {
-            zookeeperClient.setData().forPath(executerPath, JSON.toJSONString(data).getBytes());
+            zookeeperClient.setData().forPath(path, JSON.toJSONString(data).getBytes());
         } else {
             zookeeperClient.create().creatingParentsIfNeeded()
-                    .forPath(executerPath, JSON.toJSONString(data).getBytes());
+                    .forPath(path, JSON.toJSONString(data).getBytes());
         }
     }
 

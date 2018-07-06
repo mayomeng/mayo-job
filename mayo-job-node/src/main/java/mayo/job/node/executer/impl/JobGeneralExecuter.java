@@ -1,6 +1,6 @@
 package mayo.job.node.executer.impl;
 
-import mayo.job.parent.JobMark;
+import mayo.job.parent.annotation.JobMark;
 import mayo.job.parent.common.SpringContext;
 import mayo.job.parent.enums.JobTypeEnum;
 import mayo.job.parent.job.Job;

@@ -77,6 +77,9 @@ public class JobDisruptorServer implements JobServer {
      */
     @Override
     public void shutdown() {
+        if (jobDisruptorPublisher == null || workerPool == null || workThreadPool == null) {
+            return;
+        }
         jobDisruptorPublisher.shutdown();
         workerPool.halt();
         workThreadPool.shutdown();

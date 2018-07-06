@@ -1,11 +1,18 @@
 package mayo.job.parent.control;
 
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.stereotype.Component;
+
 /**
  * 限流开关.
  */
-public interface LimitSwitch {
+@Component
+@Getter
+@Setter
+public class LimitSwitch {
     /**
-     * 取得限流处理任务数(每秒).
+     * 限流开关开启标志.(默认关闭)
      */
-    Integer getLimitRate();
+    private boolean isSwitchOn = true;
 }
