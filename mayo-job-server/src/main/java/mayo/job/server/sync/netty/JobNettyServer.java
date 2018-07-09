@@ -41,7 +41,7 @@ public class JobNettyServer implements JobServer {
     private JobService jobService;
 
     private EventLoopGroup bossLoopGroup;
-    private EventLoopGroup workLoogGroup;
+    private EventLoopGroup workLoopGroup;
 
     @Override
     public void setService(JobService jobService) {
@@ -59,9 +59,9 @@ public class JobNettyServer implements JobServer {
 
         ServerBootstrap serverBootstrap = new ServerBootstrap();
         bossLoopGroup = new NioEventLoopGroup(jobServerProperties.getAcceptCount());
-        workLoogGroup = new NioEventLoopGroup(jobServerProperties.getWorkCount(),
+        workLoopGroup = new NioEventLoopGroup(jobServerProperties.getWorkCount(),
                 new DefaultThreadFactory("work thread pool"), SelectorProvider.provider());
-        serverBootstrap.group(bossLoopGroup , workLoogGroup);
+        serverBootstrap.group(bossLoopGroup , workLoopGroup);
 
         try {
             serverBootstrap.channel(NioServerSocketChannel.class);
@@ -91,12 +91,12 @@ public class JobNettyServer implements JobServer {
     @Override
     public void shutdown() {
 
-        if (bossLoopGroup == null || workLoogGroup == null) {
+        if (bossLoopGroup == null || workLoopGroup == null) {
             return;
         }
 
         Future bossCloseFuture = bossLoopGroup.shutdownGracefully();
-        Future workCloseFuture = workLoogGroup.shutdownGracefully();
+        Future workCloseFuture = workLoopGroup.shutdownGracefully();
 
         bossCloseFuture.addListeners(new GenericFutureListener() {
             @Override
