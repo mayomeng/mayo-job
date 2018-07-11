@@ -1,5 +1,6 @@
 package mayo.job.client.netty;
 
+import io.netty.util.concurrent.Future;
 import lombok.Setter;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Component;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Marshalling协议的客户端连接池
@@ -90,13 +92,17 @@ public class JobChannelPool {
      */
     public Channel getChannel() throws Exception {
         if (channelPool == null) {
-            log.error("the channelPool is empty!");
-            return null;
+            init();
+            if (channelPool == null) {
+                log.error("the channelPool is empty!");
+                return null;
+            }
         }
 
         Channel channel;
         try {
-            channel = channelPool.acquire().get();
+            Future<Channel> future = channelPool.acquire();
+            channel = future.get(500, TimeUnit.MILLISECONDS);
         } catch (Exception e) {
             // TODO 因为报【java.util.concurrent.RejectedExecutionException: event executor terminated】异常信息，待调查后放开注解 destroy();
             init();

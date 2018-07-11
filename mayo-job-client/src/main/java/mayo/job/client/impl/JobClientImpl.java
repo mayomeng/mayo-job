@@ -23,6 +23,7 @@ public class JobClientImpl implements JobClient {
     public final static AttributeKey<JobClientImpl> JOB_CLIENT = AttributeKey.newInstance("JobClient");
 
     private JobChannelPool pool;
+    @Setter
     private JobParam jobResult;
     private AsyncJobStorer asyncJobStorer;
     @Getter
@@ -39,7 +40,7 @@ public class JobClientImpl implements JobClient {
         Channel channel = pool.getChannel();
         setSyncRequestThread(Thread.currentThread());
         channel.attr(JOB_CLIENT).set(this);
-        ChannelFuture channelFuture = channel.writeAndFlush(jobParam);
+        ChannelFuture channelFuture = channel.writeAndFlush(jobParam).sync();
         channelFuture.addListener(new ChannelFutureListener() {
             public void operationComplete(ChannelFuture future) throws Exception {
                 if (future.isSuccess()) {
@@ -73,9 +74,5 @@ public class JobClientImpl implements JobClient {
             asyncJobStorer.removeJob(jobResult.getJobId());
         }
         return jobResult;
-    }
-
-    public void setResult(JobParam jobResult) {
-        this.jobResult = jobResult;
     }
 }

@@ -22,7 +22,7 @@ public class JobClientHandler extends SimpleChannelInboundHandler {
     protected void channelRead0(ChannelHandlerContext ctx, Object o) throws Exception {
         JobClientImpl jobClient = ctx.channel().attr(JobClientImpl.JOB_CLIENT).get();
         log.debug("the channel thread {}", Thread.currentThread().getName());
-        jobClient.setResult((JobParam)o);
+        jobClient.setJobResult((JobParam)o);
         LockSupport.unpark(jobClient.getSyncRequestThread());
     }
 
@@ -34,5 +34,9 @@ public class JobClientHandler extends SimpleChannelInboundHandler {
         log.error(cause.getMessage());
         // 异常的场合关闭channel
         ctx.channel().close();
+        JobClientImpl jobClient = ctx.channel().attr(JobClientImpl.JOB_CLIENT).get();
+        log.debug("the channel thread {}", Thread.currentThread().getName());
+        LockSupport.unpark(jobClient.getSyncRequestThread());
+        throw new RuntimeException(cause);
     }
 }

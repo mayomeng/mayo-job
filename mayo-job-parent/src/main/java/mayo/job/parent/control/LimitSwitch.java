@@ -14,5 +14,5 @@ public class LimitSwitch {
     /**
      * 限流开关开启标志.(默认关闭)
      */
-    private boolean isSwitchOn = true;
+    private boolean isSwitchOn = false;
 }
