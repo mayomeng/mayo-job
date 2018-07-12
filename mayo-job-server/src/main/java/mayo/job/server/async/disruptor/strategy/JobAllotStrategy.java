@@ -38,7 +38,7 @@ public class JobAllotStrategy {
      */
     @PostConstruct
     public void startup() throws Exception {
-        quartzJobExecutor.submit(this, "allot", jobServerProperties.getAllotTime()*1000);
+        quartzJobExecutor.submit(this, "allot", jobServerProperties.getAllotTime());
     }
 
     /**

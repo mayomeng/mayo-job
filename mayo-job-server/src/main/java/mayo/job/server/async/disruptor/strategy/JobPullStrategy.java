@@ -43,7 +43,7 @@ public class JobPullStrategy {
      */
     @PostConstruct
     public void startup() throws Exception {
-        quartzJobExecutor.submit(this, "pullJobParam", jobServerProperties.getPullTime()*1000);
+        quartzJobExecutor.submit(this, "pullJobParam", jobServerProperties.getPullTime());
     }
 
     /**
