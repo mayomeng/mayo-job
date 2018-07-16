@@ -9,6 +9,7 @@
     <file url="file://$PROJECT_DIR$/mayo-job-node" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mayo-job-parent" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mayo-job-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mayo-job-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mayo-job-storer" charset="UTF-8" />
   </component>
 </project>

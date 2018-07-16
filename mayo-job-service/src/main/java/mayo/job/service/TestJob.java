@@ -1,8 +1,10 @@
-package mayo.job.parent.job.impl;
+package mayo.job.service;
 
+import lombok.extern.slf4j.Slf4j;
 import mayo.job.parent.annotation.JobMark;
 import mayo.job.parent.annotation.LimitMark;
 import mayo.job.parent.enums.JobTypeEnum;
+import mayo.job.parent.job.Job;
 import mayo.job.parent.job.JobAdapter;
 import mayo.job.parent.param.JobParam;
 import org.springframework.stereotype.Component;
@@ -15,7 +17,8 @@ import java.util.Date;
 @JobMark(jobName = "Test")
 @LimitMark(limitRate = 10, limitTimeOut=100)
 @Component
-public class TestJob extends JobAdapter {
+@Slf4j
+public class TestJob extends JobAdapter implements Job {
 
     @Override
     protected void setJobType() {

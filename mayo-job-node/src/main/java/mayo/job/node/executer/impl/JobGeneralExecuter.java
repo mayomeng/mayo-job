@@ -52,14 +52,6 @@ public class JobGeneralExecuter implements JobExecuter {
             jobDict.put(jobMark.jobName(), getJobType());
             jobNameList.add(jobMark.jobName());
         });
-/*        ServiceLoader<Job> jobs = ServiceLoader.load(Job.class);
-        jobs.forEach(job -> {
-            if (StringUtils.isNoneEmpty(job.getJobName())) {
-                jobMap.put(job.getJobName(), job);
-                jobDict.put(job.getJobName(), getJobType());
-                jobNameList.add(job.getJobName());
-            }
-        });*/
     }
 
     @Override

@@ -1,5 +1,6 @@
 package mayo.job.parent.common;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -13,6 +14,7 @@ import java.util.Map;
  */
 @Component
 @Lazy(false)
+@Slf4j
 public class SpringContext implements ApplicationContextAware {
 
     private static ApplicationContext applicationContext;

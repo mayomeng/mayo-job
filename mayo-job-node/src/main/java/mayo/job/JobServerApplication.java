@@ -1,11 +1,13 @@
 package mayo.job;
 
+import lombok.extern.slf4j.Slf4j;
 import mayo.job.node.JobNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
@@ -16,6 +18,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableScheduling
 //@EnableAsync
+@Slf4j
 public class JobServerApplication implements CommandLineRunner {
 
     @Autowired
@@ -27,6 +30,7 @@ public class JobServerApplication implements CommandLineRunner {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(JobServerApplication.class, args);
+        ApplicationContext applicationContext = SpringApplication.run(JobServerApplication.class, args);
+        log.info("the mayo-job is run.");
     }
 }
