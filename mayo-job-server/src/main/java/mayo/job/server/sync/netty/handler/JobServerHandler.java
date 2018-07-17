@@ -33,7 +33,7 @@ public class JobServerHandler extends SimpleChannelInboundHandler {
                 if (future.isSuccess()) {
                     log.info("thread {} return the result {}.", Thread.currentThread().getName() ,result);
                 }
-                ctx.channel().close(); // 处理完成后关闭channel
+                //ctx.channel().close(); // TODO 如果请求不是长连接的话，每次处理后就关闭channel
             }
         });
     }
@@ -46,5 +46,6 @@ public class JobServerHandler extends SimpleChannelInboundHandler {
         log.error(cause.getMessage());
         // 异常的场合关闭channel
         ctx.channel().close();
+        ctx.close();
     }
 }

@@ -4,27 +4,40 @@
     <bookmark url="file://$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/async/disruptor/assembly/JobDisruptorPublisher.java" line="66" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d32e109-831c-4097-a768-c1f922f85edd" name="Default" comment="异步服务拉取，分配时间协调">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mayo-job-node/mayo-job-node.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mayo-job-service/mayo-job-service.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mayo-job-service/pom.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/系统说明/任务模块动态替换.txt" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mayo-job-node/src/main/resources/META-INF/services/mayo.job.parent.job.Job" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+    <list default="true" id="8d32e109-831c-4097-a768-c1f922f85edd" name="Default" comment="springboot版本升级">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mayo-job-common/src/main/java/mayo/job/config/redis/LettuceConfiguration.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_4_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_25.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_log4j_over_slf4j_1_7_25.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_1_5_6_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_1_5_6_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_configuration_processor_1_5_6_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_1_5_6_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_1_5_6_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_13_10_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_keyvalue_1_2_10_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_oxm_4_3_14_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_3_14_RELEASE.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_17.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__redis_clients_jedis_2_9_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/mayo-job-common/src/main/java/mayo/job/config/redis/RedisConfiguration.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_all_4_1_6_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_all_4_1_6_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_zookeeper_zookeeper_3_4_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_zookeeper_zookeeper_3_4_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_0_2_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_0_2_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_0_2_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_0_2_RELEASE.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mayo-job-node/pom.xml" afterPath="$PROJECT_DIR$/mayo-job-node/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/JobServerApplication.java" afterPath="$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/JobServerApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/node/executer/impl/JobGeneralExecuter.java" afterPath="$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/node/executer/impl/JobGeneralExecuter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mayo-job-client/mayo-job-client.iml" afterPath="$PROJECT_DIR$/mayo-job-client/mayo-job-client.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mayo-job-common/mayo-job-common.iml" afterPath="$PROJECT_DIR$/mayo-job-common/mayo-job-common.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mayo-job-common/pom.xml" afterPath="$PROJECT_DIR$/mayo-job-common/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mayo-job-dependencys/mayo-job-dependencys.iml" afterPath="$PROJECT_DIR$/mayo-job-dependencys/mayo-job-dependencys.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mayo-job-dependencys/pom.xml" afterPath="$PROJECT_DIR$/mayo-job-dependencys/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mayo-job-manager/mayo-job-manager.iml" afterPath="$PROJECT_DIR$/mayo-job-manager/mayo-job-manager.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mayo-job-node/mayo-job-node.iml" afterPath="$PROJECT_DIR$/mayo-job-node/mayo-job-node.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mayo-job-node/src/main/resources/job.properties" afterPath="$PROJECT_DIR$/mayo-job-node/src/main/resources/job.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mayo-job-parent/src/main/java/mayo/job/parent/common/SpringContext.java" afterPath="$PROJECT_DIR$/mayo-job-parent/src/main/java/mayo/job/parent/common/SpringContext.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/mayo-job-parent/src/main/java/mayo/job/parent/job/impl/TestJob.java" afterPath="$PROJECT_DIR$/mayo-job-service/src/main/java/mayo/job/service/TestJob.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mayo-job-node/src/main/resources/logback.xml" afterPath="$PROJECT_DIR$/mayo-job-node/src/main/resources/logback.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mayo-job-parent/mayo-job-parent.iml" afterPath="$PROJECT_DIR$/mayo-job-parent/mayo-job-parent.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mayo-job-server/mayo-job-server.iml" afterPath="$PROJECT_DIR$/mayo-job-server/mayo-job-server.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/sync/netty/handler/JobServerHandler.java" afterPath="$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/sync/netty/handler/JobServerHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mayo-job-service/mayo-job-service.iml" afterPath="$PROJECT_DIR$/mayo-job-service/mayo-job-service.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mayo-job-storer/mayo-job-storer.iml" afterPath="$PROJECT_DIR$/mayo-job-storer/mayo-job-storer.iml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -63,11 +76,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TestJob.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mayo-job-service/src/main/java/mayo/job/service/TestJob.java">
+      <file leaf-file-name="LettuceConfiguration.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mayo-job-common/src/main/java/mayo/job/config/redis/LettuceConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+            <state relative-caret-position="-483">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -75,67 +88,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpringContext.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mayo-job-parent/src/main/java/mayo/job/parent/common/SpringContext.java">
+      <file leaf-file-name="RedisProperties.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mayo-job-common/src/main/java/mayo/job/config/redis/RedisProperties.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="176">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <caret line="14" column="43" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JobServerHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/sync/netty/handler/JobServerHandler.java">
+      <file leaf-file-name="logback.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mayo-job-node/src/main/resources/logback.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state relative-caret-position="660">
+              <caret line="30" column="21" lean-forward="false" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JobNettyServer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/sync/netty/JobNettyServer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-              <folding>
-                <element signature="e#2299#2719#0" expanded="true" />
-                <element signature="e#2718#2719#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChannelInitializer.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.16.Final-sources.jar!/io/netty/channel/ChannelInitializer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DefaultChannelPipeline.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.16.Final-sources.jar!/io/netty/channel/DefaultChannelPipeline.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="162" column="0" lean-forward="true" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
-              <folding>
-                <element signature="e#7265#7442#0" expanded="true" />
-                <element signature="e#7441#7442#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mayo-job-common/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="2" column="62" lean-forward="true" selection-start-line="2" selection-start-column="62" selection-end-line="2" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mayo-job-dependencys/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+            <state relative-caret-position="321">
+              <caret line="56" column="21" lean-forward="true" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="job.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mayo-job-node/src/main/resources/job.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="13" column="21" lean-forward="true" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -154,12 +151,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>incr</find>
-      <find>retryBaseSleepTimeMs</find>
-      <find>election</find>
-      <find>build</find>
-      <find>shutdown</find>
-      <find>scheduler</find>
       <find>clientCount</find>
       <find>syncRequestThread</find>
       <find>getJobServerAddress</find>
@@ -175,7 +166,6 @@
       <find>sendThread</find>
       <find>cluster</find>
       <find>scan</find>
-      <find>scan</find>
       <find>scanner</find>
       <find>refresh</find>
       <find>@PostConstruct</find>
@@ -184,6 +174,13 @@
       <find>mayo.job.</find>
       <find>handlerAdded</find>
       <find>initChannel</find>
+      <find>PendingHandlerCallback</find>
+      <find>static</find>
+      <find>channelConnected</find>
+      <find>spring-boot-starter-data-redis-reactive</find>
+      <find>spring-context-support</find>
+      <find>pool</find>
+      <find>ConfigurationProperties</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -197,14 +194,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/node/coordinate/custom/JobCustomCoordinate.java" />
-        <option value="$PROJECT_DIR$/mayo-job-storer/src/main/java/mayo/job/store/impl/RedisJobStorer.java" />
-        <option value="$PROJECT_DIR$/mayo-job-parent/src/main/java/mayo/job/parent/common/AsyncTaskExecutor.java" />
         <option value="$PROJECT_DIR$/mayo-job-node/src/main/resources/redis.properties" />
         <option value="$PROJECT_DIR$/mayo-job-node/src/main/resources/zookeeper.properties" />
         <option value="$PROJECT_DIR$/mayo-job-parent/src/main/java/mayo/job/parent/job/Job.java" />
         <option value="$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/node/service/JobServiceContainer.java" />
-        <option value="$PROJECT_DIR$/mayo-job-common/pom.xml" />
         <option value="$PROJECT_DIR$/mayo-job-parent/src/main/java/mayo/job/parent/JobMark.java" />
         <option value="$PROJECT_DIR$/mayo-job-parent/src/main/java/mayo/job/parent/annotation/JobMark.java" />
         <option value="$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/node/control/LimitSwitch.java" />
@@ -227,7 +220,6 @@
         <option value="$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.6.Final/netty-all-4.1.6.Final.jar!/io/netty/channel/ChannelFuture.class" />
         <option value="$PROJECT_DIR$/mayo-job-client/src/main/java/mayo/job/client/impl/JobClientImpl.java" />
         <option value="$PROJECT_DIR$/mayo-job-client/src/main/java/mayo/job/client/netty/JobClientHandler.java" />
-        <option value="$PROJECT_DIR$/mayo-job-node/src/main/resources/logback.xml" />
         <option value="$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/async/disruptor/strategy/JobAllotStrategy.java" />
         <option value="$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/async/disruptor/strategy/JobPullStrategy.java" />
         <option value="$PROJECT_DIR$/系统说明/任务模块动态替换.txt" />
@@ -240,14 +232,19 @@
         <option value="$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/node/executer/impl/JobGeneralExecuter.java" />
         <option value="$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/JobServerApplication.java" />
         <option value="$PROJECT_DIR$/mayo-job-parent/src/main/java/mayo/job/parent/job/impl/TestJob.java" />
-        <option value="$PROJECT_DIR$/mayo-job-dependencys/pom.xml" />
         <option value="$PROJECT_DIR$/mayo-job-node/pom.xml" />
         <option value="$PROJECT_DIR$/mayo-job-service/src/main/java/mayo/job/service/JobDict.java" />
         <option value="$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/node/service/JobDict.java" />
-        <option value="$PROJECT_DIR$/mayo-job-node/src/main/resources/job.properties" />
         <option value="$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.6.Final/netty-all-4.1.6.Final.jar!/io/netty/channel/ChannelInitializer.class" />
         <option value="$PROJECT_DIR$/mayo-job-service/src/main/java/mayo/job/service/TestJob.java" />
         <option value="$PROJECT_DIR$/mayo-job-parent/src/main/java/mayo/job/parent/common/SpringContext.java" />
+        <option value="$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/sync/netty/handler/JobServerHandler.java" />
+        <option value="$PROJECT_DIR$/mayo-job-dependencys/pom.xml" />
+        <option value="$PROJECT_DIR$/mayo-job-common/pom.xml" />
+        <option value="$PROJECT_DIR$/mayo-job-common/src/main/java/mayo/job/config/redis/RedisConfiguration.java" />
+        <option value="$PROJECT_DIR$/mayo-job-common/src/main/java/mayo/job/config/redis/LettuceConfiguration.java" />
+        <option value="$PROJECT_DIR$/mayo-job-node/src/main/resources/logback.xml" />
+        <option value="$PROJECT_DIR$/mayo-job-node/src/main/resources/job.properties" />
       </list>
     </option>
   </component>
@@ -451,7 +448,243 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job-node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job-node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job-node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="mayo-job-dependencys" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job-common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job-common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job-common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job-common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zookeeper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job-common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="redis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job-common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mayo-job-client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -470,7 +703,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.42528737" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../netty-all-4.1.16.Final-sources.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../netty-all-4.1.6.Final-sources.jar!/" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1081,7 +1314,8 @@
       <workItem from="1531192577009" duration="16414000" />
       <workItem from="1531374625197" duration="3668000" />
       <workItem from="1531441274885" duration="7323000" />
-      <workItem from="1531701732654" duration="13846000" />
+      <workItem from="1531701732654" duration="15498000" />
+      <workItem from="1531788333036" duration="15949000" />
     </task>
     <task id="LOCAL-00001" summary="添加任务执行服务器">
       <created>1519809471618</created>
@@ -1370,11 +1604,18 @@
       <option name="project" value="LOCAL" />
       <updated>1531383053980</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="结构调整">
+      <created>1531732982826</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1531732982826</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="522180000" />
+    <option name="totallyTimeSpent" value="539781000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1389,35 +1630,35 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22604166" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3625793" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22604166" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30866808" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19635417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23489584" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48942918" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1426,7 +1667,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22604166" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22604166" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1435,7 +1676,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3625793" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48942918" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1446,7 +1687,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30866808" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19635417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23489584" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -1459,7 +1700,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="代码调整" />
     <MESSAGE value="添加运行时环境类" />
     <MESSAGE value="添加异步任务服务器" />
     <MESSAGE value="添加任务存储模块代码" />
@@ -1484,7 +1724,8 @@
     <MESSAGE value="变量名错误" />
     <MESSAGE value="调节同步服务器" />
     <MESSAGE value="异步服务拉取，分配时间协调" />
-    <option name="LAST_COMMIT_MESSAGE" value="异步服务拉取，分配时间协调" />
+    <MESSAGE value="结构调整" />
+    <option name="LAST_COMMIT_MESSAGE" value="结构调整" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1507,16 +1748,22 @@
           <properties />
           <option name="timeStamp" value="322" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/../netty-all-4.1.16.Final-sources.jar!/io/netty/bootstrap/AbstractBootstrap.java</url>
+          <line>118</line>
+          <properties />
+          <option name="timeStamp" value="371" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="363" />
+      <option name="time" value="391" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
-        <watch expression="beanName" language="JAVA" />
-        <watch expression="removed" language="JAVA" />
+        <watch expression="ctx.channel()" language="JAVA" />
+        <watch expression="ChannelGroup" language="JAVA" custom="io.netty.channel.group.ChannelGroup" />
       </configuration>
     </watches-manager>
   </component>
@@ -1525,265 +1772,263 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.2.RELEASE/spring-context-5.0.2.RELEASE.jar!/org/springframework/context/ConfigurableApplicationContext.class">
+    <entry file="file://$PROJECT_DIR$/mayo-job-parent/src/main/java/mayo/job/parent/common/SpringContext.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
-          <caret line="15" column="74" lean-forward="false" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-parent/src/main/java/mayo/job/parent/common/AsyncTaskExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-parent/src/main/java/mayo/job/parent/environment/AsyncCondition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="14" column="48" lean-forward="false" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-common/src/main/java/mayo/job/config/zookeeper/CuratorOperation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-common/src/main/java/mayo/job/config/zookeeper/CuratorConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.0.2.RELEASE/spring-beans-5.0.2.RELEASE.jar!/org/springframework/beans/factory/ListableBeanFactory.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="32" column="24" lean-forward="false" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.2.RELEASE/spring-context-5.0.2.RELEASE.jar!/org/springframework/context/support/AbstractApplicationContext.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="697" column="59" lean-forward="false" selection-start-line="697" selection-start-column="37" selection-end-line="697" selection-end-column="59" />
+          <caret line="6" column="51" lean-forward="false" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/node/coordinate/zookeeper/JobZookeeperCoordinate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-783">
-          <caret line="28" column="6" lean-forward="false" selection-start-line="28" selection-start-column="6" selection-end-line="28" selection-end-column="6" />
+        <state relative-caret-position="440">
+          <caret line="159" column="0" lean-forward="false" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/node/coordinate/zookeeper/DispatchWatcher.java">
+    <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.16.Final-sources.jar!/io/netty/util/concurrent/AbstractEventExecutor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="379">
+          <caret line="165" column="0" lean-forward="false" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.16.Final-sources.jar!/io/netty/channel/AbstractChannel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="478" column="0" lean-forward="false" selection-start-line="478" selection-start-column="0" selection-end-line="478" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/node/coordinate/zookeeper/ExecuterWatcher.java">
+    <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.16.Final-sources.jar!/io/netty/channel/DefaultChannelHandlerContext.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="198">
+          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.16.Final-sources.jar!/io/netty/bootstrap/ChannelFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="23" column="17" lean-forward="false" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/node/impl/JobNodeImpl.java">
+    <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.16.Final-sources.jar!/io/netty/channel/ChannelInitializer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="39" column="20" lean-forward="false" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="24" />
+        <state relative-caret-position="352">
+          <caret line="98" column="22" lean-forward="false" selection-start-line="98" selection-start-column="16" selection-end-line="98" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/node/server/JobServerContainer.java">
+    <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.16.Final-sources.jar!/io/netty/channel/DefaultChannelPipeline.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        <state relative-caret-position="255">
+          <caret line="465" column="52" lean-forward="false" selection-start-line="465" selection-start-column="52" selection-end-line="465" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.2.RELEASE/spring-context-5.0.2.RELEASE.jar!/org/springframework/context/support/ApplicationContextAwareProcessor.class">
+    <entry file="file://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.6.Final/netty-all-4.1.6.Final.pom">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="29" column="23" lean-forward="true" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.2.RELEASE/spring-context-5.0.2.RELEASE.jar!/org/springframework/context/annotation/AnnotationConfigApplicationContext.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-660">
+        <state relative-caret-position="-264">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.16.Final-sources.jar!/io/netty/bootstrap/AbstractBootstrap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="97" column="13" lean-forward="false" selection-start-line="97" selection-start-column="13" selection-end-line="97" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.6.Final-sources.jar!/io/netty/bootstrap/AbstractBootstrap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1496">
+          <caret line="102" column="7" lean-forward="true" selection-start-line="102" selection-start-column="7" selection-end-line="102" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.6.Final-sources.jar!/io/netty/channel/ChannelInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-407">
+          <caret line="98" column="28" lean-forward="false" selection-start-line="98" selection-start-column="16" selection-end-line="98" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.6.Final-sources.jar!/io/netty/channel/DefaultChannelHandlerContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.6.Final-sources.jar!/io/netty/channel/AbstractChannel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
           <folding>
-            <element signature="e#0#3801#0" expanded="true" />
+            <element signature="e#4462#4463#0" expanded="false" />
+            <element signature="e#4517#4518#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/1.5.6.RELEASE/spring-boot-1.5.6.RELEASE.jar!/org/springframework/boot/CommandLineRunner.class">
+    <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.6.Final-sources.jar!/io/netty/channel/nio/AbstractNioChannel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        <state relative-caret-position="206">
+          <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+          <folding>
+            <element signature="e#2445#2556#0" expanded="false" />
+            <element signature="e#2555#2556#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.6.Final-sources.jar!/io/netty/channel/nio/AbstractNioByteChannel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="54" column="0" lean-forward="false" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding>
+            <element signature="e#2127#2128#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.6.Final-sources.jar!/io/netty/channel/socket/nio/NioSocketChannel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="93" column="68" lean-forward="false" selection-start-line="93" selection-start-column="68" selection-end-line="93" selection-end-column="68" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.0.2.RELEASE/spring-beans-5.0.2.RELEASE.jar!/org/springframework/beans/BeanUtils.class">
+    <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.6.Final-sources.jar!/io/netty/channel/group/ChannelGroup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="49" column="50" lean-forward="false" selection-start-line="49" selection-start-column="45" selection-end-line="49" selection-end-column="50" />
+        <state relative-caret-position="-2904">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11395#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.6.Final-sources.jar!/io/netty/channel/DefaultChannelPipeline.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="126" column="47" lean-forward="false" selection-start-line="126" selection-start-column="47" selection-end-line="126" selection-end-column="47" />
+          <folding>
+            <element signature="e#45736#45737#0" expanded="false" />
+            <element signature="e#45774#45775#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.6.Final-sources.jar!/io/netty/channel/group/DefaultChannelGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="41" column="55" lean-forward="false" selection-start-line="41" selection-start-column="55" selection-end-line="41" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#15687#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.6.Final-sources.jar!/io/netty/channel/Channel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="76" column="17" lean-forward="false" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/1.5.6.RELEASE/spring-boot-1.5.6.RELEASE.jar!/org/springframework/boot/SpringApplication.class">
+    <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.6.Final-sources.jar!/io/netty/channel/ChannelOutboundInvoker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="422" column="59" lean-forward="false" selection-start-line="422" selection-start-column="59" selection-end-line="422" selection-end-column="59" />
+        <state relative-caret-position="194">
+          <caret line="86" column="18" lean-forward="false" selection-start-line="86" selection-start-column="18" selection-end-line="86" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/../spring-context-5.0.2.RELEASE-sources.jar!/org/springframework/context/annotation/AnnotationConfigApplicationContext.java">
+    <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.6.Final-sources.jar!/io/netty/channel/AbstractChannelHandlerContext.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        <state relative-caret-position="-146">
+          <caret line="609" column="53" lean-forward="true" selection-start-line="609" selection-start-column="53" selection-end-line="609" selection-end-column="53" />
+          <folding>
+            <element signature="e#15896#15897#0" expanded="false" />
+            <element signature="e#15938#15939#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/sync/netty/JobNettyServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="86" column="0" lean-forward="false" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding>
+            <element signature="e#2299#2719#0" expanded="false" />
+            <element signature="e#2718#2719#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-pool2/2.6.0/commons-pool2-2.6.0.jar!/org/apache/commons/pool2/impl/BaseObjectPoolConfig.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="38" column="20" lean-forward="false" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
+          <folding>
+            <element signature="e#4711#4712#0" expanded="true" />
+            <element signature="e#4759#4760#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../spring-data-redis-1.8.10.RELEASE-sources.jar!/org/springframework/data/redis/connection/lettuce/LettuceConnectionFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="71" column="13" lean-forward="false" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.0.2.RELEASE/spring-beans-5.0.2.RELEASE.jar!/org/springframework/beans/factory/annotation/InitDestroyAnnotationBeanPostProcessor.class">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.0.3.RELEASE/spring-boot-autoconfigure-2.0.3.RELEASE.jar!/org/springframework/boot/autoconfigure/data/redis/LettuceClientConfigurationBuilderCustomizer.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="191" column="0" lean-forward="false" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#432#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.0.2.RELEASE/spring-beans-5.0.2.RELEASE.jar!/org/springframework/beans/factory/config/ConfigurableListableBeanFactory.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="32" column="9" lean-forward="false" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.0.2.RELEASE/spring-beans-5.0.2.RELEASE.jar!/org/springframework/beans/factory/support/DefaultListableBeanFactory.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="537" column="60" lean-forward="true" selection-start-line="537" selection-start-column="60" selection-end-line="537" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spring-beans-5.0.2.RELEASE-sources.jar!/org/springframework/beans/factory/support/DefaultListableBeanFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="789" column="0" lean-forward="false" selection-start-line="789" selection-start-column="0" selection-end-line="789" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spring-context-5.0.2.RELEASE-sources.jar!/org/springframework/context/annotation/AnnotationConfigUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="219" column="0" lean-forward="false" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spring-context-5.0.2.RELEASE-sources.jar!/org/springframework/context/support/GenericApplicationContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="326" column="0" lean-forward="false" selection-start-line="326" selection-start-column="0" selection-end-line="326" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spring-context-5.0.2.RELEASE-sources.jar!/org/springframework/context/annotation/AnnotatedBeanDefinitionReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="245" column="0" lean-forward="false" selection-start-line="245" selection-start-column="0" selection-end-line="245" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spring-beans-5.0.2.RELEASE-sources.jar!/org/springframework/beans/factory/support/BeanDefinitionReaderUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="148" column="0" lean-forward="false" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spring-context-5.0.2.RELEASE-sources.jar!/org/springframework/context/support/AbstractApplicationContext.java">
+    <entry file="file://$PROJECT_DIR$/mayo-job-common/src/main/java/mayo/job/config/zookeeper/CuratorConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
-          <caret line="867" column="0" lean-forward="false" selection-start-line="867" selection-start-column="0" selection-end-line="867" selection-end-column="0" />
+          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/../spring-context-5.0.2.RELEASE-sources.jar!/org/springframework/context/annotation/ClassPathScanningCandidateComponentProvider.java">
+    <entry file="file://$PROJECT_DIR$/mayo-job-common/src/main/java/mayo/job/config/redis/RedisConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="310" column="67" lean-forward="true" selection-start-line="310" selection-start-column="67" selection-end-line="310" selection-end-column="67" />
+        <state relative-caret-position="220">
+          <caret line="10" column="77" lean-forward="true" selection-start-line="10" selection-start-column="77" selection-end-line="10" selection-end-column="77" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/JobServerApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="32" column="68" lean-forward="false" selection-start-line="32" selection-start-column="68" selection-end-line="32" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-server/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="12" lean-forward="true" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-service/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="9" column="38" lean-forward="false" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/node/executer/impl/JobGeneralExecuter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="43" column="16" lean-forward="false" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/node/dispatch/JobDispatch.java">
+    <entry file="file://$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/node/JobNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1791,403 +2036,178 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/node/service/JobDict.java">
+    <entry file="file://$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/node/impl/JobNodeImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="34" column="53" lean-forward="false" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-parent/src/main/java/mayo/job/parent/job/JobAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-176">
-          <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://MODULES/mdl-mayo-job-node">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>MODULES</ID>
-          <OriginalElement>mdl-mayo-job-node</OriginalElement>
-          <nodes>
-            <node x="131.08333333333337" y="160.0">mdl-mayo-job-storer</node>
-            <node x="10.500000000000057" y="240.0">mdl-mayo-job-common</node>
-            <node x="61.469696969697" y="80.0">mdl-mayo-job-server</node>
-            <node x="219.83333333333343" y="0.0">mdl-mayo-job-node</node>
-            <node x="352.95833333333337" y="160.0">mdl-mayo-job-service</node>
-            <node x="243.95833333333337" y="240.0">mdl-mayo-job-parent</node>
-            <node x="161.66477272727275" y="330.0">mdl-mayo-job-dependencys</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="mdl-mayo-job-service" target="mdl-mayo-job-dependencys">
-              <point x="47.0" y="15.0" />
-              <point x="493.95833333333337" y="300.0" />
-              <point x="330.41477272727275" y="300.0" />
-              <point x="56.25" y="-15.0" />
-            </edge>
-            <edge source="mdl-mayo-job-storer" target="mdl-mayo-job-parent">
-              <point x="61.0" y="15.0" />
-              <point x="283.58333333333337" y="215.0" />
-              <point x="267.20833333333337" y="215.0" />
-              <point x="-69.75" y="-15.0" />
-            </edge>
-            <edge source="mdl-mayo-job-node" target="mdl-mayo-job-common">
-              <point x="-74.16666666666674" y="15.0" />
-              <point x="234.66666666666669" y="50.0" />
-              <point x="41.219696969697" y="50.0" />
-              <point x="41.219696969697" y="215.0" />
-              <point x="43.66666666666674" y="215.0" />
-              <point x="-66.33333333333331" y="-15.0" />
-            </edge>
-            <edge source="mdl-mayo-job-service" target="mdl-mayo-job-parent">
-              <point x="-47.0" y="15.0" />
-              <point x="399.95833333333337" y="215.0" />
-              <point x="406.70833333333337" y="215.0" />
-              <point x="69.75" y="-15.0" />
-            </edge>
-            <edge source="mdl-mayo-job-server" target="mdl-mayo-job-parent">
-              <point x="69.0" y="15.0" />
-              <point x="222.469696969697" y="130.0" />
-              <point x="331.45833333333337" y="130.0" />
-              <point x="331.45833333333337" y="215.0" />
-              <point x="313.70833333333337" y="215.0" />
-              <point x="-23.25" y="-15.0" />
-            </edge>
-            <edge source="mdl-mayo-job-node" target="mdl-mayo-job-dependencys">
-              <point x="74.16666666666669" y="15.0" />
-              <point x="383.0000000000001" y="50.0" />
-              <point x="551.4583333333334" y="50.0" />
-              <point x="551.4583333333334" y="310.0" />
-              <point x="367.91477272727275" y="310.0" />
-              <point x="93.75" y="-15.0" />
-            </edge>
-            <edge source="mdl-mayo-job-parent" target="mdl-mayo-job-dependencys">
-              <point x="0.0" y="15.0" />
-              <point x="336.95833333333337" y="290.0" />
-              <point x="292.91477272727275" y="290.0" />
-              <point x="18.75" y="-15.0" />
-            </edge>
-            <edge source="mdl-mayo-job-server" target="mdl-mayo-job-common">
-              <point x="-23.0" y="15.0" />
-              <point x="130.469696969697" y="130.0" />
-              <point x="114.87310606060606" y="130.0" />
-              <point x="114.87310606060606" y="215.0" />
-              <point x="110.00000000000006" y="215.0" />
-              <point x="0.0" y="-15.0" />
-            </edge>
-            <edge source="mdl-mayo-job-node" target="mdl-mayo-job-server">
-              <point x="-44.5" y="15.0" />
-              <point x="264.3333333333334" y="60.0" />
-              <point x="153.469696969697" y="60.0" />
-              <point x="0.0" y="-15.0" />
-            </edge>
-            <edge source="mdl-mayo-job-node" target="mdl-mayo-job-storer">
-              <point x="-14.833333333333371" y="15.0" />
-              <point x="294.00000000000006" y="50.0" />
-              <point x="282.219696969697" y="50.0" />
-              <point x="282.219696969697" y="140.0" />
-              <point x="268.33333333333337" y="140.0" />
-              <point x="45.75" y="-15.0" />
-            </edge>
-            <edge source="mdl-mayo-job-node" target="mdl-mayo-job-service">
-              <point x="44.5" y="15.0" />
-              <point x="353.3333333333334" y="60.0" />
-              <point x="446.95833333333337" y="60.0" />
-              <point x="0.0" y="-15.0" />
-            </edge>
-            <edge source="mdl-mayo-job-storer" target="mdl-mayo-job-common">
-              <point x="-61.0" y="15.0" />
-              <point x="161.58333333333337" y="215.0" />
-              <point x="176.33333333333337" y="215.0" />
-              <point x="66.33333333333331" y="-15.0" />
-            </edge>
-            <edge source="mdl-mayo-job-common" target="mdl-mayo-job-dependencys">
-              <point x="0.0" y="15.0" />
-              <point x="110.00000000000006" y="300.0" />
-              <point x="217.91477272727275" y="300.0" />
-              <point x="-56.25" y="-15.0" />
-            </edge>
-            <edge source="mdl-mayo-job-server" target="mdl-mayo-job-storer">
-              <point x="23.0" y="15.0" />
-              <point x="-45.75" y="-15.0" />
-            </edge>
-            <edge source="mdl-mayo-job-storer" target="mdl-mayo-job-dependencys">
-              <point x="0.0" y="15.0" />
-              <point x="222.58333333333337" y="290.0" />
-              <point x="255.41477272727275" y="290.0" />
-              <point x="-18.75" y="-15.0" />
-            </edge>
-            <edge source="mdl-mayo-job-node" target="mdl-mayo-job-parent">
-              <point x="14.833333333333314" y="15.0" />
-              <point x="323.66666666666674" y="50.0" />
-              <point x="342.45833333333337" y="50.0" />
-              <point x="342.45833333333337" y="215.0" />
-              <point x="360.20833333333337" y="215.0" />
-              <point x="23.25" y="-15.0" />
-            </edge>
-            <edge source="mdl-mayo-job-server" target="mdl-mayo-job-dependencys">
-              <point x="-69.0" y="15.0" />
-              <point x="84.469696969697" y="130.0" />
-              <point x="0.0" y="130.0" />
-              <point x="0.0" y="310.0" />
-              <point x="180.41477272727275" y="310.0" />
-              <point x="-93.75" y="-15.0" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="1.0" x="-295.5" y="140.0" />
-          <SelectedNodes />
-          <Categories />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-node/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="44" column="21" lean-forward="false" selection-start-line="44" selection-start-column="21" selection-end-line="44" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-node/mayo-job-node.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="14" column="56" lean-forward="false" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-node/src/main/resources/job.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/node/service/JobServiceContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <element signature="e#1173#1174#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../spring-context-5.0.2.RELEASE-sources.jar!/org/springframework/context/annotation/ClassPathBeanDefinitionScanner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="274" column="0" lean-forward="false" selection-start-line="274" selection-start-column="0" selection-end-line="274" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.6.Final/netty-all-4.1.6.Final.jar!/io/netty/channel/ChannelInitializer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="28" column="9" lean-forward="true" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://MAVEN/mayo.job:mayo-job:1.0-SNAPSHOT">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>MAVEN</ID>
-          <OriginalElement>mayo.job:mayo-job:1.0-SNAPSHOT</OriginalElement>
-          <nodes>
-            <node x="0.0" y="0.0">mayo.job:mayo-job:1.0-SNAPSHOT</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="-270.5" y="-20.0" />
-          <SelectedNodes />
-          <Categories />
-          <VISIBILITY>All</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://MAVEN/mayo.job:mayo-job-node:1.0-SNAPSHOT">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>MAVEN</ID>
-          <OriginalElement>mayo.job:mayo-job-node:1.0-SNAPSHOT</OriginalElement>
-          <nodes>
-            <node x="" y="">mayo.job:mayo-job-node:1.0-SNAPSHOT</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter:jar:1.5.6.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter:jar:1.5.6.RELEASE/org.springframework.boot:spring-boot:jar:1.5.6.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter:jar:1.5.6.RELEASE/org.springframework.boot:spring-boot:jar:1.5.6.RELEASE/org.springframework:spring-core:jar:4.3.10.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter:jar:1.5.6.RELEASE/org.springframework.boot:spring-boot:jar:1.5.6.RELEASE/org.springframework:spring-context:jar:4.3.10.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter:jar:1.5.6.RELEASE/org.springframework.boot:spring-boot-starter-logging:jar:1.5.6.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter:jar:1.5.6.RELEASE/org.springframework.boot:spring-boot-starter-logging:jar:1.5.6.RELEASE/ch.qos.logback:logback-classic:jar:1.1.11</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter:jar:1.5.6.RELEASE/org.springframework.boot:spring-boot-starter-logging:jar:1.5.6.RELEASE/org.slf4j:jcl-over-slf4j:jar:1.7.25</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter:jar:1.5.6.RELEASE/org.springframework.boot:spring-boot-starter-logging:jar:1.5.6.RELEASE/org.slf4j:jul-to-slf4j:jar:1.7.25</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter:jar:1.5.6.RELEASE/org.springframework.boot:spring-boot-starter-logging:jar:1.5.6.RELEASE/org.slf4j:log4j-over-slf4j:jar:1.7.25</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter:jar:1.5.6.RELEASE/org.springframework:spring-core:jar:5.0.2.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-starter:jar:1.5.6.RELEASE/org.yaml:snakeyaml:jar:1.17</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-autoconfigure:jar:1.5.6.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-configuration-processor:jar:1.5.6.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.springframework.boot:spring-boot-configuration-processor:jar:1.5.6.RELEASE/com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.springframework:spring-core:jar:5.0.2.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.springframework:spring-core:jar:5.0.2.RELEASE/org.springframework:spring-jcl:jar:5.0.2.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.springframework:spring-context:jar:5.0.2.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.springframework:spring-context:jar:5.0.2.RELEASE/org.springframework:spring-expression:jar:5.0.2.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.springframework:spring-context-support:jar:5.0.2.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.springframework:spring-beans:jar:5.0.2.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.springframework:spring-aop:jar:5.0.2.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.springframework:spring-aspects:jar:5.0.2.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.springframework:spring-aspects:jar:5.0.2.RELEASE/org.aspectj:aspectjweaver:jar:1.8.13</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.projectlombok:lombok:jar:1.16.16</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/ch.qos.logback:logback-core:jar:1.2.3</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/ch.qos.logback:logback-classic:jar:1.2.3</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/ch.qos.logback:logback-classic:jar:1.2.3/org.slf4j:slf4j-api:jar:1.7.25</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/net.sf.dozer:dozer:jar:5.5.1</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/net.sf.dozer:dozer:jar:5.5.1/commons-beanutils:commons-beanutils:jar:1.9.1</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/net.sf.dozer:dozer:jar:5.5.1/commons-beanutils:commons-beanutils:jar:1.9.1/commons-collections:commons-collections:jar:3.2.1</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/net.sf.dozer:dozer:jar:5.5.1/org.apache.commons:commons-lang3:jar:3.2.1</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/net.sf.dozer:dozer:jar:5.5.1/org.slf4j:slf4j-api:jar:1.7.5</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/net.sf.dozer:dozer:jar:5.5.1/org.slf4j:jcl-over-slf4j:jar:1.7.5</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/net.sf.dozer:dozer:jar:5.5.1/org.slf4j:jcl-over-slf4j:jar:1.7.5/org.slf4j:slf4j-api:jar:1.7.25</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/com.alibaba:fastjson:jar:1.2.41</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/com.fasterxml.jackson.core:jackson-core:jar:2.8.6</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jar:2.8.6</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jar:2.8.6/com.fasterxml.jackson.core:jackson-annotations:jar:2.8.0</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jar:2.8.6/com.fasterxml.jackson.core:jackson-databind:jar:2.8.6</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.javatuples:javatuples:jar:1.2</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/io.netty:netty-all:jar:4.1.6.Final</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.jboss.marshalling:jboss-marshalling-serial:jar:2.0.0.Beta2</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/org.jboss.marshalling:jboss-marshalling-serial:jar:2.0.0.Beta2/org.jboss.marshalling:jboss-marshalling:jar:2.0.0.Beta2</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/com.google.guava:guava:jar:25.1-jre</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/com.google.guava:guava:jar:25.1-jre/com.google.code.findbugs:jsr305:jar:3.0.2</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/com.google.guava:guava:jar:25.1-jre/org.checkerframework:checker-qual:jar:2.0.0</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/com.google.guava:guava:jar:25.1-jre/com.google.errorprone:error_prone_annotations:jar:2.1.3</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/com.google.guava:guava:jar:25.1-jre/com.google.j2objc:j2objc-annotations:jar:1.1</node>
-            <node x="" y="">mayo.job:mayo-job-parent:jar:1.0-SNAPSHOT/mayo.job:mayo-job-dependencys:jar:1.0-SNAPSHOT/com.google.guava:guava:jar:25.1-jre/org.codehaus.mojo:animal-sniffer-annotations:jar:1.14</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.springframework.data:spring-data-redis:jar:1.8.10.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.springframework.data:spring-data-redis:jar:1.8.10.RELEASE/org.springframework.data:spring-data-keyvalue:jar:1.2.10.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.springframework.data:spring-data-redis:jar:1.8.10.RELEASE/org.springframework.data:spring-data-keyvalue:jar:1.2.10.RELEASE/org.springframework.data:spring-data-commons:jar:1.13.10.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.springframework.data:spring-data-redis:jar:1.8.10.RELEASE/org.springframework.data:spring-data-keyvalue:jar:1.2.10.RELEASE/org.springframework.data:spring-data-commons:jar:1.13.10.RELEASE/org.springframework:spring-core:jar:4.3.14.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.springframework.data:spring-data-redis:jar:1.8.10.RELEASE/org.springframework.data:spring-data-keyvalue:jar:1.2.10.RELEASE/org.springframework.data:spring-data-commons:jar:1.13.10.RELEASE/org.springframework:spring-beans:jar:4.3.14.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.springframework.data:spring-data-redis:jar:1.8.10.RELEASE/org.springframework.data:spring-data-keyvalue:jar:1.2.10.RELEASE/org.springframework.data:spring-data-commons:jar:1.13.10.RELEASE/org.slf4j:jcl-over-slf4j:jar:1.7.5</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.springframework.data:spring-data-redis:jar:1.8.10.RELEASE/org.springframework.data:spring-data-keyvalue:jar:1.2.10.RELEASE/org.springframework:spring-context:jar:4.3.14.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.springframework.data:spring-data-redis:jar:1.8.10.RELEASE/org.springframework.data:spring-data-keyvalue:jar:1.2.10.RELEASE/org.slf4j:jcl-over-slf4j:jar:1.7.5</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.springframework.data:spring-data-redis:jar:1.8.10.RELEASE/org.springframework:spring-tx:jar:4.3.14.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.springframework.data:spring-data-redis:jar:1.8.10.RELEASE/org.springframework:spring-tx:jar:4.3.14.RELEASE/org.springframework:spring-beans:jar:5.0.2.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.springframework.data:spring-data-redis:jar:1.8.10.RELEASE/org.springframework:spring-tx:jar:4.3.14.RELEASE/org.springframework:spring-core:jar:5.0.2.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.springframework.data:spring-data-redis:jar:1.8.10.RELEASE/org.springframework:spring-oxm:jar:4.3.14.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.springframework.data:spring-data-redis:jar:1.8.10.RELEASE/org.springframework:spring-oxm:jar:4.3.14.RELEASE/org.springframework:spring-beans:jar:5.0.2.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.springframework.data:spring-data-redis:jar:1.8.10.RELEASE/org.springframework:spring-oxm:jar:4.3.14.RELEASE/org.springframework:spring-core:jar:5.0.2.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.springframework.data:spring-data-redis:jar:1.8.10.RELEASE/org.springframework:spring-aop:jar:4.3.14.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.springframework.data:spring-data-redis:jar:1.8.10.RELEASE/org.springframework:spring-context-support:jar:4.3.14.RELEASE</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.springframework.data:spring-data-redis:jar:1.8.10.RELEASE/org.slf4j:jcl-over-slf4j:jar:1.7.5</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/redis.clients:jedis:jar:2.9.0</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/redis.clients:jedis:jar:2.9.0/org.apache.commons:commons-pool2:jar:2.4.2</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.quartz-scheduler:quartz:jar:2.2.1</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.quartz-scheduler:quartz:jar:2.2.1/c3p0:c3p0:jar:0.9.1.1</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.quartz-scheduler:quartz:jar:2.2.1/org.slf4j:slf4j-api:jar:1.6.6</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.apache.zookeeper:zookeeper:jar:3.4.6</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.apache.zookeeper:zookeeper:jar:3.4.6/org.slf4j:slf4j-api:jar:1.6.1</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.apache.zookeeper:zookeeper:jar:3.4.6/jline:jline:jar:0.9.94</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.apache.zookeeper:zookeeper:jar:3.4.6/jline:jline:jar:0.9.94/junit:junit:jar:3.8.1</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.apache.zookeeper:zookeeper:jar:3.4.6/io.netty:netty:jar:3.7.0.Final</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.apache.curator:curator-client:jar:4.0.1</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.apache.curator:curator-client:jar:4.0.1/org.apache.zookeeper:zookeeper:jar:3.5.3-beta</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.apache.curator:curator-client:jar:4.0.1/com.google.guava:guava:jar:20.0</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.apache.curator:curator-client:jar:4.0.1/org.slf4j:slf4j-api:jar:1.7.6</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.apache.curator:curator-framework:jar:4.0.1</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.apache.curator:curator-recipes:jar:4.0.1</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.apache.curator:curator-x-discovery:jar:4.0.1</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.apache.curator:curator-x-discovery:jar:4.0.1/org.codehaus.jackson:jackson-mapper-asl:jar:1.9.13</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.apache.curator:curator-x-discovery:jar:4.0.1/org.codehaus.jackson:jackson-mapper-asl:jar:1.9.13/org.codehaus.jackson:jackson-core-asl:jar:1.9.13</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.apache.curator:curator-examples:jar:4.0.1</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.apache.curator:curator-examples:jar:4.0.1/org.apache.curator:curator-test:jar:4.0.1</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.apache.curator:curator-examples:jar:4.0.1/org.apache.curator:curator-test:jar:4.0.1/org.apache.zookeeper:zookeeper:jar:3.4.6</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.apache.curator:curator-examples:jar:4.0.1/org.apache.curator:curator-test:jar:4.0.1/com.google.guava:guava:jar:25.1-jre</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.apache.curator:curator-examples:jar:4.0.1/org.apache.curator:curator-x-async:jar:4.0.1</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.apache.curator:curator-examples:jar:4.0.1/com.fasterxml.jackson.core:jackson-databind:jar:2.7.3</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.apache.curator:curator-examples:jar:4.0.1/org.slf4j:slf4j-log4j12:jar:1.7.6</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.apache.curator:curator-examples:jar:4.0.1/org.slf4j:slf4j-log4j12:jar:1.7.6/org.slf4j:slf4j-api:jar:1.7.25</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-common:jar:1.0-SNAPSHOT/org.apache.curator:curator-examples:jar:4.0.1/org.slf4j:slf4j-log4j12:jar:1.7.6/log4j:log4j:jar:1.2.17</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/mayo.job:mayo-job-storer:jar:1.0-SNAPSHOT</node>
-            <node x="" y="">mayo.job:mayo-job-server:jar:1.0-SNAPSHOT/com.lmax:disruptor:jar:3.3.6</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.9705955334987587" x="1516.0834718138826" y="2993.0268439217693" />
-          <SelectedNodes />
-          <Categories />
-          <VISIBILITY>All</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/sync/netty/JobNettyServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-          <folding>
-            <element signature="e#2299#2719#0" expanded="true" />
-            <element signature="e#2718#2719#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mayo-job-server/src/main/java/mayo/job/server/sync/netty/handler/JobServerHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.16.Final-sources.jar!/io/netty/channel/ChannelInitializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../netty-all-4.1.16.Final-sources.jar!/io/netty/channel/DefaultChannelPipeline.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="162" column="0" lean-forward="true" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+        <state relative-caret-position="200">
+          <caret line="37" column="11" lean-forward="false" selection-start-line="37" selection-start-column="11" selection-end-line="37" selection-end-column="11" />
           <folding>
-            <element signature="e#7265#7442#0" expanded="true" />
-            <element signature="e#7441#7442#0" expanded="true" />
+            <element signature="e#550#551#0" expanded="false" />
+            <element signature="e#594#595#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-dependencys/pom.xml">
+    <entry file="file://$PROJECT_DIR$/mayo-job-client/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+        <state relative-caret-position="-195">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-service/src/main/java/mayo/job/service/TestJob.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/2.0.8.RELEASE/spring-data-redis-2.0.8.RELEASE.jar!/org/springframework/data/redis/connection/lettuce/DefaultLettucePool.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="60" column="11" lean-forward="false" selection-start-line="60" selection-start-column="11" selection-end-line="60" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mayo-job-node/src/main/java/mayo/job/JobServerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="16" column="30" lean-forward="false" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mayo-job-common/src/main/java/mayo/job/config/redis/RedisProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="14" column="43" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-data-redis/2.0.3.RELEASE/spring-boot-starter-data-redis-2.0.3.RELEASE.pom">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="52" column="29" lean-forward="false" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/2.0.8.RELEASE/spring-data-redis-2.0.8.RELEASE.jar!/org/springframework/data/redis/connection/lettuce/LettuceConnectionFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-288">
+          <caret line="85" column="11" lean-forward="false" selection-start-line="85" selection-start-column="11" selection-end-line="85" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/2.0.8.RELEASE/spring-data-redis-2.0.8.RELEASE.jar!/org/springframework/data/redis/connection/RedisStandaloneConfiguration.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="28" column="49" lean-forward="true" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/2.0.8.RELEASE/spring-data-redis-2.0.8.RELEASE.jar!/org/springframework/data/redis/core/RedisTemplate.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="46" column="13" lean-forward="false" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/2.0.8.RELEASE/spring-data-redis-2.0.8.RELEASE.jar!/org/springframework/data/redis/connection/lettuce/LettucePoolingClientConfiguration.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="15" column="77" lean-forward="false" selection-start-line="15" selection-start-column="77" selection-end-line="15" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/2.0.8.RELEASE/spring-data-redis-2.0.8.RELEASE.jar!/org/springframework/data/redis/connection/lettuce/LettuceClientConfiguration.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/2.0.8.RELEASE/spring-data-redis-2.0.8.RELEASE.jar!/org/springframework/data/redis/connection/lettuce/DefaultLettuceClientConfiguration.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="13" column="6" lean-forward="false" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/2.0.8.RELEASE/spring-data-redis-2.0.8.RELEASE.jar!/org/springframework/data/redis/connection/lettuce/DefaultLettucePoolingClientConfiguration.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="13" column="77" lean-forward="false" selection-start-line="13" selection-start-column="77" selection-end-line="13" selection-end-column="77" />
+          <folding>
+            <element signature="e#0#1669#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-redis/2.0.8.RELEASE/spring-data-redis-2.0.8.RELEASE.jar!/org/springframework/data/redis/connection/lettuce/LettuceClusterConnection.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mayo-job-node/src/main/resources/redis.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
-          <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+          <caret line="19" column="23" lean-forward="false" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mayo-job-common/src/main/java/mayo/job/config/redis/LettuceConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-483">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mayo-job-parent/src/main/java/mayo/job/parent/common/SpringContext.java">
+    <entry file="file://$PROJECT_DIR$/mayo-job-node/src/main/resources/logback.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="660">
+          <caret line="30" column="21" lean-forward="false" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mayo-job-node/src/main/resources/job.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="21" lean-forward="true" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mayo-job-common/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="62" lean-forward="true" selection-start-line="2" selection-start-column="62" selection-end-line="2" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mayo-job-dependencys/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="56" column="21" lean-forward="true" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
           <folding />
         </state>
       </provider>
