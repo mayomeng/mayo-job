@@ -6,6 +6,9 @@ import mayo.job.store.JobKeyCreator;
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.dao.DataAccessException;
+import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.stereotype.Component;
@@ -26,11 +29,17 @@ public class RedisJobStorer implements AsyncJobStorer {
 
     // 分配任务脚本
     private DefaultRedisScript allotScript;
+    // 取得多个value脚本
+    private DefaultRedisScript getValuesScript;
 
     @PostConstruct
     public void init() {
         allotScript = new DefaultRedisScript();
         allotScript.setLocation(new ClassPathResource("lua/allotJob.lua"));
+
+        getValuesScript = new DefaultRedisScript();
+        getValuesScript.setLocation(new ClassPathResource("lua/getValues.lua"));
+        getValuesScript.setResultType(String.class);
     }
 
     /**
@@ -143,5 +152,37 @@ public class RedisJobStorer implements AsyncJobStorer {
     @Override
     public void completeJob(String jobName) {
         // TODO
+    }
+
+    /**
+     * 取得多个key的value()
+     */
+    public List<Object> getObjectListSp(List<String> keyList) {
+        List<Object> resultList = new ArrayList<>();
+        resultList = redisTemplate.executePipelined(new RedisCallback<Object>() {
+            public Object doInRedis(RedisConnection connection) throws DataAccessException {
+                for (String key : keyList) {
+                    connection.get(redisTemplate.getStringSerializer().serialize(key));
+                }
+                return null;
+            }
+        });
+        return resultList;
+    }
+
+    /**
+     * 取得多个key的value(如果key不存在则value返回null)
+     */
+    public Map<String, Object> getObjectMapSp(List<String> keyList) {
+        List<Object> resultList = (List<Object>)redisTemplate.execute(getValuesScript,
+                keyList,
+                new ArrayList<>());
+        Map<String, Object> resultMap = new HashMap<>();
+        for (int i = 0 ; i < keyList.size() ; i++) {
+            if (resultList.get(i) != null) {
+                resultMap.put(keyList.get(i), resultList.get(i));
+            }
+        }
+        return resultMap;
     }
 }
