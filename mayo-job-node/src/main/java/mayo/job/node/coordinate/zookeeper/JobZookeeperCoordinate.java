@@ -105,6 +105,7 @@ public class JobZookeeperCoordinate implements JobCoordinate {
      */
     private void setDispatcher() {
         role = NodeRoleEnum.ROLE_DISPATH.VALUE; // 选举成功的场合
+        jobEnvironment.setNodeRole(role);
         try {
             jobServer.shutdown(); // 停止任务执行服务器
             curatorOperation.deleteEphemeralData(getExecuterPath());
@@ -121,6 +122,7 @@ public class JobZookeeperCoordinate implements JobCoordinate {
      */
     private void setExecuter() {
         role = NodeRoleEnum.ROLE_EXECUTER.VALUE;// 选举失败的场合
+        jobEnvironment.setNodeRole(role);
         try {
             jobServer.startup(); // 开启任务执行服务器
             curatorOperation.deleteEphemeralData(getDispatchPath());

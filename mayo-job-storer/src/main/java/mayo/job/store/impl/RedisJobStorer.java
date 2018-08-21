@@ -155,7 +155,7 @@ public class RedisJobStorer implements AsyncJobStorer {
     }
 
     /**
-     * 取得多个key的value()
+     * 取得多个key的value(可以用mget实现)
      */
     public List<Object> getObjectListSp(List<String> keyList) {
         List<Object> resultList = new ArrayList<>();

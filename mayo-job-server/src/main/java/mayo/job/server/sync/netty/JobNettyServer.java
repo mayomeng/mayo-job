@@ -54,9 +54,6 @@ public class JobNettyServer implements JobServer {
     @Override
     public void startup() {
 
-        jobEnvironment.setHost(jobServerProperties.getHost());
-        jobEnvironment.setPort(jobServerProperties.getPort());
-
         ServerBootstrap serverBootstrap = new ServerBootstrap();
         bossLoopGroup = new NioEventLoopGroup(jobServerProperties.getAcceptCount());
         workLoopGroup = new NioEventLoopGroup(jobServerProperties.getWorkCount(),
@@ -76,8 +73,8 @@ public class JobNettyServer implements JobServer {
             serverBootstrap.option(ChannelOption.SO_BACKLOG, jobServerProperties.getBacklog()); // 服务端可连接队列大小
             serverBootstrap.option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT); // 使用对象池，重用缓冲区
             serverBootstrap.childOption(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT); // 使用对象池，重用缓冲区
-            ChannelFuture channelFuture = serverBootstrap.bind(new InetSocketAddress(jobServerProperties.getHost(),
-                    jobServerProperties.getPort()));
+            ChannelFuture channelFuture = serverBootstrap.bind(new InetSocketAddress(jobEnvironment.getHost(),
+                    jobEnvironment.getPort()));
             log.info("the syncJobServer is run.");
             channelFuture.channel().closeFuture().sync();
         } catch(Exception e) {
